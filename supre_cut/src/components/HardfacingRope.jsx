@@ -65,11 +65,20 @@ export default function HardfacingRope() {
                 </p>
               </div>
             </div>
-            <div className="flex justify-center md:justify-end">
+            <div className="flex justify-center md:justify-end relative">
+              <style>{`
+                @keyframes float-spool {
+                  0%, 100% { transform: translateY(0); }
+                  50% { transform: translateY(-15px); }
+                }
+                .animate-float-spool {
+                  animation: float-spool 6s ease-in-out infinite;
+                }
+              `}</style>
               <img
                 src="/images/ChatGPT Image Sep 4, 2026, 12_55_12 PM.webp"
                 alt="Flexible Hardfacing Rope Spool"
-                className="w-full max-w-[360px] lg:max-w-[420px] h-auto object-contain mix-blend-multiply"
+                className="w-full max-w-[360px] lg:max-w-[420px] h-auto object-contain mix-blend-multiply animate-float-spool"
                 loading="lazy"
               />
             </div>
