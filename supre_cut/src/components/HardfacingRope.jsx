@@ -65,7 +65,7 @@ export default function HardfacingRope() {
                 </p>
               </div>
             </div>
-            <div className="flex justify-center md:justify-end relative">
+            <div className="flex justify-start md:justify-end relative">
               <style>{`
                 @keyframes float-spool {
                   0%, 100% { transform: translateY(0); }

@@ -84,7 +84,7 @@ function GlobeRotator() {
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
-      className="relative w-full select-none cursor-grab active:cursor-grabbing flex items-center justify-center bg-transparent"
+      className="relative w-full select-none cursor-grab active:cursor-grabbing flex items-center justify-center bg-transparent [--orbit-x:30px] sm:[--orbit-x:100px] lg:[--orbit-x:150px] [--orbit-z:20px] sm:[--orbit-z:80px] lg:[--orbit-z:110px]"
       style={{
         aspectRatio: "16/11",
         minHeight: "380px",
@@ -100,14 +100,14 @@ function GlobeRotator() {
       >
         {products.map((item, idx) => {
           const itemAngle = angle + idx * step;
-          
+
           // Use Math functions to determine multipliers and normalize depth
           const xMultiplier = Math.sin(itemAngle);
           const zMultiplier = Math.cos(itemAngle);
-          
+
           // Depth normalization: cos goes from -1 to 1 -> normalize to 0 to 1
           const normZ = (zMultiplier + 1) / 2;
-          
+
           const scale = 0.68 + 0.38 * normZ;
           const opacity = Math.max(0.06, Math.pow(normZ, 1.8));
           const bankY = -xMultiplier * 14;
@@ -116,21 +116,24 @@ function GlobeRotator() {
           return (
             <div
               key={idx}
-              className="absolute flex items-center justify-center"
-              style={{
-                transform: `translateX(calc(${xMultiplier} * clamp(80px, 22vw, 150px))) translateZ(calc(${zMultiplier} * clamp(60px, 16vw, 110px))) rotateY(${bankY}deg) scale(${scale})`,
-                opacity,
-                zIndex,
-                transformStyle: "preserve-3d",
-              }}
+              className="absolute top-1/2 left-1/2"
+              style={{ zIndex, transformStyle: "preserve-3d" }}
             >
-              <img
-                src={item.src}
-                alt={item.alt}
-                draggable={false}
-                className={`${item.heightClass} w-auto max-w-[220px] min-[400px]:max-w-[280px] sm:max-w-[380px] object-contain drop-shadow-[0_12px_28px_rgba(0,0,0,0.55)]`}
-                style={{ WebkitBoxReflect: "below -10px linear-gradient(transparent, transparent 60%, rgba(255,255,255,0.3))" }}
-              />
+              <div
+                className="flex items-center justify-center"
+                style={{
+                  transform: `translate(-50%, -50%) translateX(calc(${xMultiplier} * var(--orbit-x))) translateZ(calc(${zMultiplier} * var(--orbit-z))) rotateY(${bankY}deg) scale(${scale})`,
+                  opacity,
+                }}
+              >
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  draggable={false}
+                  className={`${item.heightClass} w-auto max-w-[220px] min-[400px]:max-w-[280px] sm:max-w-[380px] object-contain drop-shadow-[0_12px_28px_rgba(0,0,0,0.55)]`}
+                  style={{ WebkitBoxReflect: "below -10px linear-gradient(transparent, transparent 60%, rgba(255,255,255,0.3))" }}
+                />
+              </div>
             </div>
           );
         })}
@@ -163,7 +166,7 @@ export default function Home() {
           </Reveal>
         </div>
 
-        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-8 lg:gap-12 items-center pb-16 sm:pb-24 md:pb-28 pt-2 sm:pt-4">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-8 lg:gap-12 items-center pb-16 sm:pb-24 md:pb-28 pt-2 sm:pt-4">
           <div>
             <Reveal>
               <p
