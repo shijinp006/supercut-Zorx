@@ -1,5 +1,5 @@
 import Reveal, { DISPLAY_FONT, CONDENSED_FONT } from "./Reveal";
-import { MATRIX_GRADES, GRIT_70, GRIT_60, IMAGES } from "./data";
+import { MATRIX_GRADES, GRIT_70, GRIT_60, IMAGES } from "../data/catalogueData";
 
 export default function CompositeRods() {
   return (

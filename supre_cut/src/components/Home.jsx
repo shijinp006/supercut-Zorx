@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import Reveal, { DISPLAY_FONT, CONDENSED_FONT } from "./Reveal";
-import { IMAGES } from "./data";
+import { IMAGES } from "../data/catalogueData";
+import { HOME_PRODUCTS } from "../data/homeData";
 
 function GlobeRotator() {
   const [angle, setAngle] = useState(0);
@@ -8,28 +9,7 @@ function GlobeRotator() {
   const dragRef = useRef({ isDown: false, startX: 0, startAngle: 0 });
   const animFrameRef = useRef(null);
 
-  const products = [
-    {
-      src: IMAGES.goldWhiteRods,
-      alt: "Super Cut Composite Rods SC-Cr-70 SC-Cr-60",
-      heightClass: "h-[190px] min-[400px]:h-[240px] sm:h-[350px] md:h-[390px]",
-    },
-    {
-      src: "/images/ChatGPT Image Sep 4, 2026, 12_33_30 PM.png",
-      alt: "Super Cut Milling Washpipe Shoe with Tungsten Carbide",
-      heightClass: "h-[180px] min-[400px]:h-[230px] sm:h-[340px] md:h-[380px]",
-    },
-    {
-      src: "/images/ChatGPT Image Sep 4, 2026, 12_36_44 PM.png",
-      alt: "Super Cut Wear-Resistant Heavy Drill Bit",
-      heightClass: "h-[170px] min-[400px]:h-[220px] sm:h-[325px] md:h-[365px]",
-    },
-    {
-      src: IMAGES.collage,
-      alt: "Super Cut Tungsten Carbide Inserts Range",
-      heightClass: "h-[160px] min-[400px]:h-[200px] sm:h-[290px] md:h-[330px]",
-    },
-  ];
+  const products = HOME_PRODUCTS;
 
   const total = products.length;
   const step = (Math.PI * 2) / total;

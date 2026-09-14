@@ -1,5 +1,5 @@
 import Reveal, { CONDENSED_FONT } from "./Reveal";
-import { DIMENSIONS } from "./data";
+import { DIMENSIONS } from "../data/catalogueData";
 
 const cell = "border border-black px-3 py-2.5 text-center align-middle";
 const head = "border border-black py-3 px-3 text-[13px] sm:text-[14px] font-black uppercase text-center";

@@ -1,5 +1,5 @@
 import Reveal, { DISPLAY_FONT, CONDENSED_FONT } from "./Reveal";
-import { IMAGES } from "./data";
+import { IMAGES } from "../data/catalogueData";
 
 export default function HardfacingRope() {
   return (
