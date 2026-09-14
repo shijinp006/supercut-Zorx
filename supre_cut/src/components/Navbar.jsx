@@ -56,7 +56,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${scrolled || open ? "bg-white shadow-[0_8px_30px_rgba(10,25,48,0.12)]" : "bg-white"}`}>
+      <header className={`fixed top-0 inset-x-0 z-40 animate-nav-slide-down transition-all duration-300 ${scrolled || open ? "bg-white shadow-[0_8px_30px_rgba(10,25,48,0.12)]" : "bg-white"}`}>
         <div className="px-4 sm:px-6 md:px-10 h-[72px] flex items-center justify-between gap-x-4">
           <Logo />
           
@@ -65,8 +65,9 @@ export default function Navbar() {
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} onClick={(e) => go(e, l.href)}
                 style={{ fontFamily: CONDENSED_FONT }}
-                className="text-[12.5px] xl:text-[13px] font-semibold tracking-[0.12em] xl:tracking-[0.14em] uppercase text-[#0b1526]/75 hover:text-[#1a4b9c] transition-colors whitespace-nowrap">
+                className="group relative text-[12.5px] xl:text-[13px] font-semibold tracking-[0.12em] xl:tracking-[0.14em] uppercase text-[#0b1526]/75 hover:text-[#1a4b9c] transition-colors whitespace-nowrap py-1">
                 {l.label}
+                <span className="absolute left-0 -bottom-0.5 h-[2px] w-full bg-[#1a4b9c] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
               </a>
             ))}
           </nav>
