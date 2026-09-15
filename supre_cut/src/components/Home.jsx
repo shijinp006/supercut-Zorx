@@ -8,11 +8,21 @@ function GlobeRotator() {
   const [isHovered, setIsHovered] = useState(false);
   const dragRef = useRef({ isDown: false, startX: 0, startAngle: 0 });
   const animFrameRef = useRef(null);
+  const isMobileRef = useRef(typeof window !== "undefined" ? window.innerWidth < 768 : false);
 
   const products = HOME_PRODUCTS;
 
   const total = products.length;
   const step = (Math.PI * 2) / total;
+
+  useEffect(() => {
+    const handleResize = () => {
+      isMobileRef.current = window.innerWidth < 768;
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Continuous 360-degree rotation animation loop
   useEffect(() => {
@@ -23,8 +33,9 @@ function GlobeRotator() {
       lastTime = time;
 
       if (!dragRef.current.isDown && !isHovered) {
-        // Continuous smooth rotation: ~16 seconds per full revolution
-        setAngle((prev) => (prev + delta * 0.4) % (Math.PI * 2));
+        // Faster rotation on mobile (~8s per rev) vs desktop (~16s per rev)
+        const speed = isMobileRef.current ? 0.78 : 0.4;
+        setAngle((prev) => (prev + delta * speed) % (Math.PI * 2));
       }
 
       animFrameRef.current = requestAnimationFrame(loop);
@@ -64,7 +75,7 @@ function GlobeRotator() {
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
-      className="relative w-full select-none cursor-grab active:cursor-grabbing flex items-center justify-center bg-transparent [--orbit-x:30px] sm:[--orbit-x:100px] lg:[--orbit-x:150px] [--orbit-z:20px] sm:[--orbit-z:80px] lg:[--orbit-z:110px]"
+      className="relative w-full select-none cursor-grab active:cursor-grabbing flex items-center justify-center bg-transparent [--orbit-x:90px] min-[400px]:[--orbit-x:110px] sm:[--orbit-x:130px] lg:[--orbit-x:160px] [--orbit-z:55px] min-[400px]:[--orbit-z:70px] sm:[--orbit-z:90px] lg:[--orbit-z:110px]"
       style={{
         aspectRatio: "16/11",
         minHeight: "380px",
@@ -110,7 +121,7 @@ function GlobeRotator() {
                   src={item.src}
                   alt={item.alt}
                   draggable={false}
-                  className={`${item.heightClass} w-auto max-w-[220px] min-[400px]:max-w-[280px] sm:max-w-[380px] object-contain drop-shadow-[0_12px_28px_rgba(0,0,0,0.55)]`}
+                  className={`${item.heightClass} w-auto max-w-[170px] min-[400px]:max-w-[230px] sm:max-w-[380px] object-contain drop-shadow-[0_12px_28px_rgba(0,0,0,0.55)]`}
                   style={{ WebkitBoxReflect: "below -10px linear-gradient(transparent, transparent 60%, rgba(255,255,255,0.3))" }}
                 />
               </div>
@@ -134,7 +145,7 @@ export function Home() {
     <section id="home" className="relative bg-white pt-[72px] overflow-hidden">
       <style>{`@keyframes sc-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }`}</style>
       <div className="px-4 sm:px-6 md:px-10">
-        <div className="flex justify-end pt-4 sm:pt-6">
+        <div className="hidden md:flex justify-end pt-4 sm:pt-6">
           <Reveal variant="scale" className="text-right">
             <div className="inline-flex flex-col items-end">
               <img
@@ -146,7 +157,7 @@ export function Home() {
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-8 lg:gap-12 items-center pb-16 sm:pb-24 md:pb-28 pt-2 sm:pt-4">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-8 lg:gap-12 items-center pb-16 sm:pb-24 md:pb-28 pt-10 sm:pt-10 md:pt-4">
           <div>
             <Reveal>
               <p
