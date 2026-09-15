@@ -6,7 +6,7 @@ export function Contact() {
   const [activeOffice, setActiveOffice] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [inContactView, setInContactView] = useState(false);
-  console.log("hdsa");
+
 
 
   useEffect(() => {
@@ -308,8 +308,8 @@ export function Contact() {
       {/* Sticky Action Icons on Right Side (Pure Icons, No Borders, No Text, ONLY Visible in Contact Page) */}
       <div
         className={`fixed right-3 sm:right-5 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-3 transition-all duration-300 select-none ${inContactView
-            ? "opacity-100 translate-x-0 pointer-events-auto"
-            : "opacity-0 translate-x-12 pointer-events-none"
+          ? "opacity-100 translate-x-0 pointer-events-auto"
+          : "opacity-0 translate-x-12 pointer-events-none"
           }`}
       >
         {/* WhatsApp */}
