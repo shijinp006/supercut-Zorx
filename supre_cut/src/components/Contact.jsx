@@ -6,6 +6,8 @@ export function Contact() {
   const [activeOffice, setActiveOffice] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [inContactView, setInContactView] = useState(false);
+  console.log("hdsa");
+
 
   useEffect(() => {
     const checkMobile = () => {
@@ -223,10 +225,10 @@ export function Contact() {
                   {/* Interactive Tooltip Card on Hover / Touch - Perfectly Upright Above Pin */}
                   <div
                     className={`absolute bottom-[118%] ${isLeftEdge
-                        ? "left-0 sm:left-1/2 sm:-translate-x-1/2"
-                        : isRightEdge
-                          ? "right-0 sm:right-auto sm:left-1/2 sm:-translate-x-1/2"
-                          : "left-1/2 -translate-x-1/2"
+                      ? "left-0 sm:left-1/2 sm:-translate-x-1/2"
+                      : isRightEdge
+                        ? "right-0 sm:right-auto sm:left-1/2 sm:-translate-x-1/2"
+                        : "left-1/2 -translate-x-1/2"
                       } bg-[#0c1f38] text-white text-xs px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg shadow-2xl whitespace-nowrap transition-all duration-150 pointer-events-none z-30 ${isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"
                       }`}
                   >
@@ -234,10 +236,10 @@ export function Contact() {
                     <p className="text-neutral-300 text-[10px] sm:text-[11.5px] mt-0.5">{office.city}</p>
                     <div
                       className={`w-2 h-2 bg-[#0c1f38] rotate-45 absolute -bottom-1 ${isLeftEdge
-                          ? "left-3 sm:left-1/2 sm:-translate-x-1/2"
-                          : isRightEdge
-                            ? "right-3 sm:right-auto sm:left-1/2 sm:-translate-x-1/2"
-                            : "left-1/2 -translate-x-1/2"
+                        ? "left-3 sm:left-1/2 sm:-translate-x-1/2"
+                        : isRightEdge
+                          ? "right-3 sm:right-auto sm:left-1/2 sm:-translate-x-1/2"
+                          : "left-1/2 -translate-x-1/2"
                         }`}
                     />
                   </div>
@@ -305,11 +307,10 @@ export function Contact() {
 
       {/* Sticky Action Icons on Right Side (Pure Icons, No Borders, No Text, ONLY Visible in Contact Page) */}
       <div
-        className={`fixed right-3 sm:right-5 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-3 transition-all duration-300 select-none ${
-          inContactView
+        className={`fixed right-3 sm:right-5 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-3 transition-all duration-300 select-none ${inContactView
             ? "opacity-100 translate-x-0 pointer-events-auto"
             : "opacity-0 translate-x-12 pointer-events-none"
-        }`}
+          }`}
       >
         {/* WhatsApp */}
         <a
