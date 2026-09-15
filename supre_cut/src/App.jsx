@@ -12,6 +12,7 @@ import { HardfacingRope } from "./components/HardfacingRope";
 import { TinningRods } from "./components/TinningRods";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+import { FloatingActions } from "./components/FloatingActions";
 
 export default function App() {
   useEffect(() => {
@@ -65,6 +66,7 @@ export default function App() {
     <div className="min-h-screen bg-white text-[#0b1526] antialiased overflow-x-clip" style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" }}>
       <style>{`html.lenis, html.lenis body { height: auto; } .lenis.lenis-smooth { scroll-behavior: auto !important; } .lenis.lenis-stopped { overflow: hidden; } ::selection { background: #1a4b9c; color: #fff; }`}</style>
       <Navbar />
+      <FloatingActions />
       <main>
         <Home />
         <About />

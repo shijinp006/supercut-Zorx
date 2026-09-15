@@ -145,19 +145,7 @@ export function Home() {
     <section id="home" className="relative bg-white pt-[72px] overflow-hidden">
       <style>{`@keyframes sc-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }`}</style>
       <div className="px-4 sm:px-6 md:px-10">
-        <div className="hidden md:flex justify-end pt-4 sm:pt-6">
-          <Reveal variant="scale" className="text-right">
-            <div className="inline-flex flex-col items-end">
-              <img
-                src="/images/supercut_logo_stacked.webp"
-                alt="SUPER CUT Hardface Solutions"
-                className="h-16 sm:h-20 md:h-24 w-auto object-contain"
-              />
-            </div>
-          </Reveal>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-8 lg:gap-12 items-center pb-16 sm:pb-24 md:pb-28 pt-10 sm:pt-10 md:pt-4">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-8 lg:gap-12 items-center pb-16 sm:pb-24 md:pb-28 pt-6 sm:pt-8 md:pt-10">
           <div>
             <Reveal>
               <p
