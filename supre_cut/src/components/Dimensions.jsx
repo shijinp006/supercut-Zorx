@@ -4,7 +4,7 @@ import { DIMENSIONS } from "../data/catalogueData";
 const cell = "border border-black px-3 py-2.5 text-center align-middle";
 const head = "border border-black py-3 px-3 text-[13px] sm:text-[14px] font-black uppercase text-center";
 
-export default function Dimensions() {
+export function Dimensions() {
   return (
     <section id="dimensions" className="bg-white py-12 lg:py-16 text-neutral-900">
       <div className="px-10">
@@ -31,7 +31,8 @@ export default function Dimensions() {
             </div>
 
             {/* Table with 6 Columns Matching Brochure Page 06 */}
-            <div className="overflow-x-auto">
+            <div className="table-scroll-wrap">
+            <div className="overflow-x-auto table-scroll">
               <table className="w-full min-w-[760px] text-black border-collapse">
                 <thead>
                   <tr className="bg-white" style={{ fontFamily: CONDENSED_FONT }}>
@@ -83,6 +84,8 @@ export default function Dimensions() {
                   )}
                 </tbody>
               </table>
+            </div>
+            <p className="table-scroll-label">SWIPE <span className="arrow">›</span></p>
             </div>
           </div>
 

@@ -1,7 +1,7 @@
 import Reveal, { DISPLAY_FONT, CONDENSED_FONT } from "./Reveal";
 import { IMAGES } from "../data/catalogueData";
 
-export default function HardfacingRope() {
+export function HardfacingRope() {
   return (
     <section id="rope" className="bg-white py-12 lg:py-16 border-t border-black/10">
       <div className="px-10">
@@ -95,8 +95,9 @@ export default function HardfacingRope() {
         {/* Grade Specifications Table */}
         <Reveal delay={150}>
           <div className="border-[2px] border-black overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[700px] border-collapse text-[14.5px] sm:text-[15.5px]">
+            <div className="table-scroll-wrap">
+              <div className="table-scroll">
+                <table className="w-full min-w-[700px] border-collapse text-[14.5px] sm:text-[15.5px]">
                 <thead>
                   <tr className="border-b-[2px] border-black font-extrabold tracking-wider text-[14px] sm:text-[15px] bg-white text-black">
                     <th className="border-r-[2px] border-black py-3.5 px-4 text-center w-[18%]">
@@ -156,6 +157,8 @@ export default function HardfacingRope() {
                   </tr>
                 </tbody>
               </table>
+              </div>
+              <p className="table-scroll-label">SWIPE <span className="arrow">›</span></p>
             </div>
           </div>
         </Reveal>

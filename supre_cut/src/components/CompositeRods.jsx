@@ -1,7 +1,7 @@
 import Reveal, { DISPLAY_FONT, CONDENSED_FONT } from "./Reveal";
 import { MATRIX_GRADES, GRIT_70, GRIT_60, IMAGES } from "../data/catalogueData";
 
-export default function CompositeRods() {
+export function CompositeRods() {
   return (
     <>
       <section id="composite" className="bg-[#154785] text-white py-14 lg:py-20 relative overflow-hidden">
@@ -87,7 +87,8 @@ export default function CompositeRods() {
           </Reveal>
 
           {/* Chemical Composition & Matrix Grades Table */}
-          <Reveal delay={100} className="overflow-x-auto">
+          <div className="table-scroll-wrap">
+          <Reveal delay={100} className="table-scroll">
             <table className="w-full min-w-[760px] text-white border-collapse border border-white text-[14px] sm:text-[15px]">
               <thead style={{ fontFamily: CONDENSED_FONT }}>
                 <tr className="text-center font-bold tracking-wider text-[14px] sm:text-[15px]">
@@ -146,6 +147,8 @@ export default function CompositeRods() {
               </tbody>
             </table>
           </Reveal>
+          <p className="table-scroll-label">SWIPE <span className="arrow">›</span></p>
+          </div>
         </div>
       </section>
 
@@ -183,7 +186,8 @@ export default function CompositeRods() {
           {/* Table 1: SC-Cr-70 */}
           <Reveal>
             <div className="border-[2px] border-black overflow-hidden mb-8 sm:mb-10">
-              <div className="overflow-x-auto">
+              <div className="table-scroll-wrap">
+              <div className="table-scroll">
                 <table className="w-full min-w-[720px] text-center border-collapse text-[14px] sm:text-[15px]">
                   <thead style={{ fontFamily: CONDENSED_FONT }}>
                     <tr className="border-b-[2px] border-black font-bold tracking-wider text-[14px] sm:text-[15px] bg-white">
@@ -215,13 +219,16 @@ export default function CompositeRods() {
                   </tbody>
                 </table>
               </div>
+              <p className="table-scroll-label">SWIPE <span className="arrow">›</span></p>
+              </div>
             </div>
           </Reveal>
 
           {/* Table 2: SC-Cr-60 */}
           <Reveal>
             <div className="border-[2px] border-black overflow-hidden">
-              <div className="overflow-x-auto">
+              <div className="table-scroll-wrap">
+              <div className="table-scroll">
                 <table className="w-full min-w-[720px] text-center border-collapse text-[14px] sm:text-[15px]">
                   <thead style={{ fontFamily: CONDENSED_FONT }}>
                     <tr className="border-b-[2px] border-black font-bold tracking-wider text-[14px] sm:text-[15px] bg-white">
@@ -252,6 +259,8 @@ export default function CompositeRods() {
                     ))}
                   </tbody>
                 </table>
+              </div>
+              <p className="table-scroll-label">SWIPE <span className="arrow">›</span></p>
               </div>
             </div>
           </Reveal>

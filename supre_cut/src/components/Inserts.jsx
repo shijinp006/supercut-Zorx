@@ -4,7 +4,7 @@ import { PAGES } from "../data/insertsData";
 
 const ALL_ITEMS = PAGES.flatMap(p => p.items);
 
-export default function Inserts() {
+export function Inserts() {
   const [showAll, setShowAll] = useState(false);
   const displayedItems = showAll ? ALL_ITEMS : ALL_ITEMS.slice(0, 6);
 

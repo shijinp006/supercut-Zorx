@@ -2,16 +2,16 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import About from "./components/About";
-import Inserts from "./components/Inserts";
-import Dimensions from "./components/Dimensions";
-import CompositeRods from "./components/CompositeRods";
-import HardfacingRope from "./components/HardfacingRope";
-import TinningRods from "./components/TinningRods";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import { Navbar } from "./components/Navbar";
+import { Home } from "./components/Home";
+import { About } from "./components/About";
+import { Inserts } from "./components/Inserts";
+import { Dimensions } from "./components/Dimensions";
+import { CompositeRods } from "./components/CompositeRods";
+import { HardfacingRope } from "./components/HardfacingRope";
+import { TinningRods } from "./components/TinningRods";
+import { Contact } from "./components/Contact";
+import { Footer } from "./components/Footer";
 
 export default function App() {
   useEffect(() => {

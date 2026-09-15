@@ -2,7 +2,7 @@ import { useState } from "react";
 import Reveal, { CONDENSED_FONT } from "./Reveal";
 import { OFFERINGS_LEFT, OFFERINGS_RIGHT } from "../data/aboutData";
 
-export default function About() {
+export function About() {
   const [activeCert, setActiveCert] = useState(null);
 
   return (

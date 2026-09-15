@@ -14,7 +14,7 @@ function Logo() {
   );
 }
 
-export default function Navbar() {
+export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -25,25 +25,21 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when mobile modal is open
+  // Lock body scroll when mobile drawer is open
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [open]);
 
-  // Close modal on Escape key press
+  // Close on Escape
   useEffect(() => {
-    const onKeyDown = (e) => {
+    const onKey = (e) => {
       if (e.key === "Escape") setOpen(false);
     };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, []);
 
   const go = (e, href) => {
@@ -56,16 +52,24 @@ export default function Navbar() {
 
   return (
     <>
-      <header className={`fixed top-0 inset-x-0 z-40 animate-nav-slide-down transition-all duration-300 ${scrolled || open ? "bg-white shadow-[0_8px_30px_rgba(10,25,48,0.12)]" : "bg-white"}`}>
+      <header
+        className={`fixed top-0 inset-x-0 z-40 animate-nav-slide-down transition-all duration-300 ${
+          scrolled || open ? "bg-white shadow-[0_8px_30px_rgba(10,25,48,0.12)]" : "bg-white"
+        }`}
+      >
         <div className="px-4 sm:px-6 md:px-10 h-[72px] flex items-center justify-between gap-x-4">
           <Logo />
-          
-          {/* Desktop Nav Menu Bar */}
+
+          {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center gap-5 xl:gap-7 flex-1 justify-center">
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} onClick={(e) => go(e, l.href)}
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={(e) => go(e, l.href)}
                 style={{ fontFamily: CONDENSED_FONT }}
-                className="group relative text-[12.5px] xl:text-[13px] font-semibold tracking-[0.12em] xl:tracking-[0.14em] uppercase text-[#0b1526]/75 hover:text-[#1a4b9c] transition-colors whitespace-nowrap py-1">
+                className="group relative text-[12.5px] xl:text-[13px] font-semibold tracking-[0.12em] xl:tracking-[0.14em] uppercase text-[#0b1526]/75 hover:text-[#1a4b9c] transition-colors whitespace-nowrap py-1"
+              >
                 {l.label}
                 <span className="absolute left-0 -bottom-0.5 h-[2px] w-full bg-[#1a4b9c] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
               </a>
@@ -73,15 +77,18 @@ export default function Navbar() {
           </nav>
 
           {/* Right Action Group */}
-          <div className="flex items-center gap-3">
-            {/* Desktop-only Get Quote button (hidden on mobile header) */}
-            <a href="#contact" onClick={(e) => go(e, "#contact")}
+          <div className="flex items-center gap-2 xl:gap-3">
+            {/* Desktop-only standalone Get Quote (hidden on mobile) */}
+            <a
+              href="#contact"
+              onClick={(e) => go(e, "#contact")}
               style={{ fontFamily: CONDENSED_FONT }}
-              className="hidden lg:inline-block text-[13px] font-bold tracking-[0.12em] uppercase bg-[#1a4b9c] text-white px-5 py-2.5 rounded-sm hover:bg-[#0e2547] transition-colors shrink-0">
+              className="hidden lg:inline-block text-[13px] font-bold tracking-[0.12em] uppercase bg-[#1a4b9c] text-white px-5 py-2.5 rounded-sm hover:bg-[#0e2547] transition-colors shrink-0"
+            >
               Get Quote
             </a>
 
-            {/* Mobile / Tablet Animated Menu Toggle Button */}
+            {/* Mobile / Tablet Hamburger */}
             <button
               onClick={() => setOpen(!open)}
               className="lg:hidden w-11 h-11 flex items-center justify-center rounded-md border border-[#0b1526]/15 hover:bg-neutral-50 active:scale-95 transition-all cursor-pointer"
@@ -108,10 +115,10 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Animated Dropdown Menu Panel (Previous Model with smooth animation) */}
+        {/* Mobile Dropdown Drawer */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] bg-white border-t border-black/10 ${
-            open ? "max-h-[640px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+            open ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
           }`}
         >
           <div className="px-4 sm:px-6 md:px-10 py-3 sm:py-4 space-y-0.5">
@@ -132,11 +139,9 @@ export default function Navbar() {
               </a>
             ))}
 
-            {/* GET QUOTE Button inside the Dropdown */}
+            {/* GET QUOTE Button */}
             <div
-              style={{
-                transitionDelay: open ? `${40 + NAV_LINKS.length * 25}ms` : "0ms",
-              }}
+              style={{ transitionDelay: open ? `${40 + NAV_LINKS.length * 25}ms` : "0ms" }}
               className={`pt-3 transition-all duration-300 ${
                 open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
               }`}
@@ -154,7 +159,7 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Animated Modal Backdrop Overlay */}
+      {/* Modal Backdrop Overlay */}
       <div
         onClick={() => setOpen(false)}
         className={`lg:hidden fixed inset-0 top-[72px] bg-[#0a1930]/50 backdrop-blur-sm transition-opacity duration-300 z-30 ${

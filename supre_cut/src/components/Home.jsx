@@ -123,7 +123,7 @@ function GlobeRotator() {
 }
 
 
-export default function Home() {
+export function Home() {
   const scrollTo = (href) => {
     const el = document.querySelector(href);
     if (el && window.__lenis) window.__lenis.scrollTo(el, { offset: -70, duration: 1.5 });

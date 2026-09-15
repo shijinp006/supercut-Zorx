@@ -1,4 +1,4 @@
-export default function Footer() {
+export function Footer() {
   return (
     <footer className="bg-[#081322] border-t border-white/10 text-white">
       <div className="px-4 sm:px-6 md:px-10 py-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left text-[11px] sm:text-[12px] text-white/50">
