@@ -7,7 +7,7 @@ export function About() {
 
   return (
     <section id="about" className="bg-white py-12 lg:py-16 text-neutral-900">
-      <div className="px-10">
+      <div className="px-4 sm:px-8 md:px-12 lg:px-20">
         {/* Top Page Number & Line */}
         <div className="w-full border-b border-neutral-300 pb-2 mb-8 sm:mb-10 flex justify-end items-end">
           <span

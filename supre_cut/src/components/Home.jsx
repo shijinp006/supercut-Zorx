@@ -144,7 +144,7 @@ export function Home() {
   return (
     <section id="home" className="relative bg-white pt-[72px] overflow-hidden">
       <style>{`@keyframes sc-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }`}</style>
-      <div className="px-4 sm:px-6 md:px-10">
+      <div className="px-4 sm:px-8 md:px-12 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-8 lg:gap-12 items-center pb-16 sm:pb-24 md:pb-28 pt-6 sm:pt-8 md:pt-10">
           <div>
             <Reveal>
@@ -169,7 +169,7 @@ export function Home() {
             </Reveal>
 
             <Reveal delay={120}>
-              <p className="mt-6 text-base sm:text-lg text-neutral-700 max-w-xl font-normal leading-relaxed">
+              <p className="mt-6 text-base sm:text-lg text-neutral-700 font-normal leading-relaxed">
                 Engineered Performance For High-Abrasion &amp; Impact Applications
               </p>
               <div className="mt-8 flex items-center gap-3 sm:gap-4 flex-nowrap">
@@ -216,7 +216,7 @@ export function Home() {
       </div>
 
       <div className="border-t border-black/10">
-        <div className="px-10 py-5 grid md:grid-cols-[1fr_auto_1fr] gap-4 items-center">
+        <div className="px-4 sm:px-8 md:px-12 lg:px-20 py-5 grid md:grid-cols-[1fr_auto_1fr] gap-4 items-center">
           <div className="text-[15px] font-medium text-[#0e2547] leading-tight">
             sales@supercutglobal.com<br />www.supercutglobal.com
           </div>

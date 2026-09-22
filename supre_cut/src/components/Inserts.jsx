@@ -10,11 +10,11 @@ export function Inserts() {
 
   return (
     <section id="inserts" className="bg-[#4472b8] text-white py-16 lg:py-24">
-      <div className="px-4 sm:px-6 md:px-10">
+      <div className="px-4 sm:px-8 md:px-12 lg:px-20">
         <Reveal>
           <div className="mb-12 border-b border-white/55 pb-4">
             <h2 style={{ fontFamily: DISPLAY_FONT }} className="text-[clamp(40px,5vw,72px)] font-black uppercase tracking-wide leading-none">
-              Featured Inserts
+              Our Products
             </h2>
           </div>
         </Reveal>

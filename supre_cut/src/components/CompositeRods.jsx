@@ -5,7 +5,7 @@ export function CompositeRods() {
   return (
     <>
       <section id="composite" className="bg-[#154785] text-white py-14 lg:py-20 relative overflow-hidden">
-        <div className="px-4 sm:px-6 md:px-10">
+        <div className="px-4 sm:px-8 md:px-12 lg:px-20">
           {/* Top Page Number & Rule */}
           <div className="relative mb-8 sm:mb-10">
             <div className="flex justify-end mb-1">
@@ -37,13 +37,13 @@ export function CompositeRods() {
 
           {/* Lead Intro Paragraph */}
           <Reveal>
-            <p className="text-[17px] sm:text-[18.5px] leading-[1.65] text-white/95 max-w-[1250px] mb-8 font-normal">
+            <p className="text-[17px] sm:text-[18.5px] leading-[1.65] text-white/95 mb-8 font-normal">
               <strong className="font-bold text-white">SUPER CUT</strong> Composite Rods combine high-grade tungsten carbide crushed chips embedded in a tough, high-tensile brazing matrix. Designed for severe wear, milling and cutting operations, these rods deliver maximum abrasion resistance and cutting speed.
             </p>
           </Reveal>
 
           {/* Three Feature Points */}
-          <div className="space-y-6 mb-12 max-w-[1250px]">
+          <div className="space-y-6 mb-12">
             <Reveal>
               <div>
                 <h4 className="font-bold text-white text-[18px] sm:text-[19px] leading-tight">Matrix Integrity:</h4>
@@ -153,7 +153,7 @@ export function CompositeRods() {
       </section>
 
       <section className="bg-white py-14 lg:py-20">
-        <div className="px-4 sm:px-6 md:px-10">
+        <div className="px-4 sm:px-8 md:px-12 lg:px-20">
           {/* Top Page Number & Rule */}
           <div className="relative mb-6 sm:mb-8">
             <div className="flex justify-end mb-1">

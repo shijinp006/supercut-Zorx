@@ -20,15 +20,15 @@ export function FloatingActions() {
         @keyframes sc-float-enter {
           0% {
             opacity: 0;
-            transform: translateX(60px) scale(0.5);
+            transform: translateY(80px) scale(0.6);
           }
           65% {
             opacity: 1;
-            transform: translateX(-6px) scale(1.08);
+            transform: translateY(-8px) scale(1.06);
           }
           100% {
             opacity: 1;
-            transform: translateX(0) scale(1);
+            transform: translateY(0) scale(1);
           }
         }
       `}</style>
@@ -50,7 +50,7 @@ export function FloatingActions() {
       </div>
 
       {/* Catalogue PDF */}
-      <div style={{ animation: "sc-float-enter 0.7s cubic-bezier(0.16, 1, 0.3, 1) 500ms both" }}>
+      <div style={{ animation: "sc-float-enter 0.7s cubic-bezier(0.16, 1, 0.3, 1) 480ms both" }}>
         <a
           href="/images/1212_compressed.pdf"
           target="_blank"
@@ -66,7 +66,7 @@ export function FloatingActions() {
       </div>
 
       {/* Get Quote / Contact */}
-      <div style={{ animation: "sc-float-enter 0.7s cubic-bezier(0.16, 1, 0.3, 1) 650ms both" }}>
+      <div style={{ animation: "sc-float-enter 0.7s cubic-bezier(0.16, 1, 0.3, 1) 610ms both" }}>
         <a
           href="#contact"
           onClick={handleContactClick}

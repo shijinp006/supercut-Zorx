@@ -3,7 +3,7 @@ import Reveal, { DISPLAY_FONT, CONDENSED_FONT } from "./Reveal";
 export function TinningRods() {
   return (
     <section id="tinning" className="bg-[#143a75] text-white py-14 lg:py-20">
-      <div className="px-10">
+      <div className="px-4 sm:px-8 md:px-12 lg:px-20">
         <div className="flex justify-end mb-2"><span style={{ fontFamily: CONDENSED_FONT }} className="text-[26px] text-white/90">10</span></div>
         <div className="h-px bg-white/60 mb-10" />
         <Reveal>
@@ -13,7 +13,7 @@ export function TinningRods() {
           </h2>
         </Reveal>
         <Reveal delay={80}>
-          <p className="mt-6 text-[16.5px] lg:text-[18px] leading-[1.65] text-white/90 max-w-[1050px]">
+          <p className="mt-6 text-[16.5px] lg:text-[18px] leading-[1.65] text-white/90">
             <strong className="text-white">SUPER CUT</strong> Nickel Silver Tinning Rods are high-strength, multi-purpose oxyacetylene rods for joining and surfacing ferrous and non-ferrous metals. They are ideal for joining tungsten carbide and inserts with steel surface as well as serving as the bonding matrix for loose carbide grits.
           </p>
         </Reveal>

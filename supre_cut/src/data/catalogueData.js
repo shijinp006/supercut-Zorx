@@ -101,7 +101,7 @@ export const DIMENSIONS = [
   },
   {
     type: "Half Round Tapered",
-    image: "/images/ChatGPT Image Sep 4, 2026, 12_06_44 PM.webp",
+    image: "/images/Screenshot 2026-09-22 112259 (1).webp",
     rows: [
       { part: "SC002", dia: "0.366", thick: "3/16", len: "/" },
       { part: "SC003", dia: "3/8", thick: "1/4", len: "/" },
@@ -132,12 +132,12 @@ export const DIMENSIONS = [
   },
   {
     type: "SC Pyramid",
-    image: "/images/WhatsApp Image 2026-09-02 at 1.39.44 PM.webp",
+    image: "/images/ChatGPT Image Sep 22, 2026, 11_26_43 AM.webp",
     rows: [{ part: "SC011", dia: "0.238", thick: "0.370", len: "/" }],
   },
   {
     type: "Rectangle HF3000 (Ribbed)",
-    image: "/images/ChatGPT Image Sep 3, 2026, 02_52_31 PM.webp",
+    image: "/images/ChatGPT Image Sep 22, 2026, 11_26_38 AM.webp",
     rows: [
       { part: "SC012", dia: "5mm", thick: "3mm", len: "25mm" },
       { part: "SC013", dia: "5mm", thick: "3mm", len: "13mm" },
@@ -175,7 +175,7 @@ export const GRIT_60 = [
 export const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Inserts", href: "#inserts" },
+  { label: "Products", href: "#inserts" },
   { label: "Dimensions", href: "#dimensions" },
   { label: "Composite Rods", href: "#composite" },
   { label: "HF Rope", href: "#rope" },

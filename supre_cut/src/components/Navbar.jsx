@@ -57,7 +57,7 @@ export function Navbar() {
           scrolled || open ? "bg-white shadow-[0_8px_30px_rgba(10,25,48,0.12)]" : "bg-white"
         }`}
       >
-        <div className="px-4 sm:px-6 md:px-10 h-[72px] flex items-center justify-between gap-x-4">
+        <div className="px-4 sm:px-8 md:px-12 lg:px-20 h-[72px] flex items-center justify-between gap-x-4">
           <Logo />
 
           {/* Desktop Nav Links */}
@@ -121,7 +121,7 @@ export function Navbar() {
             open ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
           }`}
         >
-          <div className="px-4 sm:px-6 md:px-10 py-3 sm:py-4 space-y-0.5">
+          <div className="px-4 sm:px-8 md:px-12 lg:px-20 py-3 sm:py-4 space-y-0.5">
             {NAV_LINKS.map((l, index) => (
               <a
                 key={l.href}

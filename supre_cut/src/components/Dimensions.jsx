@@ -7,7 +7,7 @@ const head = "border border-black py-3 px-3 text-[13px] sm:text-[14px] font-blac
 export function Dimensions() {
   return (
     <section id="dimensions" className="bg-white py-12 lg:py-16 text-neutral-900">
-      <div className="px-10">
+      <div className="px-4 sm:px-8 md:px-12 lg:px-20">
         {/* Top Page Number & Horizontal Divider (Page 06) */}
         <Reveal className="flex justify-end mb-2">
           <span
@@ -73,7 +73,13 @@ export function Dimensions() {
                               <img
                                 src={g.image}
                                 alt={g.type}
-                                className="max-h-[64px] sm:max-h-[76px] max-w-[105px] w-auto h-auto object-contain transition-transform duration-300 hover:scale-105"
+                                className={`${
+                                  g.rows.length >= 4
+                                    ? "max-h-[140px] sm:max-h-[175px] max-w-[135px]"
+                                    : g.rows.length === 2
+                                    ? "max-h-[85px] sm:max-h-[105px] max-w-[125px]"
+                                    : "max-h-[72px] sm:max-h-[90px] max-w-[115px]"
+                                } w-auto h-auto object-contain transition-transform duration-300 hover:scale-105`}
                                 loading="lazy"
                               />
                             </div>

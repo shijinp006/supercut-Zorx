@@ -4,7 +4,7 @@ import { IMAGES } from "../data/catalogueData";
 export function HardfacingRope() {
   return (
     <section id="rope" className="bg-white py-12 lg:py-16 border-t border-black/10">
-      <div className="px-10">
+      <div className="px-4 sm:px-8 md:px-12 lg:px-20">
         {/* Top Page Number & Rule */}
         <div className="relative mb-8 sm:mb-10">
           <div className="flex justify-end mb-1">

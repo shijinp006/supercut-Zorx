@@ -18,7 +18,7 @@ export function Contact() {
   return (
     <section id="contact" className="bg-white scroll-mt-20 pt-6 sm:pt-8 md:pt-10 border-t border-black/10 overflow-hidden">
       {/* Top Left: Stacked SUPER CUT Logo */}
-      <div className="px-4 sm:px-6 md:px-10">
+      <div className="px-4 sm:px-8 md:px-12 lg:px-20">
         <Reveal>
           <div className="mb-1 sm:mb-2">
             <img
@@ -103,13 +103,9 @@ export function Contact() {
                 </linearGradient>
               </defs>
 
-              {/* Responsive Connecting Guide Arc */}
+              {/* Connecting Guide Arc — anchored exactly at each pin tip */}
               <path
-                d={
-                  isMobile
-                    ? "M 200 215 Q 500 150 800 230"
-                    : "M 180 200 Q 245 215 310 215 Q 375 165 440 150 Q 505 140 570 160 Q 635 195 700 230 Q 765 265 830 285"
-                }
+                d="M 180 205 Q 310 95 440 130 Q 555 155 660 210"
                 fill="none"
                 stroke="#e5233d"
                 strokeWidth="1.2"
@@ -118,11 +114,7 @@ export function Contact() {
               />
               {/* Flowing Animated Stream */}
               <path
-                d={
-                  isMobile
-                    ? "M 200 215 Q 500 150 800 230"
-                    : "M 180 200 Q 245 215 310 215 Q 375 165 440 150 Q 505 140 570 160 Q 635 195 700 230 Q 765 265 830 285"
-                }
+                d="M 180 205 Q 310 95 440 130 Q 555 155 660 210"
                 fill="none"
                 stroke="url(#flowGradRed)"
                 strokeWidth="2.5"
@@ -132,24 +124,20 @@ export function Contact() {
               />
             </svg>
 
-            {/* Red Teardrop Location Icons: ONLY 3 ICONS in mobile view (USA, UK, MENA), all 6 in desktop view */}
+            {/* Red Teardrop Location Icons: the 3 real Super Cut offices (USA, UK, MENA) */}
             {OFFICES.map((office) => {
               const isHovered = activeOffice === office.id;
-              const isLeftEdge = office.id === "usa" || office.id === "usa-west";
-              const isRightEdge = office.id === "mena" || office.id === "apac";
-
-              const leftPos = isMobile && office.mobileLeft ? office.mobileLeft : office.left;
-              const topPos = isMobile && office.mobileTop ? office.mobileTop : office.top;
+              const isLeftEdge = office.id === "usa";
+              const isRightEdge = office.id === "mena";
 
               return (
                 <div
                   key={office.id}
                   style={{
-                    left: leftPos,
-                    top: topPos,
+                    left: office.left,
+                    top: office.top,
                   }}
-                  className={`absolute -translate-x-1/2 -translate-y-full z-10 cursor-pointer group ${office.mobileHidden ? "hidden md:block" : "block"
-                    }`}
+                  className="absolute -translate-x-1/2 -translate-y-full z-10 cursor-pointer group block"
                   onMouseEnter={() => setActiveOffice(office.id)}
                   onMouseLeave={() => setActiveOffice(null)}
                   onClick={() => setActiveOffice(activeOffice === office.id ? null : office.id)}
@@ -234,7 +222,7 @@ export function Contact() {
       </Reveal>
 
       {/* Lower Section: Divider and Contact Information */}
-      <div className="px-4 sm:px-6 md:px-10">
+      <div className="px-4 sm:px-8 md:px-12 lg:px-20">
         {/* Clean Horizontal Divider Rule */}
         <div className="w-full h-[1px] sm:h-[1.5px] bg-[#9ca3af] my-6 sm:my-8 md:my-12" />
 
@@ -290,8 +278,8 @@ export function Contact() {
 
 
       {/* Full-Width Dark Navy Bottom Banner */}
-      <div className="w-full bg-[#0c1a2e] py-5 sm:py-6 md:py-7 px-4 sm:px-6 md:px-10 text-center">
-        <p className="text-[11.5px] sm:text-[12.5px] md:text-[14px] text-white/95 max-w-4xl mx-auto leading-relaxed font-normal">
+      <div className="w-full bg-[#0c1a2e] py-5 sm:py-6 md:py-7 px-4 sm:px-8 md:px-12 lg:px-20 text-center">
+        <p className="text-[11.5px] sm:text-[12.5px] md:text-[14px] text-white/95 leading-relaxed font-normal">
           We supply premium-grade Tungsten from leading Global manufacturers, selected through rigorous technical evaluation to ensure optimum performance, reliability, durability, and compliance with international engineering standards.
         </p>
       </div>
