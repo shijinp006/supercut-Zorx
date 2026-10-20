@@ -14,7 +14,7 @@ export const PAGES = [
       {
         id: "composite-rod",
         title: ["TUNGSTEN CARBIDE", "COMPOSITE ROD"],
-        image: "/images/ChatGPT Image Sep 3, 2026, 02_59_32 PM.webp",
+        image: "/images/Compositer.jpeg",
         alt: "Tungsten Carbide Composite Rod",
         desc: "Flux-coated composite rod with crushed carbide for severe wear.",
       },

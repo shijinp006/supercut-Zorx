@@ -13,7 +13,7 @@ export const IMAGES = {
   millTool: img("ChatGPT Image Sep 4, 2026, 12_33_30 PM.webp"),
   roundSingle: img("ChatGPT Image Sep 4, 2026, 12_06_44 PM.webp"),
   buckets: img("ChatGPT Image Sep 3, 2026, 03_00_28 PM.webp"),
-  rodPodium: img("ChatGPT Image Sep 3, 2026, 02_59_32 PM.webp"),
+  rodPodium: "/images/Compositer.jpeg",
   rodClose: img("WhatsApp Image 2026-09-02 at 10.11.48 AM.webp"),
   drillBit: img("ChatGPT Image Sep 4, 2026, 12_36_44 PM.webp"),
 };
@@ -31,7 +31,7 @@ export const INSERT_ROWS = [
     id: "composite-rod",
     titleA: "TUNGSTEN",
     titleB: "CARBIDE COMPOSITE ROD",
-    image: img("ChatGPT Image Sep 3, 2026, 02_59_32 PM.webp"),
+    image: "/images/Compositer.jpeg",
     desc: "Flux-coated composite rod with crushed carbide for severe wear.",
     align: "left",
   },
