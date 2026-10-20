@@ -144,11 +144,13 @@ export const DIMENSIONS = [
     ],
   },
   {
-    type: "Rectangle Tapered",
+    // Rectangle Tapered + Square Tapered share one product photo,
+    // so the image column is merged across both rows while each
+    // keeps its own type label and dimensions.
     image: "/images/ChatGPT Image Sep 3, 2026, 02_52_56 PM.webp",
     rows: [
-      { part: "SC014", dia: "3/8", thick: "1/4", len: "1/2" },
-      { part: "SC015", dia: "3/8", thick: "3/8", len: "1/4" },
+      { type: "Rectangle Tapered", part: "SC014", dia: "1/2", thick: "3/8", len: "1/4" },
+      { type: "Square Tapered", part: "SC015", dia: "3/8", thick: "3/8", len: "1/4" },
     ],
   },
 ];
@@ -159,17 +161,17 @@ export const MATRIX_GRADES = [
 ];
 
 export const GRIT_70 = [
-  ["SC-CU-101", "10 – 18 Mesh"], ["SC-CU-102", "1/16 – 1/8"], ["SC-CU-103", "1/8 – 1/8"],
-  ["SC-CU-104", "1/8 – 3/16"], ["SC-CU-105", "3/16 – 3/16"], ["SC-CU-106", "3/16 – 1/4"],
-  ["SC-CU-107", "1/4 – 1/4"], ["SC-CU-108", "1/4 – 5/16"], ["SC-CU-109", "5/16 – 5/16"],
-  ["SC-CU-110", "5/16 – 3/8"], ["SC-CU-111", "3/8 – 1/2"], ["SC-CU-112", "3/8 – 3/8"],
+  ["SC-CU-101", "10 – 18 Mesh"], ["SC-CU-102", "1/8 – 1/16"], ["SC-CU-103", "1/8 – 1/8"],
+  ["SC-CU-104", "3/16 – 1/8"], ["SC-CU-105", "3/16 – 3/16"], ["SC-CU-106", "1/4 – 3/16"],
+  ["SC-CU-107", "1/4 – 1/4"], ["SC-CU-108", "5/16 – 1/4"], ["SC-CU-109", "5/16 – 5/16"],
+  ["SC-CU-110", "3/8 – 5/16"], ["AC-CU-111", "3/8 – 3/8"], ["AC-CU-112", "1/2 – 3/8"],
 ];
 
 export const GRIT_60 = [
-  ["SC-CU-113", "10 – 18 Mesh"], ["SC-CU-114", "1/16 – 1/8"], ["SC-CU-115", "1/8 – 1/8"],
-  ["SC-CU-116", "1/8 – 3/16"], ["SC-CU-117", "3/16 – 3/16"], ["SC-CU-118", "3/16 – 1/4"],
-  ["SC-CU-119", "1/4 – 1/4"], ["SC-CU-120", "1/4 – 5/16"], ["SC-CU-121", "5/16 – 5/16"],
-  ["SC-CU-122", "5/16 – 3/8"], ["SC-CU-123", "3/8 – 1/2"], ["SC-CU-124", "3/8 – 3/8"],
+  ["SC-CU-113", "10 – 18 Mesh"], ["SC-CU-114", "1/8 – 1/16"], ["SC-CU-115", "1/8 – 1/8"],
+  ["SC-CU-116", "3/16 – 1/8"], ["SC-CU-117", "3/16 – 3/16"], ["SC-CU-118", "1/4 – 3/16"],
+  ["SC-CU-119", "1/4 – 1/4"], ["SC-CU-120", "5/16 – 1/4"], ["SC-CU-121", "5/16 – 5/16"],
+  ["SC-CU-122", "3/8 – 5/16"], ["SC-CU-123", "3/8 – 3/8"], ["SC-CU-124", "1/2 – 3/8"],
 ];
 
 export const NAV_LINKS = [

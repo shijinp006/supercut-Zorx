@@ -1,8 +1,8 @@
 import Reveal, { CONDENSED_FONT } from "./Reveal";
 import { DIMENSIONS } from "../data/catalogueData";
 
-const cell = "border border-black px-3 py-2.5 text-center align-middle";
-const head = "border border-black py-3 px-3 text-[13px] sm:text-[14px] font-black uppercase text-center";
+const cell = "border border-black px-1.5 py-1.5 text-center align-middle text-[11px] sm:text-[12px]";
+const head = "border border-black py-1.5 px-1.5 text-[9.5px] sm:text-[10.5px] font-black uppercase text-center leading-tight";
 
 export function Dimensions() {
   return (
@@ -33,28 +33,35 @@ export function Dimensions() {
             {/* Table with 6 Columns Matching Brochure Page 06 */}
             <div className="table-scroll-wrap">
             <div className="overflow-x-auto table-scroll">
-              <table className="w-full min-w-[760px] text-black border-collapse">
+              <table className="w-full min-w-[520px] sm:min-w-[600px] text-black border-collapse table-fixed">
                 <thead>
                   <tr className="bg-white" style={{ fontFamily: CONDENSED_FONT }}>
-                    <th className={`${head} w-[22%]`}>TYPE</th>
+                    <th className={`${head} w-[18%]`}>TYPE</th>
                     <th className={`${head} w-[14%]`}>PART NO</th>
                     <th className={`${head} w-[15%]`}>DIA./WIDTH</th>
-                    <th className={`${head} w-[17%]`}>THICK./HEIGHT</th>
-                    <th className={`${head} w-[14%]`}>LENGTH</th>
-                    <th className={`${head} w-[18%]`}>{/* Product Image Column */}</th>
+                    <th className={`${head} w-[16%]`}>THICK./HEIGHT</th>
+                    <th className={`${head} w-[13%]`}>LENGTH</th>
+                    <th className={`${head} w-[14%]`}>{/* Product Image Column */}</th>
                   </tr>
                 </thead>
-                <tbody className="text-[14px] sm:text-[14.5px] font-medium">
+                <tbody className="font-medium">
                   {DIMENSIONS.map((g) =>
                     g.rows.map((r, i) => (
-                      <tr key={`${g.type}-${r.part}`} className="bg-white hover:bg-neutral-50/60 transition-colors">
-                        {/* Type cell spans all rows in group */}
-                        {i === 0 && (
-                          <td
-                            rowSpan={g.rows.length}
-                            className="border border-black px-4 sm:px-6 py-3.5 font-bold text-[14.5px] sm:text-[15.5px] leading-tight text-center sm:text-left sm:pl-6 align-middle"
-                          >
-                            {g.type}
+                      <tr key={`${g.type ?? r.type}-${r.part}`} className="bg-white hover:bg-neutral-50/60 transition-colors">
+                        {/* Type cell: merged across the group when it shares one label,
+                            otherwise each row shows its own type (image column still merges below) */}
+                        {g.type ? (
+                          i === 0 && (
+                            <td
+                              rowSpan={g.rows.length}
+                              className="border border-black px-1.5 py-1.5 font-bold text-[10.5px] sm:text-[11.5px] leading-[1.15] text-left align-middle"
+                            >
+                              {g.type}
+                            </td>
+                          )
+                        ) : (
+                          <td className="border border-black px-1.5 py-1.5 font-bold text-[10.5px] sm:text-[11.5px] leading-[1.15] text-left align-middle">
+                            {r.type}
                           </td>
                         )}
 
@@ -67,18 +74,18 @@ export function Dimensions() {
                         {i === 0 && (
                           <td
                             rowSpan={g.rows.length}
-                            className="border border-black p-2 text-center align-middle bg-white"
+                            className="border border-black p-1 text-center align-middle bg-white"
                           >
-                            <div className="flex items-center justify-center min-h-[58px] sm:min-h-[68px] p-1">
+                            <div className="flex items-center justify-center min-h-[30px] sm:min-h-[36px] p-0.5">
                               <img
                                 src={g.image}
-                                alt={g.type}
+                                alt={g.type ?? g.rows.map((row) => row.type).join(" / ")}
                                 className={`${
                                   g.rows.length >= 4
-                                    ? "max-h-[140px] sm:max-h-[175px] max-w-[135px]"
+                                    ? "max-h-[62px] sm:max-h-[72px] max-w-[60px]"
                                     : g.rows.length === 2
-                                    ? "max-h-[85px] sm:max-h-[105px] max-w-[125px]"
-                                    : "max-h-[72px] sm:max-h-[90px] max-w-[115px]"
+                                    ? "max-h-[42px] sm:max-h-[48px] max-w-[55px]"
+                                    : "max-h-[34px] sm:max-h-[40px] max-w-[50px]"
                                 } w-auto h-auto object-contain transition-transform duration-300 hover:scale-105`}
                                 loading="lazy"
                               />
