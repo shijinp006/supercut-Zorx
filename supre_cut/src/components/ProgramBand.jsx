@@ -1,5 +1,4 @@
-import { useState } from "react";
-import Reveal, { CONDENSED_FONT } from "./Reveal";
+import Reveal from "./Reveal";
 
 const TRUST_ITEMS = [
   {
@@ -38,50 +37,8 @@ const TRUST_ITEMS = [
 ];
 
 export function ProgramBand() {
-  const [showCert, setShowCert] = useState(false);
-
   return (
     <section className="bg-white">
-      {/* Program / quality band */}
-      <div className="bg-[#eceef0]">
-        <div className="px-4 sm:px-8 md:px-12 lg:px-20 py-10 sm:py-12">
-          <Reveal>
-            <div className="max-w-3xl">
-              <h2
-                style={{ fontFamily: CONDENSED_FONT }}
-                className="text-[26px] sm:text-[32px] font-bold text-[#0c1a2e] tracking-tight"
-              >
-                Custom Alloy &amp; Quality Program
-              </h2>
-              <p className="mt-3 text-[15px] sm:text-[16px] text-neutral-700 leading-relaxed">
-                Custom alloy formulas, particle distributions &amp; rod dimensions are available on request.
-                Every batch is backed by our{" "}
-                <strong className="text-[#0c1a2e] font-semibold">ISO 9001:2015</strong> quality management
-                certification.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <a
-                  href="/images/1212_compressed.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ fontFamily: CONDENSED_FONT }}
-                  className="bg-[#e5233d] text-white font-semibold uppercase tracking-[0.1em] text-xs sm:text-sm px-6 py-3 rounded-sm hover:bg-[#c01b32] transition-colors shadow-sm"
-                >
-                  Download Brochure
-                </a>
-                <button
-                  onClick={() => setShowCert(true)}
-                  style={{ fontFamily: CONDENSED_FONT }}
-                  className="bg-white border-2 border-[#0c1a2e] text-[#0c1a2e] font-semibold uppercase tracking-[0.1em] text-xs sm:text-sm px-6 py-3 rounded-sm hover:bg-[#0c1a2e] hover:text-white transition-colors cursor-pointer"
-                >
-                  View Certification
-                </button>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </div>
-
       {/* Trust indicator row */}
       <div className="px-4 sm:px-8 md:px-12 lg:px-20 py-10 sm:py-12">
         <Reveal>
@@ -105,42 +62,6 @@ export function ProgramBand() {
           </div>
         </Reveal>
       </div>
-
-      {/* Certification lightbox */}
-      {showCert && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          onClick={() => setShowCert(false)}
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4"
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="relative bg-white rounded-lg max-w-3xl w-full p-4 sm:p-6 shadow-2xl overflow-hidden max-h-[92vh] flex flex-col items-center"
-          >
-            <div className="w-full flex justify-between items-center pb-3 border-b border-neutral-200 mb-4">
-              <h4 className="font-bold text-neutral-900 text-base sm:text-lg">
-                ISO 9001:2015 Certified — Quality Management Systems
-              </h4>
-              <button
-                type="button"
-                onClick={() => setShowCert(false)}
-                aria-label="Close"
-                className="text-neutral-500 hover:text-neutral-900 p-1.5 rounded-full hover:bg-neutral-100 text-xl font-bold cursor-pointer transition-colors"
-              >
-                ✕
-              </button>
-            </div>
-            <div className="overflow-auto w-full flex justify-center py-2">
-              <img
-                src="/images/SUPER_CUT_QMS_Certificate.webp"
-                alt="Registration Certificate - ISO 9001:2015 Quality Management Systems"
-                className="max-h-[75vh] w-auto object-contain rounded-sm shadow-md"
-              />
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
