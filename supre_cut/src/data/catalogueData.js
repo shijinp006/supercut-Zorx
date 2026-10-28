@@ -95,11 +95,13 @@ export const INSERT_ROWS = [
 
 export const DIMENSIONS = [
   {
+    id: "round-tapered",
     type: "Round Tapered Inserts",
     image: "/images/ChatGPT Image Sep 4, 2026, 12_18_06 PM.webp",
     rows: [{ part: "SC001", dia: "3/8", thick: "1/4", len: "/" }],
   },
   {
+    id: "half-round-tapered",
     type: "Half Round Tapered",
     image: "/images/Screenshot 2026-09-22 112259 (1).webp",
     rows: [
@@ -108,6 +110,7 @@ export const DIMENSIONS = [
     ],
   },
   {
+    id: "octacut-inserts",
     type: "Octagon Tapered",
     image: "/images/ChatGPT Image Sep 3, 2026, 02_53_51 PM.webp",
     rows: [
@@ -116,11 +119,13 @@ export const DIMENSIONS = [
     ],
   },
   {
+    id: "square-inserts",
     type: "Square",
     image: "/images/ChatGPT Image Sep 3, 2026, 02_57_50 PM.webp",
     rows: [{ part: "SC006", dia: "3/8", thick: "3/16", len: "" }],
   },
   {
+    id: "star-cut-inserts",
     type: "Star Cut",
     image: "/images/ChatGPT Image Sep 3, 2026, 02_58_39 PM.webp",
     rows: [
@@ -131,11 +136,13 @@ export const DIMENSIONS = [
     ],
   },
   {
+    id: "sc-pyramid",
     type: "SC Pyramid",
     image: "/images/ChatGPT Image Sep 22, 2026, 11_26_43 AM.webp",
     rows: [{ part: "SC011", dia: "0.238", thick: "0.370", len: "/" }],
   },
   {
+    id: "rectangle-hf3000",
     type: "Rectangle HF3000 (Ribbed)",
     image: "/images/ChatGPT Image Sep 22, 2026, 11_26_38 AM.webp",
     rows: [
@@ -147,6 +154,7 @@ export const DIMENSIONS = [
     // Rectangle Tapered + Square Tapered share one product photo,
     // so the image column is merged across both rows while each
     // keeps its own type label and dimensions.
+    id: "rectangular-tapered",
     image: "/images/ChatGPT Image Sep 3, 2026, 02_52_56 PM.webp",
     rows: [
       { type: "Rectangle Tapered", part: "SC014", dia: "1/2", thick: "3/8", len: "1/4" },

@@ -142,7 +142,7 @@ export function Home() {
   };
 
   return (
-    <section id="home" className="relative bg-white pt-[72px] overflow-hidden">
+    <section id="home" className="relative bg-[#0c1a2e] pt-[80px] overflow-hidden">
       <style>{`@keyframes sc-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }`}</style>
       <div className="px-4 sm:px-8 md:px-12 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-8 lg:gap-12 items-center pb-16 sm:pb-24 md:pb-28 pt-6 sm:pt-8 md:pt-10">
@@ -150,7 +150,7 @@ export function Home() {
             <Reveal>
               <p
                 style={{ fontFamily: CONDENSED_FONT }}
-                className="text-[#1a4b9c] font-semibold tracking-[0.14em] sm:tracking-[0.22em] text-[11px] sm:text-[13px] mb-4 whitespace-nowrap"
+                className="text-[#e5233d] font-semibold tracking-[0.14em] sm:tracking-[0.22em] text-[11px] sm:text-[13px] mb-4 whitespace-nowrap"
               >
                 ● ABU DHABI • UK • USA — GLOBAL SUPPLY
               </p>
@@ -159,7 +159,7 @@ export function Home() {
             <Reveal delay={80}>
               <h1
                 style={{ fontFamily: DISPLAY_FONT }}
-                className="text-[34px] min-[390px]:text-[38px] sm:text-[56px] md:text-[68px] lg:text-[76px] leading-[1.12] sm:leading-[1.0] tracking-[0.04em] sm:tracking-[0.05em] uppercase text-[#0e2547] font-black"
+                className="text-[34px] min-[390px]:text-[38px] sm:text-[56px] md:text-[68px] lg:text-[76px] leading-[1.12] sm:leading-[1.0] tracking-[0.04em] sm:tracking-[0.05em] uppercase text-white font-black"
               >
                 <span className="block mb-2 sm:mb-1">PREMIUM MILLING,</span>
                 <span className="block mb-2 sm:mb-1">HARDFACE</span>
@@ -169,28 +169,28 @@ export function Home() {
             </Reveal>
 
             <Reveal delay={120}>
-              <p className="mt-6 text-base sm:text-lg text-neutral-700 font-normal leading-relaxed">
+              <p className="mt-6 text-base sm:text-lg text-white/70 font-normal leading-relaxed">
                 Engineered Performance For High-Abrasion &amp; Impact Applications
               </p>
               <div className="mt-8 flex items-center gap-3 sm:gap-4 flex-nowrap">
                 <button
                   onClick={() => scrollTo("#inserts")}
                   style={{ fontFamily: CONDENSED_FONT }}
-                  className="bg-[#1a4b9c] text-white font-semibold uppercase tracking-[0.1em] sm:tracking-[0.12em] text-xs sm:text-sm px-4 sm:px-7 py-2.5 sm:py-3 rounded-sm hover:bg-[#0e2547] transition-colors shadow-sm shrink-0 whitespace-nowrap"
+                  className="bg-[#e5233d] text-white font-semibold uppercase tracking-[0.1em] sm:tracking-[0.12em] text-xs sm:text-sm px-4 sm:px-7 py-2.5 sm:py-3 rounded-sm hover:bg-[#c01b32] transition-colors shadow-sm shrink-0 whitespace-nowrap"
                 >
                   Explore Products
                 </button>
                 <button
                   onClick={() => scrollTo("#about")}
                   style={{ fontFamily: CONDENSED_FONT }}
-                  className="border-2 border-[#0e2547] text-[#0e2547] font-semibold uppercase tracking-[0.1em] sm:tracking-[0.12em] text-xs sm:text-sm px-4 sm:px-7 py-2.5 sm:py-3 rounded-sm hover:bg-[#0e2547] hover:text-white transition-colors shrink-0 whitespace-nowrap"
+                  className="border-2 border-white/70 text-white font-semibold uppercase tracking-[0.1em] sm:tracking-[0.12em] text-xs sm:text-sm px-4 sm:px-7 py-2.5 sm:py-3 rounded-sm hover:bg-white hover:text-[#0c1a2e] transition-colors shrink-0 whitespace-nowrap"
                 >
                   About Us — 02
                 </button>
               </div>
-              <div className="mt-7 flex flex-wrap gap-x-8 gap-y-2 text-sm font-semibold text-[#0e2547]">
-                <span className="inline-flex items-center gap-2"><span className="w-2 h-2 bg-[#1a4b9c] inline-block" /> Tungsten Carbide Composite Rods</span>
-                <span className="inline-flex items-center gap-2"><span className="w-2 h-2 bg-[#1a4b9c] inline-block" /> TCI Inserts • HF-5000 Rope • Brazing Alloys</span>
+              <div className="mt-7 flex flex-wrap gap-x-8 gap-y-2 text-sm font-semibold text-white/85">
+                <span className="inline-flex items-center gap-2"><span className="w-2 h-2 bg-[#e5233d] inline-block" /> Tungsten Carbide Composite Rods</span>
+                <span className="inline-flex items-center gap-2"><span className="w-2 h-2 bg-[#e5233d] inline-block" /> TCI Inserts • HF-5000 Rope • Brazing Alloys</span>
               </div>
             </Reveal>
           </div>
@@ -198,16 +198,16 @@ export function Home() {
           <Reveal delay={150} variant="scale" className="relative">
             <GlobeRotator className="mb-[-20px]" />
             <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_1.35fr] gap-3 sm:gap-4">
-              <div className="rounded-xl overflow-hidden bg-white border border-black/10 p-3 sm:p-3.5 flex items-center gap-3 sm:gap-3.5 shadow-sm">
+              <div className="rounded-xl overflow-hidden bg-white p-3 sm:p-3.5 flex items-center gap-3 sm:gap-3.5 shadow-sm">
                 <img src={IMAGES.buckets} alt="Super Cut packaging" className="w-14 h-14 sm:w-16 sm:h-16 shrink-0 object-cover rounded-lg" />
                 <p className="text-[12px] sm:text-[11px] xl:text-[12px] font-bold leading-snug text-[#0e2547]">
                   FACTORY SEALED<br />SUPER CUT<br />PACKAGING
                 </p>
               </div>
-              <div className="rounded-xl overflow-hidden bg-[#0e2547] text-white p-3 sm:p-3.5 flex items-center gap-3 sm:gap-3.5 shadow-sm">
+              <div className="rounded-xl overflow-hidden bg-[#e5233d] text-white p-3 sm:p-3.5 flex items-center gap-3 sm:gap-3.5 shadow-sm">
                 <img src={IMAGES.rodPodium} alt="Composite rods" className="w-16 sm:w-20 h-14 sm:h-16 shrink-0 object-cover rounded-lg" />
                 <p className="text-[12px] sm:text-[11px] xl:text-[12px] font-semibold leading-snug">
-                  SC-Cr-70 / SC-Cr-60<br />BARE OR FLUX-COATED<br /><span className="text-[#8ab4e8]">10 MESH – 3/8 GRIT</span>
+                  SC-Cr-70 / SC-Cr-60<br />BARE OR FLUX-COATED<br /><span className="text-white/80">10 MESH – 3/8 GRIT</span>
                 </p>
               </div>
             </div>
@@ -215,20 +215,7 @@ export function Home() {
         </div>
       </div>
 
-      <div className="border-t border-black/10">
-        <div className="px-4 sm:px-8 md:px-12 lg:px-20 py-5 grid md:grid-cols-[1fr_auto_1fr] gap-4 items-center">
-          <div className="text-[15px] font-medium text-[#0e2547] leading-tight">
-            sales@supercutglobal.com<br />www.supercutglobal.com
-          </div>
-          <div className="hidden md:block w-px h-12 bg-[#0e2547]/70 mx-6" />
-          <div className="md:text-right text-[14px] leading-tight font-bold text-[#0e2547]">
-            ABU DHABI<br />UNITED ARAB EMIRATES
-            <span className="block font-medium mt-1">◉ +971 2 678 8921 &nbsp; ▤ +971 2 678 8921</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-[#0e2547] text-white overflow-hidden py-3">
+      <div className="bg-[#e5233d] text-white overflow-hidden py-3 border-t border-white/10">
         <div className="flex whitespace-nowrap w-max" style={{ animation: "sc-marquee 28s linear infinite" }}>
           {[0, 1].map((k) => (
             <span key={k} style={{ fontFamily: CONDENSED_FONT }} className="uppercase tracking-[0.2em] text-[13px] pr-8">

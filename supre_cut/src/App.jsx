@@ -4,12 +4,15 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Navbar } from "./components/Navbar";
 import { Home } from "./components/Home";
+import { ProgramBand } from "./components/ProgramBand";
 import { About } from "./components/About";
 import { Inserts } from "./components/Inserts";
 import { Dimensions } from "./components/Dimensions";
 import { CompositeRods } from "./components/CompositeRods";
 import { HardfacingRope } from "./components/HardfacingRope";
 import { TinningRods } from "./components/TinningRods";
+import { ApplicationsGrid } from "./components/ApplicationsGrid";
+import { ConversionBand, Newsletter } from "./components/ConversionBand";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { FloatingActions } from "./components/FloatingActions";
@@ -69,13 +72,17 @@ export default function App() {
       <FloatingActions />
       <main>
         <Home />
+        <ProgramBand />
         <About />
         <Inserts />
         <Dimensions />
         <CompositeRods />
         <HardfacingRope />
         <TinningRods />
+        <ApplicationsGrid />
+        <ConversionBand />
         <Contact />
+        <Newsletter />
       </main>
       <Footer />
     </div>

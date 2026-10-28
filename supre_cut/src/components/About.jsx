@@ -58,8 +58,11 @@ export function About() {
           </Reveal>
         </div>
 
-        {/* Global Presence Full Width Text */}
-        <Reveal delay={150} className="mb-8">
+        {/* We're Global */}
+        <Reveal delay={150} className="mb-8 border-l-4 border-[#e5233d] pl-4 sm:pl-5">
+          <h3 style={{ fontFamily: CONDENSED_FONT }} className="font-bold uppercase tracking-[0.1em] text-[13px] text-[#e5233d] mb-2">
+            We're Global
+          </h3>
           <p className="text-[16px] sm:text-[17.5px] lg:text-[18.5px] leading-[1.65] text-neutral-800">
             With an established presence across key markets in the UAE, UK, and USA, our
             global network allows us to serve clients efficiently with expert technical
@@ -67,9 +70,12 @@ export function About() {
           </p>
         </Reveal>
 
-        {/* Core Product Offerings */}
-        <div className="mb-12">
+        {/* We're Comprehensive — Core Product Offerings */}
+        <div className="mb-12 border-l-4 border-[#e5233d] pl-4 sm:pl-5">
           <Reveal delay={200}>
+            <h3 style={{ fontFamily: CONDENSED_FONT }} className="font-bold uppercase tracking-[0.1em] text-[13px] text-[#e5233d] mb-2">
+              We're Comprehensive
+            </h3>
             <h3 className="font-extrabold text-[21px] sm:text-[23px] text-[#0c1f38] mb-4">
               Our Core Product Offerings:
             </h3>
@@ -102,8 +108,17 @@ export function About() {
           </div>
         </div>
 
-        {/* Certificates Section (Matching brochure bottom layout) */}
-        <div className="pt-2">
+        {/* Highest Standards — Certificates Section (Matching brochure bottom layout) */}
+        <div className="pt-2 border-l-4 border-[#e5233d] pl-4 sm:pl-5">
+          <Reveal delay={180}>
+            <h3 style={{ fontFamily: CONDENSED_FONT }} className="font-bold uppercase tracking-[0.1em] text-[13px] text-[#e5233d] mb-2">
+              Highest Standards
+            </h3>
+            <p className="text-[15px] sm:text-[16px] text-neutral-700 mb-5 max-w-2xl">
+              Every shipment is backed by certified quality management systems and
+              accredited testing standards.
+            </p>
+          </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-5 lg:gap-6 items-stretch">
             {/* Certificate 1: Registration Certificate */}
             <div className="md:col-span-4">
