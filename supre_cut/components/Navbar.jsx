@@ -1,4 +1,5 @@
 "use client";
+console.log("ss");
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -60,15 +61,13 @@ export function Navbar() {
                   href={l.href}
                   aria-current={active ? "page" : undefined}
                   style={{ fontFamily: CONDENSED_FONT }}
-                  className={`group relative text-[12.5px] xl:text-[13px] font-semibold tracking-[0.12em] xl:tracking-[0.14em] uppercase transition-colors whitespace-nowrap py-1 ${
-                    active ? "text-white" : "text-white/70 hover:text-white"
-                  }`}
+                  className={`group relative text-[12.5px] xl:text-[13px] font-semibold tracking-[0.12em] xl:tracking-[0.14em] uppercase transition-colors whitespace-nowrap py-1 ${active ? "text-white" : "text-white/70 hover:text-white"
+                    }`}
                 >
                   {l.label}
                   <span
-                    className={`absolute left-0 -bottom-0.5 h-[2px] w-full bg-white origin-left transition-transform duration-300 ease-out ${
-                      active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                    }`}
+                    className={`absolute left-0 -bottom-0.5 h-[2px] w-full bg-white origin-left transition-transform duration-300 ease-out ${active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                      }`}
                   />
                 </Link>
               );
@@ -103,9 +102,8 @@ export function Navbar() {
 
         {/* Mobile Dropdown Drawer */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] bg-[#0b1f4b] border-t border-white/10 ${
-            open ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
-          }`}
+          className={`lg:hidden overflow-hidden transition-all duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] bg-[#0b1f4b] border-t border-white/10 ${open ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+            }`}
         >
           <div className="px-4 sm:px-8 md:px-12 lg:px-20 py-3 sm:py-4 space-y-0.5">
             {NAV_LINKS.map((l, index) => (
@@ -118,9 +116,8 @@ export function Navbar() {
                   fontFamily: CONDENSED_FONT,
                   transitionDelay: open ? `${40 + index * 25}ms` : "0ms",
                 }}
-                className={`block py-2.5 sm:py-3 border-b border-white/10 text-[15px] sm:text-[16px] font-bold tracking-[0.12em] uppercase transition-all duration-300 ${
-                  pathname === l.href ? "text-white" : "text-white/90 hover:text-white"
-                } ${open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}`}
+                className={`block py-2.5 sm:py-3 border-b border-white/10 text-[15px] sm:text-[16px] font-bold tracking-[0.12em] uppercase transition-all duration-300 ${pathname === l.href ? "text-white" : "text-white/90 hover:text-white"
+                  } ${open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}`}
               >
                 {l.label}
               </Link>
@@ -146,9 +143,8 @@ export function Navbar() {
       {/* Modal Backdrop Overlay */}
       <div
         onClick={() => setOpen(false)}
-        className={`lg:hidden fixed inset-0 top-[64px] bg-black/60 backdrop-blur-sm transition-opacity duration-300 z-30 ${
-          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
+        className={`lg:hidden fixed inset-0 top-[64px] bg-black/60 backdrop-blur-sm transition-opacity duration-300 z-30 ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
         aria-hidden="true"
       />
     </>
