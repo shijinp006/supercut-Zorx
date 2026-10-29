@@ -10,7 +10,7 @@ const FEATURES = [
 
 export function HardfacingRope() {
   return (
-    <section className="bg-[#173a8c] text-white py-16 lg:py-24">
+    <section className="bg-[#0b1f4b] text-white py-16 lg:py-24">
       <style>{`
         @keyframes float-spool {
           0%, 100% { transform: translateY(0); }
@@ -22,7 +22,7 @@ export function HardfacingRope() {
         <div>
           <Reveal>
             <h1 style={{ fontFamily: DISPLAY_FONT }} className="uppercase leading-[0.95] tracking-tight">
-              <span className="block text-[#e5233d] text-[clamp(56px,6.5vw,92px)] font-black">Flexible</span>
+              <span className="block text-white text-[clamp(56px,6.5vw,92px)] font-black">Flexible</span>
               <span className="block text-white text-[clamp(28px,3.4vw,44px)] font-black mt-3 sm:mt-4 tracking-normal">Hardfacing Rope (HF-5000)</span>
             </h1>
           </Reveal>
@@ -36,7 +36,7 @@ export function HardfacingRope() {
           <div className="mt-10 space-y-6">
             {FEATURES.map((f, i) => (
               <Reveal key={f.title} delay={i * 70}>
-                <div className="border-l-2 border-[#e5233d] pl-4">
+                <div className="border-l-2 border-white pl-4">
                   <h3 className="font-bold text-white text-[18px] sm:text-[19px] leading-tight">{f.title}</h3>
                   <p className="text-white/75 text-[16px] sm:text-[17px] leading-relaxed mt-1">{f.text}</p>
                 </div>

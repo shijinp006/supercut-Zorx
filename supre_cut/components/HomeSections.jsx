@@ -5,10 +5,10 @@ import { IMAGES } from "../data/catalogueData";
 
 function ArrowLink({ href, children }) {
   return (
-    <Link href={href} className="group inline-flex items-center gap-2.5 text-white font-medium text-[15px] hover:text-[#e5233d] transition-colors">
+    <Link href={href} className="group inline-flex items-center gap-2.5 text-white font-medium text-[15px] hover:text-white/70 transition-colors">
       {children}
-      <span className="w-5 h-5 rounded-full bg-[#e5233d] flex items-center justify-center transition-transform group-hover:translate-x-0.5">
-        <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={3} className="w-3 h-3">
+      <span className="w-5 h-5 rounded-full bg-white flex items-center justify-center transition-transform group-hover:translate-x-0.5">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0b1f4b" strokeWidth={3} className="w-3 h-3">
           <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M9 7h8v8" />
         </svg>
       </span>
@@ -18,7 +18,7 @@ function ArrowLink({ href, children }) {
 
 export function HomeSections({ children }) {
   return (
-    <div className="bg-[#173a8c] text-white" style={{ fontFamily: GROTESK_FONT }}>
+    <div className="bg-[#0b1f4b] text-white" style={{ fontFamily: GROTESK_FONT }}>
       {/* Product line sections */}
       {children}
 
@@ -30,7 +30,7 @@ export function HomeSections({ children }) {
             className="text-[clamp(44px,6.2vw,88px)] font-black uppercase leading-[1.04] tracking-[0.02em]"
           >
             <span className="block text-white">Engineered for</span>
-            <span className="block text-[#e5233d] mt-1.5 sm:mt-3">Extreme Wear</span>
+            <span className="block text-white mt-1.5 sm:mt-3">Extreme Wear</span>
           </h2>
           <div className="mt-8 space-y-5 text-[17px] sm:text-[18.5px] leading-[1.65] text-white/80">
             <p>
@@ -57,7 +57,7 @@ export function HomeSections({ children }) {
       {/* Designed to Last — full-bleed darkened photo */}
       <section className="relative overflow-hidden">
         <img src={IMAGES.rodClose} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-        <div className="absolute inset-0 bg-[#0e2c70]/80" />
+        <div className="absolute inset-0 bg-[#081a40]/80" />
         <Reveal className="relative px-4 sm:px-8 md:px-12 lg:px-20 py-24 lg:py-36 max-w-4xl mx-auto text-center">
           <h2 className="text-[38px] sm:text-[52px] font-semibold leading-[1.08] tracking-tight">Designed to last</h2>
           <div className="mt-6 space-y-5 text-[16px] sm:text-[17px] leading-relaxed text-white/85">

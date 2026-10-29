@@ -10,7 +10,7 @@ const FEATURES = [
 
 export function CompositeRods() {
   return (
-    <section className="bg-[#173a8c] text-white py-16 lg:py-24">
+    <section className="bg-[#0b1f4b] text-white py-16 lg:py-24">
       <div className="px-4 sm:px-8 md:px-12 lg:px-20 grid lg:grid-cols-[1fr_340px] gap-10 lg:gap-20 items-center">
         <div>
           <Reveal>
@@ -19,7 +19,7 @@ export function CompositeRods() {
               className="text-[clamp(44px,6.2vw,88px)] font-black uppercase leading-[1.04] tracking-[0.02em]"
             >
               <span className="block text-white">Tungsten Carbide</span>
-              <span className="block text-[#e5233d] mt-1.5 sm:mt-3">Composite Rods</span>
+              <span className="block text-white mt-1.5 sm:mt-3">Composite Rods</span>
             </h1>
           </Reveal>
 
@@ -32,7 +32,7 @@ export function CompositeRods() {
           <div className="mt-10 space-y-6">
             {FEATURES.map((f, i) => (
               <Reveal key={f.title} delay={i * 70}>
-                <div className="border-l-2 border-[#e5233d] pl-4">
+                <div className="border-l-2 border-white pl-4">
                   <h3 className="font-bold text-white text-[18px] sm:text-[19px] leading-tight">{f.title}</h3>
                   <p className="text-white/75 text-[16px] sm:text-[17px] leading-relaxed mt-1">{f.text}</p>
                 </div>

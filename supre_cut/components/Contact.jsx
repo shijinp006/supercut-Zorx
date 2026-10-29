@@ -19,7 +19,7 @@ export function Contact() {
   }, []);
 
   return (
-    <section className="bg-[#173a8c] pt-10 sm:pt-12 md:pt-14 overflow-hidden">
+    <section className="bg-[#0b1f4b] pt-10 sm:pt-12 md:pt-14 overflow-hidden">
       {/* Top Left: Stacked SUPER CUT Logo */}
       <div className="px-4 sm:px-8 md:px-12 lg:px-20">
         <Reveal>
@@ -100,9 +100,9 @@ export function Contact() {
             >
               <defs>
                 <linearGradient id="flowGradRed" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#e5233d" stopOpacity="0.25" />
-                  <stop offset="50%" stopColor="#e5233d" stopOpacity="0.95" />
-                  <stop offset="100%" stopColor="#e5233d" stopOpacity="0.25" />
+                  <stop offset="0%" stopColor="#ffffff" stopOpacity="0.25" />
+                  <stop offset="50%" stopColor="#ffffff" stopOpacity="0.95" />
+                  <stop offset="100%" stopColor="#ffffff" stopOpacity="0.25" />
                 </linearGradient>
               </defs>
 
@@ -110,7 +110,7 @@ export function Contact() {
               <path
                 d="M 180 205 Q 310 95 440 130 Q 555 155 660 210"
                 fill="none"
-                stroke="#e5233d"
+                stroke="#ffffff"
                 strokeWidth="1.2"
                 strokeDasharray="4 6"
                 strokeOpacity="0.3"
@@ -148,11 +148,11 @@ export function Contact() {
                   {/* Delicate Non-Overlapping Red Sonar Waves at Pin Base */}
                   <div className="absolute bottom-0 left-1/2 pointer-events-none -translate-x-1/2 translate-y-1/2 w-3 h-3 sm:w-5 sm:h-5 flex items-center justify-center">
                     {/* Core red droplet dot */}
-                    <div className="absolute w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-[#e5233d] shadow-[0_0_6px_#e5233d]" />
+                    <div className="absolute w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-white shadow-[0_0_6px_#ffffff]" />
 
                     {/* Expanding Sonar Ping Ring 1 - Crimson Red (compact on mobile to prevent overlap) */}
                     <div
-                      className="absolute w-4 h-4 sm:w-6 sm:h-6 rounded-full border border-[#e5233d]/70 bg-[#e5233d]/10"
+                      className="absolute w-4 h-4 sm:w-6 sm:h-6 rounded-full border border-white/70 bg-white/10"
                       style={{
                         animation: isMobile
                           ? "map-sonar-ping-mobile 2.4s cubic-bezier(0.1, 0.45, 0.3, 1) infinite"
@@ -163,7 +163,7 @@ export function Contact() {
 
                     {/* Expanding Sonar Ping Ring 2 - Crimson Red */}
                     <div
-                      className="absolute w-4 h-4 sm:w-6 sm:h-6 rounded-full border border-[#e5233d]/50 bg-[#e5233d]/5"
+                      className="absolute w-4 h-4 sm:w-6 sm:h-6 rounded-full border border-white/50 bg-white/5"
                       style={{
                         animation: isMobile
                           ? "map-sonar-ping-mobile 2.4s cubic-bezier(0.1, 0.45, 0.3, 1) infinite"
@@ -189,10 +189,10 @@ export function Contact() {
                       {/* Teardrop pin body in vivid red */}
                       <path
                         d="M16 0C7.16344 0 0 7.16344 0 16C0 27.5 16 44 16 44C16 44 32 27.5 32 16C32 7.16344 24.8366 0 16 0Z"
-                        fill="#e5233d"
+                        fill="#ffffff"
                       />
                       {/* Inner center dot in pure white */}
-                      <circle cx="16" cy="15" r="5" fill="#ffffff" />
+                      <circle cx="16" cy="15" r="5" fill="#0b1f4b" />
                     </svg>
                   </div>
 
@@ -203,13 +203,13 @@ export function Contact() {
                       : isRightEdge
                         ? "right-0 sm:right-auto sm:left-1/2 sm:-translate-x-1/2"
                         : "left-1/2 -translate-x-1/2"
-                      } bg-[#1f449a] border border-white/10 text-white text-xs px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg shadow-2xl whitespace-nowrap transition-all duration-150 pointer-events-none z-30 ${isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"
+                      } bg-[#13306b] border border-white/10 text-white text-xs px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg shadow-2xl whitespace-nowrap transition-all duration-150 pointer-events-none z-30 ${isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"
                       }`}
                   >
                     <p className="font-bold text-white text-[11px] sm:text-[13px]">{office.tag}</p>
                     <p className="text-neutral-300 text-[10px] sm:text-[11.5px] mt-0.5">{office.city}</p>
                     <div
-                      className={`w-2 h-2 bg-[#1f449a] rotate-45 absolute -bottom-1 ${isLeftEdge
+                      className={`w-2 h-2 bg-[#13306b] rotate-45 absolute -bottom-1 ${isLeftEdge
                         ? "left-3 sm:left-1/2 sm:-translate-x-1/2"
                         : isRightEdge
                           ? "right-3 sm:right-auto sm:left-1/2 sm:-translate-x-1/2"
@@ -244,7 +244,7 @@ export function Contact() {
               {/* Super Cut – USA */}
               <div>
                 <h3 className="font-bold text-white text-[15px] sm:text-[16px] md:text-[17.5px] flex items-baseline gap-2 leading-tight">
-                  <span className="text-[#e5233d]">•</span>
+                  <span className="text-white">•</span>
                   <span>Super Cut – USA</span>
                 </h3>
                 <p className="text-white/70 text-[13px] sm:text-[14px] md:text-[15.5px] pl-3.5 sm:pl-4 mt-0.5 sm:mt-1 font-normal leading-snug">
@@ -255,7 +255,7 @@ export function Contact() {
               {/* Super Cut – UK */}
               <div>
                 <h3 className="font-bold text-white text-[15px] sm:text-[16px] md:text-[17.5px] flex items-baseline gap-2 leading-tight">
-                  <span className="text-[#e5233d]">•</span>
+                  <span className="text-white">•</span>
                   <span>Super Cut – UK</span>
                 </h3>
                 <p className="text-white/70 text-[13px] sm:text-[14px] md:text-[15.5px] pl-3.5 sm:pl-4 mt-0.5 sm:mt-1 font-normal leading-snug">
@@ -266,7 +266,7 @@ export function Contact() {
               {/* Super Cut – MENA */}
               <div>
                 <h3 className="font-bold text-white text-[15px] sm:text-[16px] md:text-[17.5px] flex items-baseline gap-2 leading-tight">
-                  <span className="text-[#e5233d]">•</span>
+                  <span className="text-white">•</span>
                   <span>Super Cut – MENA</span>
                 </h3>
                 <p className="text-white/70 text-[13px] sm:text-[14px] md:text-[15.5px] pl-3.5 sm:pl-4 mt-0.5 sm:mt-1 font-normal leading-snug">

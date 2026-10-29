@@ -58,8 +58,8 @@ export function SiteShell({ children }) {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-[#173a8c] text-[#0b1526] antialiased overflow-x-clip" style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" }}>
-      <style>{`html.lenis, html.lenis body { height: auto; } .lenis.lenis-smooth { scroll-behavior: auto !important; } .lenis.lenis-stopped { overflow: hidden; } ::selection { background: #e5233d; color: #fff; }`}</style>
+    <div className="min-h-screen bg-[#0b1f4b] text-[#0b1526] antialiased overflow-x-clip" style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" }}>
+      <style>{`html.lenis, html.lenis body { height: auto; } .lenis.lenis-smooth { scroll-behavior: auto !important; } .lenis.lenis-stopped { overflow: hidden; } ::selection { background: #ffffff; color: #0b1f4b; }`}</style>
       <Navbar />
       <FloatingActions />
       <main className="pt-[64px]">{children}</main>

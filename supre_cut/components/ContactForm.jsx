@@ -6,7 +6,7 @@ import { GROTESK_FONT } from "./fonts";
 const EMPTY = { first: "", middle: "", last: "", phone: "", email: "", message: "" };
 
 const inputClass =
-  "w-full bg-[#23489f] border border-white/10 text-white placeholder:text-white/45 placeholder:font-semibold rounded-md px-4 py-3 text-[14.5px] focus:outline-none focus:ring-2 focus:ring-[#e5233d]";
+  "w-full bg-[#163672] border border-white/10 text-white placeholder:text-white/45 placeholder:font-semibold rounded-lg px-4 py-3 text-[14.5px] focus:outline-none focus:ring-2 focus:ring-white";
 
 export function ContactForm() {
   const [form, setForm] = useState(EMPTY);
@@ -23,14 +23,14 @@ export function ContactForm() {
   };
 
   return (
-    <section className="bg-[#133381] text-white border-t border-white/10 py-20 lg:py-24" style={{ fontFamily: GROTESK_FONT }}>
+    <section className="bg-[#0d2457] text-white border-t border-white/10 py-20 lg:py-24" style={{ fontFamily: GROTESK_FONT }}>
       <div className="px-4 sm:px-8 max-w-2xl mx-auto">
         <div className="text-center">
           <h2 className="text-[40px] sm:text-[50px] font-semibold text-white tracking-tight leading-none">Get in Touch.</h2>
           <p className="mt-4 text-white/70 text-[15.5px] leading-relaxed">
             We're here to help. Whether you have questions about our products or need support, our team is ready to assist you.
           </p>
-          <p className="mt-2 text-[#e5233d] text-[13px]">* denotes required field.</p>
+          <p className="mt-2 text-white/60 text-[13px]">* denotes required field.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="mt-8 space-y-3">
@@ -45,7 +45,7 @@ export function ContactForm() {
           </div>
           <textarea required rows={8} value={form.message} onChange={set("message")} placeholder="Message*" aria-label="Message" className={`${inputClass} resize-y`} />
           <div className="flex justify-center pt-3">
-            <button type="submit" className="bg-[#e5233d] text-white font-semibold text-[15px] px-12 py-3 rounded-full hover:bg-[#c01b32] transition-colors cursor-pointer">
+            <button type="submit" className="bg-white text-[#0b1f4b] font-semibold text-[15px] px-12 py-3 rounded-lg hover:bg-[#dbe4f3] transition-colors cursor-pointer">
               Submit
             </button>
           </div>

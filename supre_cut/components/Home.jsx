@@ -6,7 +6,7 @@ import { CONDENSED_FONT, GROTESK_FONT } from "./fonts";
 
 export function Home() {
   return (
-    <section className="relative bg-[#173a8c] overflow-hidden">
+    <section className="relative bg-[#0b1f4b] overflow-hidden">
       <style>{`@keyframes sc-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }`}</style>
       <div className="px-4 sm:px-8 md:px-12 lg:px-20 pt-6 sm:pt-8 md:pt-10 pb-16 sm:pb-20">
         {/* Modern full-bleed image hero card: dramatic photo, dark gradient, overlaid copy */}
@@ -17,8 +17,8 @@ export function Home() {
               alt="Super Cut tungsten carbide composite rod — precision metalworking"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0e2c70] via-[#0e2c70]/70 to-[#0e2c70]/10" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0e2c70]/80 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#081a40] via-[#081a40]/70 to-[#081a40]/10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#081a40]/80 via-transparent to-transparent" />
 
             <div className="relative h-full flex flex-col justify-end p-6 sm:p-10 lg:p-14">
               <p
@@ -44,14 +44,14 @@ export function Home() {
                 <Link
                   href="/products"
                   style={{ fontFamily: CONDENSED_FONT }}
-                  className="bg-[#e5233d] text-white font-semibold uppercase tracking-[0.1em] sm:tracking-[0.12em] text-xs sm:text-sm px-5 sm:px-8 py-3 sm:py-3.5 rounded-full hover:bg-[#c01b32] transition-colors shadow-lg shrink-0 whitespace-nowrap"
+                  className="bg-white text-[#0b1f4b] font-semibold uppercase tracking-[0.1em] sm:tracking-[0.12em] text-xs sm:text-sm px-5 sm:px-8 py-3 sm:py-3.5 rounded-lg hover:bg-[#dbe4f3] transition-colors shadow-lg shrink-0 whitespace-nowrap"
                 >
                   Explore Products
                 </Link>
                 <Link
                   href="/about"
                   style={{ fontFamily: CONDENSED_FONT }}
-                  className="border-2 border-white/60 text-white font-semibold uppercase tracking-[0.1em] sm:tracking-[0.12em] text-xs sm:text-sm px-5 sm:px-8 py-3 sm:py-3.5 rounded-full hover:bg-white hover:text-[#173a8c] transition-colors shrink-0 whitespace-nowrap"
+                  className="border-2 border-white/60 text-white font-semibold uppercase tracking-[0.1em] sm:tracking-[0.12em] text-xs sm:text-sm px-5 sm:px-8 py-3 sm:py-3.5 rounded-lg hover:bg-white hover:text-[#0b1f4b] transition-colors shrink-0 whitespace-nowrap"
                 >
                   About Us
                 </Link>
@@ -61,7 +61,7 @@ export function Home() {
         </Reveal>
       </div>
 
-      <div className="bg-[#e5233d] text-white overflow-hidden py-3 border-t border-white/10">
+      <div className="bg-white text-[#0b1f4b] overflow-hidden py-3 border-t border-white/10">
         <div className="flex whitespace-nowrap w-max" style={{ animation: "sc-marquee 28s linear infinite" }}>
           {[0, 1].map((k) => (
             <span key={k} style={{ fontFamily: CONDENSED_FONT }} className="uppercase tracking-[0.2em] text-[13px] pr-8">

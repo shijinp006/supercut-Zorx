@@ -46,7 +46,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 inset-x-0 z-40 animate-nav-slide-down transition-all duration-300 bg-[#173a8c]/95 backdrop-blur-md border-b border-white/10">
+      <header className="fixed top-0 inset-x-0 z-40 animate-nav-slide-down transition-all duration-300 bg-[#0b1f4b]/95 backdrop-blur-md border-b border-white/10">
         <div className="px-4 sm:px-8 md:px-12 lg:px-20 h-[64px] flex items-center justify-between gap-x-4">
           <Logo />
 
@@ -66,7 +66,7 @@ export function Navbar() {
                 >
                   {l.label}
                   <span
-                    className={`absolute left-0 -bottom-0.5 h-[2px] w-full bg-[#e5233d] origin-left transition-transform duration-300 ease-out ${
+                    className={`absolute left-0 -bottom-0.5 h-[2px] w-full bg-white origin-left transition-transform duration-300 ease-out ${
                       active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                     }`}
                   />
@@ -80,7 +80,7 @@ export function Navbar() {
             <Link
               href="/contact"
               style={{ fontFamily: CONDENSED_FONT }}
-              className="hidden lg:inline-block text-[13px] font-bold tracking-[0.12em] uppercase bg-[#e5233d] text-white px-5 py-2.5 rounded-full hover:bg-[#c01b32] transition-colors shrink-0"
+              className="hidden lg:inline-block text-[13px] font-bold tracking-[0.12em] uppercase bg-white text-[#0b1f4b] px-5 py-2.5 rounded-lg hover:bg-[#dbe4f3] transition-colors shrink-0"
             >
               Get Quote
             </Link>
@@ -88,7 +88,7 @@ export function Navbar() {
             {/* Mobile / Tablet Hamburger */}
             <button
               onClick={() => setOpen(!open)}
-              className="lg:hidden w-11 h-11 flex items-center justify-center rounded-md border border-white/20 hover:bg-white/10 active:scale-95 transition-all cursor-pointer"
+              className="lg:hidden w-11 h-11 flex items-center justify-center rounded-lg border border-white/20 hover:bg-white/10 active:scale-95 transition-all cursor-pointer"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
             >
@@ -103,7 +103,7 @@ export function Navbar() {
 
         {/* Mobile Dropdown Drawer */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] bg-[#173a8c] border-t border-white/10 ${
+          className={`lg:hidden overflow-hidden transition-all duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] bg-[#0b1f4b] border-t border-white/10 ${
             open ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
           }`}
         >
@@ -119,7 +119,7 @@ export function Navbar() {
                   transitionDelay: open ? `${40 + index * 25}ms` : "0ms",
                 }}
                 className={`block py-2.5 sm:py-3 border-b border-white/10 text-[15px] sm:text-[16px] font-bold tracking-[0.12em] uppercase transition-all duration-300 ${
-                  pathname === l.href ? "text-[#e5233d]" : "text-white/90 hover:text-[#e5233d]"
+                  pathname === l.href ? "text-white" : "text-white/90 hover:text-white"
                 } ${open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}`}
               >
                 {l.label}
@@ -134,7 +134,7 @@ export function Navbar() {
                 href="/contact"
                 onClick={() => setOpen(false)}
                 style={{ fontFamily: CONDENSED_FONT }}
-                className="block w-full py-3.5 text-center text-[14px] font-bold tracking-[0.14em] uppercase bg-[#e5233d] text-white rounded-full hover:bg-[#c01b32] active:scale-[0.99] shadow-md transition-all"
+                className="block w-full py-3.5 text-center text-[14px] font-bold tracking-[0.14em] uppercase bg-white text-[#0b1f4b] rounded-lg hover:bg-[#dbe4f3] active:scale-[0.99] shadow-md transition-all"
               >
                 Get Quote
               </Link>

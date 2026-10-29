@@ -9,23 +9,23 @@ export function About() {
   const [activeCert, setActiveCert] = useState(null);
 
   return (
-    <section className="bg-[#173a8c] py-16 lg:py-24 text-white">
+    <section className="bg-[#0b1f4b] py-16 lg:py-24 text-white">
       <div className="px-4 sm:px-8 md:px-12 lg:px-20">
 
         {/* Top Section: About Box (Left) + Lead Paragraph (Right) */}
         <div className="grid lg:grid-cols-[400px_1fr] xl:grid-cols-[440px_1fr] gap-6 lg:gap-10 items-center mb-7 sm:mb-8">
           {/* About Us Box */}
           <Reveal variant="fade-right">
-            <div className="border border-white/15 rounded-2xl p-6 sm:p-8 bg-[#1f449a]">
+            <div className="border border-white/15 rounded-2xl p-6 sm:p-8 bg-[#13306b]">
               <div className="flex items-stretch gap-4">
-                <div className="w-[4px] bg-[#e5233d] rounded-xs shrink-0 self-stretch my-1" />
+                <div className="w-[4px] bg-white rounded-xs shrink-0 self-stretch my-1" />
                 <div>
                   <h2
                     style={{ fontFamily: CONDENSED_FONT }}
                     className="uppercase text-[46px] sm:text-[58px] lg:text-[64px] font-black leading-[0.88] tracking-tight"
                   >
                     <span className="text-white">ABOUT</span>{" "}
-                    <span className="text-[#e5233d]">US</span>
+                    <span className="text-white">US</span>
                   </h2>
                   <p className="mt-3 text-[15px] sm:text-[16px] text-white leading-tight">
                     <strong className="font-black text-white">SUPER CUT</strong>{" "}
@@ -53,8 +53,8 @@ export function About() {
         </div>
 
         {/* We're Global */}
-        <Reveal delay={150} className="mb-8 border-l-4 border-[#e5233d] pl-4 sm:pl-5">
-          <h3 style={{ fontFamily: CONDENSED_FONT }} className="font-bold uppercase tracking-[0.1em] text-[13px] text-[#e5233d] mb-2">
+        <Reveal delay={150} className="mb-8 border-l-4 border-white pl-4 sm:pl-5">
+          <h3 style={{ fontFamily: CONDENSED_FONT }} className="font-bold uppercase tracking-[0.1em] text-[13px] text-white mb-2">
             We're Global
           </h3>
           <p className="text-[16px] sm:text-[17.5px] lg:text-[18.5px] leading-[1.65] text-white/80">
@@ -65,9 +65,9 @@ export function About() {
         </Reveal>
 
         {/* We're Comprehensive — Core Product Offerings */}
-        <div className="mb-12 border-l-4 border-[#e5233d] pl-4 sm:pl-5">
+        <div className="mb-12 border-l-4 border-white pl-4 sm:pl-5">
           <Reveal delay={200}>
-            <h3 style={{ fontFamily: CONDENSED_FONT }} className="font-bold uppercase tracking-[0.1em] text-[13px] text-[#e5233d] mb-2">
+            <h3 style={{ fontFamily: CONDENSED_FONT }} className="font-bold uppercase tracking-[0.1em] text-[13px] text-white mb-2">
               We're Comprehensive
             </h3>
             <h3 className="font-extrabold text-[21px] sm:text-[23px] text-white mb-4">
@@ -81,7 +81,7 @@ export function About() {
               <ul className="space-y-3 text-[15.5px] sm:text-[17px] leading-[1.5] text-white/80">
                 {OFFERINGS_LEFT.map((item) => (
                   <li key={item} className="flex items-start gap-2.5">
-                    <span className="text-xl leading-none font-bold text-[#e5233d] select-none mt-0.5">•</span>
+                    <span className="text-xl leading-none font-bold text-white select-none mt-0.5">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -93,7 +93,7 @@ export function About() {
               <ul className="space-y-3 text-[15.5px] sm:text-[17px] leading-[1.5] text-white/80">
                 {OFFERINGS_RIGHT.map((item) => (
                   <li key={item} className="flex items-start gap-2.5">
-                    <span className="text-xl leading-none font-bold text-[#e5233d] select-none mt-0.5">•</span>
+                    <span className="text-xl leading-none font-bold text-white select-none mt-0.5">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -103,9 +103,9 @@ export function About() {
         </div>
 
         {/* Highest Standards — Certificates Section (Matching brochure bottom layout) */}
-        <div className="pt-2 border-l-4 border-[#e5233d] pl-4 sm:pl-5">
+        <div className="pt-2 border-l-4 border-white pl-4 sm:pl-5">
           <Reveal delay={180}>
-            <h3 style={{ fontFamily: CONDENSED_FONT }} className="font-bold uppercase tracking-[0.1em] text-[13px] text-[#e5233d] mb-2">
+            <h3 style={{ fontFamily: CONDENSED_FONT }} className="font-bold uppercase tracking-[0.1em] text-[13px] text-white mb-2">
               Highest Standards
             </h3>
             <p className="text-[15px] sm:text-[16px] text-white/70 mb-5 max-w-2xl">
@@ -229,7 +229,7 @@ export function About() {
                 type="button"
                 onClick={() => setActiveCert(null)}
                 aria-label="Close"
-                className="text-neutral-500 hover:text-neutral-900 p-1.5 rounded-full hover:bg-neutral-100 text-xl font-bold cursor-pointer transition-colors"
+                className="text-neutral-500 hover:text-neutral-900 p-1.5 rounded-lg hover:bg-neutral-100 text-xl font-bold cursor-pointer transition-colors"
               >
                 ✕
               </button>
