@@ -138,9 +138,12 @@ export function ProductsGrid() {
                       {item.title.join(" ")}
                     </h2>
                     <span className="block mt-1.5 h-[2px] w-24 bg-[#e5233d] group-hover:bg-white transition-colors" />
-                    <p className="mt-3 text-[13.5px] sm:text-[14px] text-neutral-600 group-hover:text-white/90 leading-snug line-clamp-2 transition-colors">
-                      {item.desc}
-                    </p>
+                    <span className="mt-4 inline-flex items-center gap-2 bg-[#e5233d] text-white group-hover:bg-white group-hover:text-[#e5233d] text-[13.5px] font-semibold px-4 py-2 rounded-lg transition-colors">
+                      View Product
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="w-3.5 h-3.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+                      </svg>
+                    </span>
                   </div>
                 </button>
               </Reveal>
