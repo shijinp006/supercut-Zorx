@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState, useRef } from "react";
 import Reveal, { DISPLAY_FONT, CONDENSED_FONT } from "./Reveal";
 import { IMAGES } from "../data/catalogueData";

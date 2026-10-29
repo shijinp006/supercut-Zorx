@@ -76,7 +76,7 @@ export function HardfacingRope() {
                 }
               `}</style>
               <img
-                src="/images/ChatGPT Image Sep 4, 2026, 12_55_12 PM.webp"
+                src="/images/ChatGPT Image Sep 4 2026 12_55_12 PM.webp"
                 alt="Flexible Hardfacing Rope Spool"
                 className="w-full max-w-[360px] lg:max-w-[420px] h-auto object-contain mix-blend-multiply animate-float-spool"
                 loading="lazy"

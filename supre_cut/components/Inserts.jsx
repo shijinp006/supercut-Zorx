@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import Reveal, { DISPLAY_FONT, CONDENSED_FONT } from "./Reveal";
 import { PAGES } from "../data/insertsData";

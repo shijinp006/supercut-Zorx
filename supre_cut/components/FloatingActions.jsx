@@ -1,3 +1,5 @@
+"use client";
+
 export function FloatingActions() {
   const handleContactClick = (e) => {
     const el = document.querySelector("#contact");

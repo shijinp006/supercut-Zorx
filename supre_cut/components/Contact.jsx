@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import Reveal, { CONDENSED_FONT } from "./Reveal";
 import { OFFICES } from "../data/contactData";

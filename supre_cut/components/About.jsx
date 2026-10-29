@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import Reveal, { CONDENSED_FONT } from "./Reveal";
 import { OFFERINGS_LEFT, OFFERINGS_RIGHT } from "../data/aboutData";

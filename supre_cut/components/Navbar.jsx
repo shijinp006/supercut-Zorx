@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { NAV_LINKS } from "../data/catalogueData";
 import { CONDENSED_FONT } from "./Reveal";
