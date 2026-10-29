@@ -1,5 +1,5 @@
 "use client";
-console.log("ss");
+
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
