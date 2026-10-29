@@ -26,7 +26,6 @@ export function ProductForm({ product, onSaved, onCancel, className = "" }) {
     e.preventDefault();
     const next = {};
     if (title.trim().length < 2) next.title = "Name must be at least 2 characters";
-    if (description.trim().length < 10) next.description = "Description must be at least 10 characters";
     if (!editing && !file) next.image = "Choose a product image";
     setErrors(next);
     if (Object.keys(next).length) return;
@@ -76,7 +75,7 @@ export function ProductForm({ product, onSaved, onCancel, className = "" }) {
       </div>
 
       <div className="shrink-0">
-        <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" aria-label="Description" rows={3} maxLength={600} className={`${inputClass} resize-none`} />
+        <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description (optional)" aria-label="Description" rows={3} maxLength={600} className={`${inputClass} resize-none`} />
         {errors.description && <p className="mt-1.5 text-[13px] text-[#ffb4b4]">{errors.description}</p>}
       </div>
 
