@@ -79,16 +79,17 @@ function ProductModal({ item, onClose }) {
   );
 }
 
-export function ProductsGrid() {
+export function ProductsGrid({ addedItems = [] }) {
   const [query, setQuery] = useState("");
   const [activeItem, setActiveItem] = useState(null);
   const [page, setPage] = useState(1);
 
   const items = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return ALL_ITEMS;
-    return ALL_ITEMS.filter((it) => `${it.title.join(" ")} ${it.desc}`.toLowerCase().includes(q));
-  }, [query]);
+    const all = [...ALL_ITEMS, ...addedItems];
+    if (!q) return all;
+    return all.filter((it) => `${it.title.join(" ")} ${it.desc}`.toLowerCase().includes(q));
+  }, [query, addedItems]);
 
   const pageCount = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
   const currentPage = Math.min(page, pageCount);
