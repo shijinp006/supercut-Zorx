@@ -275,14 +275,6 @@ export function Contact() {
           </div>
         </Reveal>
       </div>
-
-
-      {/* Full-Width Dark Navy Bottom Banner */}
-      <div className="w-full bg-[#0c1a2e] py-5 sm:py-6 md:py-7 px-4 sm:px-8 md:px-12 lg:px-20 text-center">
-        <p className="text-[11.5px] sm:text-[12.5px] md:text-[14px] text-white/95 leading-relaxed font-normal">
-          We supply premium-grade Tungsten from leading Global manufacturers, selected through rigorous technical evaluation to ensure optimum performance, reliability, durability, and compliance with international engineering standards.
-        </p>
-      </div>
     </section>
   );
 }
