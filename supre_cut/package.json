@@ -8,10 +8,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "oxlint",
-    "create-admin": "node --env-file=.env scripts/create-admin.mjs"
+    "create-admin": "node --env-file=.env scripts/create-admin.mjs",
+    "seed-products": "node --env-file=.env scripts/seed-products.mjs"
   },
   "dependencies": {
     "aos": "^2.3.4",
+    "axios": "^1.21.0",
     "bcryptjs": "^3.0.3",
     "jimp": "^1.6.1",
     "jose": "^6.2.13",

@@ -11,18 +11,7 @@ export default async function Page() {
   if (!admin) redirect("/admin/login");
 
   const db = await getDb();
-  const products = await db.collection("products").find().sort({ createdAt: -1 }).toArray();
+  const productCount = await db.collection("products").countDocuments();
 
-  return (
-    <AdminDashboard
-      adminEmail={admin.email}
-      initialProducts={products.map((p) => ({
-        _id: p._id.toString(),
-        title: p.title,
-        description: p.description,
-        imageUrl: p.imageUrl,
-        imagePublicId: p.imagePublicId,
-      }))}
-    />
-  );
+  return <AdminDashboard adminEmail={admin.email} productCount={productCount} />;
 }

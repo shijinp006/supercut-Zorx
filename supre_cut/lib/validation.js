@@ -7,36 +7,31 @@ export const loginSchema = z.object({
   password: z.string().min(1, "Password is required").max(200),
 });
 
-const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
+const title = z
+  .string()
+  .trim()
+  .min(2, "Name must be at least 2 characters")
+  .max(80, "Name must be 80 characters or fewer");
 
-export const productSchema = z.object({
-  title: z
-    .string()
-    .trim()
-    .min(2, "Title must be at least 2 characters")
-    .max(80, "Title must be 80 characters or fewer"),
-  description: z
-    .string()
-    .trim()
-    .min(10, "Description must be at least 10 characters")
-    .max(600, "Description must be 600 characters or fewer"),
-  imagePublicId: z
-    .string()
-    .trim()
-    .regex(
-      new RegExp(`^${PRODUCT_IMAGE_FOLDER}/[A-Za-z0-9_\\-/]+$`),
-      "Image must be uploaded through the dashboard"
-    )
-    .max(200),
-  imageUrl: z
-    .string()
-    .trim()
-    .url()
-    .refine(
-      (url) => url.startsWith(`https://res.cloudinary.com/${cloudName}/image/upload/`),
-      "Image must be hosted on the Super Cut Cloudinary account"
-    ),
-});
+const description = z
+  .string()
+  .trim()
+  .min(10, "Description must be at least 10 characters")
+  .max(600, "Description must be 600 characters or fewer");
+
+// Only images uploaded through the dashboard (signed, into our folder) are accepted
+const imagePublicId = z
+  .string()
+  .trim()
+  .max(200)
+  .regex(new RegExp(`^${PRODUCT_IMAGE_FOLDER}/[A-Za-z0-9_\\-/]+$`), "Upload the image through the dashboard");
+
+export const productSchema = z.object({ title, description, imagePublicId });
+
+export const productUpdateSchema = z
+  .object({ title, description, imagePublicId })
+  .partial()
+  .refine((v) => Object.keys(v).length > 0, { message: "Nothing to update" });
 
 /** Flattens zod issues into { field: message } for the form */
 export function fieldErrors(error) {

@@ -3,9 +3,6 @@
 import { useEffect, useMemo, useState } from "react";
 import Reveal from "./Reveal";
 import { CONDENSED_FONT, GROTESK_FONT } from "./fonts";
-import { PAGES } from "../data/insertsData";
-
-const ALL_ITEMS = PAGES.flatMap((p) => p.items);
 const PAGE_SIZE = 6;
 
 function ProductModal({ item, onClose }) {
@@ -79,17 +76,16 @@ function ProductModal({ item, onClose }) {
   );
 }
 
-export function ProductsGrid({ addedItems = [] }) {
+export function ProductsGrid({ items: allItems = [] }) {
   const [query, setQuery] = useState("");
   const [activeItem, setActiveItem] = useState(null);
   const [page, setPage] = useState(1);
 
   const items = useMemo(() => {
     const q = query.trim().toLowerCase();
-    const all = [...ALL_ITEMS, ...addedItems];
-    if (!q) return all;
-    return all.filter((it) => `${it.title.join(" ")} ${it.desc}`.toLowerCase().includes(q));
-  }, [query, addedItems]);
+    if (!q) return allItems;
+    return allItems.filter((it) => `${it.title.join(" ")} ${it.desc}`.toLowerCase().includes(q));
+  }, [query, allItems]);
 
   const pageCount = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
   const currentPage = Math.min(page, pageCount);
