@@ -20,25 +20,34 @@ import { FloatingActions } from "../components/FloatingActions";
 export default function HomePage() {
   useEffect(() => {
     AOS.init({
-      duration: 800,
-      easing: "ease-out-cubic",
+      duration: 900,
+      easing: "ease-out-quart",
       once: false,
       mirror: true,
       offset: 50,
     });
 
     const lenis = new Lenis({
-      duration: 1.25,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      duration: 1.6,
+      easing: (t) => 1 - Math.pow(1 - t, 4),
       smoothWheel: true,
       touchMultiplier: 1.6,
+      wheelMultiplier: 0.9,
     });
     window.__lenis = lenis;
+
+    // AOS only needs to re-measure element offsets after layout actually
+    // changes (resize, images loading) — not on every scroll frame. Calling
+    // AOS.refresh() inside the RAF loop was forcing a full offset
+    // recalculation 60x/second, fighting Lenis's own smoothing and making
+    // the scroll feel janky instead of buttery.
+    AOS.refreshHard();
+    const onLoad = () => AOS.refresh();
+    window.addEventListener("load", onLoad);
 
     let raf;
     const loop = (time) => {
       lenis.raf(time);
-      AOS.refresh();
       raf = requestAnimationFrame(loop);
     };
     raf = requestAnimationFrame(loop);
@@ -60,6 +69,7 @@ export default function HomePage() {
     return () => {
       cancelAnimationFrame(raf);
       document.removeEventListener("click", onClick);
+      window.removeEventListener("load", onLoad);
       lenis.destroy();
       window.__lenis = null;
     };
