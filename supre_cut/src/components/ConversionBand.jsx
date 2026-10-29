@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Reveal, { DISPLAY_FONT, CONDENSED_FONT } from "./Reveal";
 
 function goTo(e, href) {
@@ -38,52 +37,6 @@ export function ConversionBand() {
             >
               Request Pricing
             </a>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-export function Newsletter() {
-  const [email, setEmail] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!email) return;
-    const subject = encodeURIComponent("Newsletter Signup");
-    const body = encodeURIComponent(`Please add this email to the Super Cut mailing list: ${email}`);
-    window.location.href = `mailto:sales@supercutglobal.com?subject=${subject}&body=${body}`;
-  };
-
-  return (
-    <section className="bg-[#eceef0] border-t border-black/5">
-      <div className="px-4 sm:px-8 md:px-12 lg:px-20 py-10 sm:py-12">
-        <Reveal>
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-5">
-            <h3
-              style={{ fontFamily: CONDENSED_FONT }}
-              className="text-[20px] sm:text-[24px] font-bold text-[#0c1a2e] tracking-tight"
-            >
-              Stay Connected
-            </h3>
-            <form onSubmit={handleSubmit} className="flex w-full sm:w-auto gap-0">
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="ENTER YOUR EMAIL ADDRESS"
-                className="flex-1 sm:w-80 border border-neutral-400 bg-white px-4 py-3 text-[13px] tracking-[0.04em] text-[#0c1a2e] placeholder:text-neutral-400 focus:outline-none focus:border-[#e5233d]"
-              />
-              <button
-                type="submit"
-                style={{ fontFamily: CONDENSED_FONT }}
-                className="bg-[#e5233d] text-white font-semibold uppercase tracking-[0.1em] text-sm px-6 py-3 hover:bg-[#c01b32] transition-colors shrink-0"
-              >
-                Submit
-              </button>
-            </form>
           </div>
         </Reveal>
       </div>
