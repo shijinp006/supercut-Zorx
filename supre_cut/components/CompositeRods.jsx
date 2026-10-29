@@ -11,7 +11,7 @@ const FEATURES = [
 export function CompositeRods() {
   return (
     <section className="bg-[#0f0f0f] text-white py-16 lg:py-24">
-      <div className="px-4 sm:px-8 md:px-12 lg:px-20 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
+      <div className="px-4 sm:px-8 md:px-12 lg:px-20 grid lg:grid-cols-[1fr_340px] gap-10 lg:gap-20 items-center">
         <div>
           <Reveal>
             <h1
@@ -45,7 +45,7 @@ export function CompositeRods() {
           <img
             src={IMAGES.rodPodium}
             alt="Super Cut tungsten carbide composite rods"
-            className="w-full aspect-[4/5] object-cover rounded-2xl"
+            className="w-full max-w-[340px] mx-auto aspect-[3/5] object-cover rounded-2xl"
           />
         </Reveal>
       </div>

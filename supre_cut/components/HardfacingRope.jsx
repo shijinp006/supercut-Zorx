@@ -18,7 +18,7 @@ export function HardfacingRope() {
         }
         .animate-float-spool { animation: float-spool 6s ease-in-out infinite; }
       `}</style>
-      <div className="px-4 sm:px-8 md:px-12 lg:px-20 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
+      <div className="px-4 sm:px-8 md:px-12 lg:px-20 grid lg:grid-cols-[340px_1fr] gap-10 lg:gap-20 items-center">
         <div>
           <Reveal>
             <h1 style={{ fontFamily: DISPLAY_FONT }} className="uppercase leading-[0.95] tracking-tight">
@@ -45,12 +45,12 @@ export function HardfacingRope() {
           </div>
         </div>
 
-        <Reveal variant="scale">
-          <div className="bg-white rounded-2xl p-8 sm:p-10 flex items-center justify-center">
+        <Reveal variant="scale" className="lg:order-first">
+          <div className="w-full max-w-[340px] mx-auto aspect-[3/5] bg-white rounded-2xl p-6 flex items-center justify-center">
             <img
               src={IMAGES.ropeSpool}
               alt="Flexible Hardfacing Rope Spool"
-              className="w-full max-w-[420px] h-auto object-contain animate-float-spool"
+              className="w-full h-auto object-contain animate-float-spool"
             />
           </div>
         </Reveal>

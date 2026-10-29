@@ -5,7 +5,7 @@ import { IMAGES } from "../data/catalogueData";
 export function TinningRods() {
   return (
     <section className="bg-[#0f0f0f] text-white py-16 lg:py-24">
-      <div className="px-4 sm:px-8 md:px-12 lg:px-20 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
+      <div className="px-4 sm:px-8 md:px-12 lg:px-20 grid lg:grid-cols-[1fr_340px] gap-10 lg:gap-20 items-center">
         <div>
           <Reveal>
             <h1 style={{ fontFamily: DISPLAY_FONT }} className="uppercase text-[clamp(44px,5.8vw,82px)] font-black tracking-[0.02em] leading-[1.05]">
@@ -21,11 +21,11 @@ export function TinningRods() {
         </div>
 
         <Reveal variant="scale">
-          <div className="bg-white rounded-2xl p-8 flex items-center justify-center">
+          <div className="w-full max-w-[340px] mx-auto aspect-[3/5] bg-white rounded-2xl p-6 flex items-center justify-center">
             <img
               src={IMAGES.goldWhiteRods}
               alt="Super Cut nickel silver tinning rods"
-              className="w-full max-w-[360px] h-auto object-contain"
+              className="w-full h-full object-contain"
             />
           </div>
         </Reveal>
