@@ -23,8 +23,5 @@ export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Products", href: "/products" },
   { label: "About", href: "/about" },
-  { label: "Composite Rods", href: "/composite-rods" },
-  { label: "HF Rope", href: "/hf-rope" },
-  { label: "Tinning Rods", href: "/tinning-rods" },
   { label: "Contact", href: "/contact" },
 ];

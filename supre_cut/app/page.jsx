@@ -10,10 +10,11 @@ export default function Page() {
     <>
       <Home />
       <ProgramBand />
-      <HomeSections />
-      <CompositeRods />
-      <HardfacingRope />
-      <TinningRods />
+      <HomeSections>
+        <CompositeRods />
+        <HardfacingRope />
+        <TinningRods />
+      </HomeSections>
     </>
   );
 }

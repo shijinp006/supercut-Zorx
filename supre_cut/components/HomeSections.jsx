@@ -16,7 +16,7 @@ function ArrowLink({ href, children }) {
   );
 }
 
-export function HomeSections() {
+export function HomeSections({ children }) {
   return (
     <div className="bg-[#0f0f0f] text-white" style={{ fontFamily: GROTESK_FONT }}>
       {/* Crafting Excellence — text left, image right */}
@@ -47,29 +47,8 @@ export function HomeSections() {
         </Reveal>
       </section>
 
-      {/* Commitment to Quality — image left, text right */}
-      <section className="px-4 sm:px-8 md:px-12 lg:px-20 pb-20 lg:pb-28 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-        <Reveal variant="scale" className="order-2 lg:order-1">
-          <div className="bg-white rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center">
-            <img src={IMAGES.millTool} alt="Super Cut hardfaced milling tool" className="w-full h-full object-contain p-6 grayscale" loading="lazy" />
-          </div>
-        </Reveal>
-        <Reveal className="order-1 lg:order-2 lg:text-right">
-          <h2 className="text-[38px] sm:text-[48px] font-semibold leading-[1.08] tracking-tight">
-            Commitment to<br />quality
-          </h2>
-          <div className="mt-6 space-y-5 text-[16px] sm:text-[17px] leading-relaxed text-white/80">
-            <p>
-              Every shipment is backed by certified quality management systems and accredited testing standards —
-              SUPER CUT is ISO 9001:2015 certified.
-            </p>
-            <p>
-              From high-grade tungsten carbide grits to factory-sealed packaging, each product is made to deliver
-              consistent strength and performance in the field.
-            </p>
-          </div>
-        </Reveal>
-      </section>
+      {/* Product line sections */}
+      {children}
 
       {/* Designed to Last — full-bleed darkened photo */}
       <section className="relative overflow-hidden">
