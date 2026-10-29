@@ -11,7 +11,6 @@ import { Dimensions } from "./components/Dimensions";
 import { CompositeRods } from "./components/CompositeRods";
 import { HardfacingRope } from "./components/HardfacingRope";
 import { TinningRods } from "./components/TinningRods";
-import { ApplicationsGrid } from "./components/ApplicationsGrid";
 import { ConversionBand } from "./components/ConversionBand";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
@@ -79,7 +78,6 @@ export default function App() {
         <CompositeRods />
         <HardfacingRope />
         <TinningRods />
-        <ApplicationsGrid />
         <ConversionBand />
         <Contact />
       </main>
