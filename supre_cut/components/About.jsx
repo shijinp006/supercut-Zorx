@@ -9,27 +9,27 @@ export function About() {
   const [activeCert, setActiveCert] = useState(null);
 
   return (
-    <section className="bg-white py-16 lg:py-24 text-neutral-900">
+    <section className="bg-[#0f0f0f] py-16 lg:py-24 text-white">
       <div className="px-4 sm:px-8 md:px-12 lg:px-20">
 
         {/* Top Section: About Box (Left) + Lead Paragraph (Right) */}
         <div className="grid lg:grid-cols-[400px_1fr] xl:grid-cols-[440px_1fr] gap-6 lg:gap-10 items-center mb-7 sm:mb-8">
           {/* About Us Box */}
           <Reveal variant="fade-right">
-            <div className="border border-neutral-800 p-6 sm:p-8 bg-white shadow-xs">
+            <div className="border border-white/15 rounded-2xl p-6 sm:p-8 bg-[#1a1a1a]">
               <div className="flex items-stretch gap-4">
-                <div className="w-[4px] bg-[#0c2340] rounded-xs shrink-0 self-stretch my-1" />
+                <div className="w-[4px] bg-[#e5233d] rounded-xs shrink-0 self-stretch my-1" />
                 <div>
                   <h2
                     style={{ fontFamily: CONDENSED_FONT }}
                     className="uppercase text-[46px] sm:text-[58px] lg:text-[64px] font-black leading-[0.88] tracking-tight"
                   >
-                    <span className="text-[#0c1f38]">ABOUT</span>{" "}
-                    <span className="text-[#1a56a6]">US</span>
+                    <span className="text-white">ABOUT</span>{" "}
+                    <span className="text-[#e5233d]">US</span>
                   </h2>
-                  <p className="mt-3 text-[15px] sm:text-[16px] text-[#0c1f38] leading-tight">
-                    <strong className="font-black text-[#0c1f38]">SUPER CUT</strong>{" "}
-                    <span className="font-medium text-neutral-600">Hardface Solutions</span>
+                  <p className="mt-3 text-[15px] sm:text-[16px] text-white leading-tight">
+                    <strong className="font-black text-white">SUPER CUT</strong>{" "}
+                    <span className="font-medium text-white/60">Hardface Solutions</span>
                   </p>
                 </div>
               </div>
@@ -38,8 +38,8 @@ export function About() {
 
           {/* Lead Description */}
           <Reveal delay={100} variant="fade-left">
-            <p className="text-[16px] sm:text-[17.5px] lg:text-[18.5px] leading-[1.65] text-neutral-800">
-              <strong className="font-bold text-neutral-950">
+            <p className="text-[16px] sm:text-[17.5px] lg:text-[18.5px] leading-[1.65] text-white/80">
+              <strong className="font-bold text-white">
                 At SUPER CUT Hardface Solutions,
               </strong>{" "}
               we specialize in providing high-performance milling and hardfacing
@@ -57,7 +57,7 @@ export function About() {
           <h3 style={{ fontFamily: CONDENSED_FONT }} className="font-bold uppercase tracking-[0.1em] text-[13px] text-[#e5233d] mb-2">
             We're Global
           </h3>
-          <p className="text-[16px] sm:text-[17.5px] lg:text-[18.5px] leading-[1.65] text-neutral-800">
+          <p className="text-[16px] sm:text-[17.5px] lg:text-[18.5px] leading-[1.65] text-white/80">
             With an established presence across key markets in the UAE, UK, and USA, our
             global network allows us to serve clients efficiently with expert technical
             assistance and rapid deployment.
@@ -70,7 +70,7 @@ export function About() {
             <h3 style={{ fontFamily: CONDENSED_FONT }} className="font-bold uppercase tracking-[0.1em] text-[13px] text-[#e5233d] mb-2">
               We're Comprehensive
             </h3>
-            <h3 className="font-extrabold text-[21px] sm:text-[23px] text-[#0c1f38] mb-4">
+            <h3 className="font-extrabold text-[21px] sm:text-[23px] text-white mb-4">
               Our Core Product Offerings:
             </h3>
           </Reveal>
@@ -78,10 +78,10 @@ export function About() {
           <div className="grid md:grid-cols-2 gap-x-10 lg:gap-x-14 gap-y-3">
             {/* Left Column Offerings */}
             <Reveal delay={250}>
-              <ul className="space-y-3 text-[15.5px] sm:text-[17px] leading-[1.5] text-neutral-800">
+              <ul className="space-y-3 text-[15.5px] sm:text-[17px] leading-[1.5] text-white/80">
                 {OFFERINGS_LEFT.map((item) => (
                   <li key={item} className="flex items-start gap-2.5">
-                    <span className="text-xl leading-none font-bold text-neutral-900 select-none mt-0.5">•</span>
+                    <span className="text-xl leading-none font-bold text-[#e5233d] select-none mt-0.5">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -90,10 +90,10 @@ export function About() {
 
             {/* Right Column Offerings */}
             <Reveal delay={300}>
-              <ul className="space-y-3 text-[15.5px] sm:text-[17px] leading-[1.5] text-neutral-800">
+              <ul className="space-y-3 text-[15.5px] sm:text-[17px] leading-[1.5] text-white/80">
                 {OFFERINGS_RIGHT.map((item) => (
                   <li key={item} className="flex items-start gap-2.5">
-                    <span className="text-xl leading-none font-bold text-neutral-900 select-none mt-0.5">•</span>
+                    <span className="text-xl leading-none font-bold text-[#e5233d] select-none mt-0.5">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -108,7 +108,7 @@ export function About() {
             <h3 style={{ fontFamily: CONDENSED_FONT }} className="font-bold uppercase tracking-[0.1em] text-[13px] text-[#e5233d] mb-2">
               Highest Standards
             </h3>
-            <p className="text-[15px] sm:text-[16px] text-neutral-700 mb-5 max-w-2xl">
+            <p className="text-[15px] sm:text-[16px] text-white/70 mb-5 max-w-2xl">
               Every shipment is backed by certified quality management systems and
               accredited testing standards.
             </p>
@@ -118,7 +118,7 @@ export function About() {
             <div className="md:col-span-4">
               <Reveal
                 delay={200}
-                className="h-full bg-white border border-neutral-300 rounded-xl p-3 sm:p-4 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
+                className="h-full bg-white border border-white/10 rounded-xl p-3 sm:p-4 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
               >
                 <div
                   onClick={() => setActiveCert({ src: "/images/SUPER_CUT_QMS_Certificate.webp", title: "Registration Certificate - ISO 9001:2015" })}
@@ -141,7 +141,7 @@ export function About() {
             <div className="md:col-span-4">
               <Reveal
                 delay={250}
-                className="h-full bg-white border border-neutral-300 rounded-xl p-3 sm:p-4 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
+                className="h-full bg-white border border-white/10 rounded-xl p-3 sm:p-4 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
               >
                 <div
                   onClick={() => setActiveCert({ src: "/images/Quality_Policy_Statement.webp", title: "Quality Policy Statement - SUPER CUT TRADING-L.L.C-S.P.C" })}
@@ -165,7 +165,7 @@ export function About() {
               {/* ISO 9001:2015 Certified Badge */}
               <Reveal
                 delay={300}
-                className="flex-1 bg-white border border-neutral-300 rounded-xl p-3 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
+                className="flex-1 bg-white border border-white/10 rounded-xl p-3 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
               >
                 <div
                   onClick={() => setActiveCert({ src: "/images/Royal UAF Logo QMS.JPG.webp", title: "ISO 9001 : 2015 Certified" })}
@@ -186,7 +186,7 @@ export function About() {
               {/* United Accreditation Foundation Badge */}
               <Reveal
                 delay={350}
-                className="flex-1 bg-white border border-neutral-300 rounded-xl p-3 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
+                className="flex-1 bg-white border border-white/10 rounded-xl p-3 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
               >
                 <div
                   onClick={() => setActiveCert({ src: "/images/RICL UAF Logo.jpg.webp", title: "United Accreditation Foundation" })}

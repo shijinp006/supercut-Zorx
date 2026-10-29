@@ -19,11 +19,11 @@ export function Contact() {
   }, []);
 
   return (
-    <section className="bg-white pt-10 sm:pt-12 md:pt-14 overflow-hidden">
+    <section className="bg-[#0f0f0f] pt-10 sm:pt-12 md:pt-14 overflow-hidden">
       {/* Top Left: Stacked SUPER CUT Logo */}
       <div className="px-4 sm:px-8 md:px-12 lg:px-20">
         <Reveal>
-          <div className="mb-1 sm:mb-2">
+          <div className="mb-1 sm:mb-2 inline-block bg-white rounded-lg px-[12px] py-[8px]">
             <img
               src="/images/supercut_logo_stacked.webp"
               alt="SUPER CUT Hardface Solutions"
@@ -89,7 +89,7 @@ export function Contact() {
             <img
               src="/images/global_network_map.png"
               alt="Super Cut Global Presence Map"
-              className="w-full h-auto object-contain block pointer-events-none"
+              className="w-full h-auto object-contain block pointer-events-none invert opacity-40"
             />
 
             {/* Clean Red Flowing Connecting Stream across hubs inside the continents */}
@@ -203,13 +203,13 @@ export function Contact() {
                       : isRightEdge
                         ? "right-0 sm:right-auto sm:left-1/2 sm:-translate-x-1/2"
                         : "left-1/2 -translate-x-1/2"
-                      } bg-[#0c1f38] text-white text-xs px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg shadow-2xl whitespace-nowrap transition-all duration-150 pointer-events-none z-30 ${isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"
+                      } bg-[#1a1a1a] border border-white/10 text-white text-xs px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg shadow-2xl whitespace-nowrap transition-all duration-150 pointer-events-none z-30 ${isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"
                       }`}
                   >
                     <p className="font-bold text-white text-[11px] sm:text-[13px]">{office.tag}</p>
                     <p className="text-neutral-300 text-[10px] sm:text-[11.5px] mt-0.5">{office.city}</p>
                     <div
-                      className={`w-2 h-2 bg-[#0c1f38] rotate-45 absolute -bottom-1 ${isLeftEdge
+                      className={`w-2 h-2 bg-[#1a1a1a] rotate-45 absolute -bottom-1 ${isLeftEdge
                         ? "left-3 sm:left-1/2 sm:-translate-x-1/2"
                         : isRightEdge
                           ? "right-3 sm:right-auto sm:left-1/2 sm:-translate-x-1/2"
@@ -227,49 +227,49 @@ export function Contact() {
       {/* Lower Section: Divider and Contact Information */}
       <div className="px-4 sm:px-8 md:px-12 lg:px-20">
         {/* Clean Horizontal Divider Rule */}
-        <div className="w-full h-[1px] sm:h-[1.5px] bg-[#9ca3af] my-6 sm:my-8 md:my-12" />
+        <div className="w-full h-[1px] sm:h-[1.5px] bg-white/15 my-6 sm:my-8 md:my-12" />
 
         {/* Contact Us Section with Vertical Separator & Offices */}
         <Reveal delay={120}>
           <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] lg:grid-cols-[260px_1fr] gap-4 sm:gap-6 md:gap-10 lg:gap-12 items-start mb-8 sm:mb-12 md:mb-16">
             {/* Left: Contact Us : */}
             <div>
-              <h2 className="text-[26px] sm:text-[32px] md:text-[38px] lg:text-[44px] font-extrabold text-[#0c1a2e] tracking-tight leading-none">
+              <h2 className="text-[26px] sm:text-[32px] md:text-[38px] lg:text-[44px] font-extrabold text-white tracking-tight leading-none">
                 Contact Us :
               </h2>
             </div>
 
             {/* Right: The 3 Offices with Vertical Divider on md+ screens */}
-            <div className="border-t md:border-t-0 md:border-l-[1.5px] border-[#9ca3af] pt-4 sm:pt-5 md:pt-0 md:pl-6 lg:pl-10 space-y-4 sm:space-y-5 md:space-y-6">
+            <div className="border-t md:border-t-0 md:border-l-[1.5px] border-white/15 pt-4 sm:pt-5 md:pt-0 md:pl-6 lg:pl-10 space-y-4 sm:space-y-5 md:space-y-6">
               {/* Super Cut – USA */}
               <div>
-                <h3 className="font-bold text-[#0c1a2e] text-[15px] sm:text-[16px] md:text-[17.5px] flex items-baseline gap-2 leading-tight">
-                  <span>•</span>
+                <h3 className="font-bold text-white text-[15px] sm:text-[16px] md:text-[17.5px] flex items-baseline gap-2 leading-tight">
+                  <span className="text-[#e5233d]">•</span>
                   <span>Super Cut – USA</span>
                 </h3>
-                <p className="text-[#1e293b] text-[13px] sm:text-[14px] md:text-[15.5px] pl-3.5 sm:pl-4 mt-0.5 sm:mt-1 font-normal leading-snug">
+                <p className="text-white/70 text-[13px] sm:text-[14px] md:text-[15.5px] pl-3.5 sm:pl-4 mt-0.5 sm:mt-1 font-normal leading-snug">
                   9463 Hwy 377 Benbrook, TX 76126, Texas.
                 </p>
               </div>
 
               {/* Super Cut – UK */}
               <div>
-                <h3 className="font-bold text-[#0c1a2e] text-[15px] sm:text-[16px] md:text-[17.5px] flex items-baseline gap-2 leading-tight">
-                  <span>•</span>
+                <h3 className="font-bold text-white text-[15px] sm:text-[16px] md:text-[17.5px] flex items-baseline gap-2 leading-tight">
+                  <span className="text-[#e5233d]">•</span>
                   <span>Super Cut – UK</span>
                 </h3>
-                <p className="text-[#1e293b] text-[13px] sm:text-[14px] md:text-[15.5px] pl-3.5 sm:pl-4 mt-0.5 sm:mt-1 font-normal leading-snug">
+                <p className="text-white/70 text-[13px] sm:text-[14px] md:text-[15.5px] pl-3.5 sm:pl-4 mt-0.5 sm:mt-1 font-normal leading-snug">
                   19 Arthur street Luton, LU1 3SF, London
                 </p>
               </div>
 
               {/* Super Cut – MENA */}
               <div>
-                <h3 className="font-bold text-[#0c1a2e] text-[15px] sm:text-[16px] md:text-[17.5px] flex items-baseline gap-2 leading-tight">
-                  <span>•</span>
+                <h3 className="font-bold text-white text-[15px] sm:text-[16px] md:text-[17.5px] flex items-baseline gap-2 leading-tight">
+                  <span className="text-[#e5233d]">•</span>
                   <span>Super Cut – MENA</span>
                 </h3>
-                <p className="text-[#1e293b] text-[13px] sm:text-[14px] md:text-[15.5px] pl-3.5 sm:pl-4 mt-0.5 sm:mt-1 font-normal leading-snug">
+                <p className="text-white/70 text-[13px] sm:text-[14px] md:text-[15.5px] pl-3.5 sm:pl-4 mt-0.5 sm:mt-1 font-normal leading-snug">
                   PO Box : 778323, Abu Dhabi United Arab Emirates
                 </p>
               </div>
