@@ -9,8 +9,8 @@ if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
   console.error('Usage: npm run create-admin -- you@example.com "a-long-password"');
   process.exit(1);
 }
-if (!password || password.length < 10) {
-  console.error("Password must be at least 10 characters.");
+if (!password || password.length < 4) {
+  console.error("Password must be at least 4 characters.");
   process.exit(1);
 }
 if (!process.env.MONGODB_URI) {
