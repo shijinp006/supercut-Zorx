@@ -146,75 +146,82 @@ export function Home() {
   return (
     <section id="home" className="relative bg-[#0c1a2e] pt-[80px] overflow-hidden">
       <style>{`@keyframes sc-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }`}</style>
-      <div className="px-4 sm:px-8 md:px-12 lg:px-20">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-8 lg:gap-12 items-center pb-16 sm:pb-24 md:pb-28 pt-6 sm:pt-8 md:pt-10">
-          <div>
-            <Reveal>
+      <div className="px-4 sm:px-8 md:px-12 lg:px-20 pt-6 sm:pt-8 md:pt-10 pb-16 sm:pb-20">
+        {/* Modern full-bleed image hero card: dramatic photo, dark gradient, overlaid copy */}
+        <Reveal>
+          <div className="relative w-full min-h-[520px] sm:min-h-[620px] lg:min-h-[680px] rounded-2xl sm:rounded-3xl overflow-hidden">
+            <img
+              src="/images/Compositer.jpeg"
+              alt="Super Cut tungsten carbide composite rod — precision metalworking"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#060c17] via-[#060c17]/70 to-[#060c17]/10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#060c17]/80 via-transparent to-transparent" />
+
+            <div className="relative h-full flex flex-col justify-end p-6 sm:p-10 lg:p-14">
               <p
                 style={{ fontFamily: CONDENSED_FONT }}
-                className="text-[#e5233d] font-semibold tracking-[0.14em] sm:tracking-[0.22em] text-[11px] sm:text-[13px] mb-4 whitespace-nowrap"
+                className="text-[#e5233d] font-semibold tracking-[0.14em] sm:tracking-[0.22em] text-[11px] sm:text-[13px] mb-4 sm:mb-5"
               >
                 ● ABU DHABI • UK • USA — GLOBAL SUPPLY
               </p>
-            </Reveal>
 
-            <Reveal delay={80}>
               <h1
                 style={{ fontFamily: DISPLAY_FONT }}
-                className="text-[34px] min-[390px]:text-[38px] sm:text-[56px] md:text-[68px] lg:text-[76px] leading-[1.12] sm:leading-[1.0] tracking-[0.04em] sm:tracking-[0.05em] uppercase text-white font-black"
+                className="max-w-3xl text-[36px] min-[390px]:text-[40px] sm:text-[58px] md:text-[70px] lg:text-[80px] leading-[1.05] tracking-[0.01em] uppercase text-white font-black"
               >
-                <span className="block mb-2 sm:mb-1">PREMIUM MILLING,</span>
-                <span className="block mb-2 sm:mb-1">HARDFACE</span>
-                <span className="block mb-2 sm:mb-1">&amp; WEAR-RESISTANT</span>
-                <span className="block">ALLOYS</span>
+                Premium Milling
+                &amp; Wear-Resistant Alloys
               </h1>
-            </Reveal>
 
-            <Reveal delay={120}>
-              <p className="mt-6 text-base sm:text-lg text-white/70 font-normal leading-relaxed">
-                Engineered Performance For High-Abrasion &amp; Impact Applications
+              <p className="mt-5 sm:mt-6 max-w-xl text-base sm:text-lg text-white/75 font-normal leading-relaxed">
+                Engineered performance for high-abrasion &amp; impact applications — hardfacing, precision milling &amp; wear-resistant tooling tolerance up to 0.01 mm.
               </p>
+
               <div className="mt-8 flex items-center gap-3 sm:gap-4 flex-nowrap">
                 <button
                   onClick={() => scrollTo("#inserts")}
                   style={{ fontFamily: CONDENSED_FONT }}
-                  className="bg-[#e5233d] text-white font-semibold uppercase tracking-[0.1em] sm:tracking-[0.12em] text-xs sm:text-sm px-4 sm:px-7 py-2.5 sm:py-3 rounded-sm hover:bg-[#c01b32] transition-colors shadow-sm shrink-0 whitespace-nowrap"
+                  className="bg-[#e5233d] text-white font-semibold uppercase tracking-[0.1em] sm:tracking-[0.12em] text-xs sm:text-sm px-5 sm:px-8 py-3 sm:py-3.5 rounded-full hover:bg-[#c01b32] transition-colors shadow-lg shrink-0 whitespace-nowrap"
                 >
                   Explore Products
                 </button>
                 <button
                   onClick={() => scrollTo("#about")}
                   style={{ fontFamily: CONDENSED_FONT }}
-                  className="border-2 border-white/70 text-white font-semibold uppercase tracking-[0.1em] sm:tracking-[0.12em] text-xs sm:text-sm px-4 sm:px-7 py-2.5 sm:py-3 rounded-sm hover:bg-white hover:text-[#0c1a2e] transition-colors shrink-0 whitespace-nowrap"
+                  className="border-2 border-white/60 text-white font-semibold uppercase tracking-[0.1em] sm:tracking-[0.12em] text-xs sm:text-sm px-5 sm:px-8 py-3 sm:py-3.5 rounded-full hover:bg-white hover:text-[#0c1a2e] transition-colors shrink-0 whitespace-nowrap"
                 >
-                  About Us — 02
+                  About Us
                 </button>
               </div>
-              <div className="mt-7 flex flex-wrap gap-x-8 gap-y-2 text-sm font-semibold text-white/85">
-                <span className="inline-flex items-center gap-2"><span className="w-2 h-2 bg-[#e5233d] inline-block" /> Tungsten Carbide Composite Rods</span>
-                <span className="inline-flex items-center gap-2"><span className="w-2 h-2 bg-[#e5233d] inline-block" /> TCI Inserts • HF-5000 Rope • Brazing Alloys</span>
-              </div>
-            </Reveal>
+            </div>
           </div>
+        </Reveal>
 
-          <Reveal delay={150} variant="scale" className="relative">
-            <GlobeRotator className="mb-[-20px]" />
-            <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_1.35fr] gap-3 sm:gap-4">
-              <div className="rounded-xl overflow-hidden bg-white p-3 sm:p-3.5 flex items-center gap-3 sm:gap-3.5 shadow-sm">
-                <img src={IMAGES.buckets} alt="Super Cut packaging" className="w-14 h-14 sm:w-16 sm:h-16 shrink-0 object-cover rounded-lg" />
-                <p className="text-[12px] sm:text-[11px] xl:text-[12px] font-bold leading-snug text-[#0e2547]">
+        {/* Product carousel + highlight cards — modern rounded "glimpse" strip under the hero */}
+        <Reveal delay={150} variant="scale" className="relative mt-10 sm:mt-14">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-6 lg:gap-10 items-center">
+            <GlobeRotator />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div className="rounded-2xl overflow-hidden bg-white p-4 flex items-center gap-3.5 shadow-lg">
+                <img src={IMAGES.buckets} alt="Super Cut packaging" className="w-14 h-14 sm:w-16 sm:h-16 shrink-0 object-cover rounded-xl" />
+                <p className="text-[12px] sm:text-[12.5px] font-bold leading-snug text-[#0e2547]">
                   FACTORY SEALED<br />SUPER CUT<br />PACKAGING
                 </p>
               </div>
-              <div className="rounded-xl overflow-hidden bg-[#e5233d] text-white p-3 sm:p-3.5 flex items-center gap-3 sm:gap-3.5 shadow-sm">
-                <img src={IMAGES.rodPodium} alt="Composite rods" className="w-16 sm:w-20 h-14 sm:h-16 shrink-0 object-cover rounded-lg" />
-                <p className="text-[12px] sm:text-[11px] xl:text-[12px] font-semibold leading-snug">
+              <div className="rounded-2xl overflow-hidden bg-[#e5233d] text-white p-4 flex items-center gap-3.5 shadow-lg">
+                <img src={IMAGES.rodPodium} alt="Composite rods" className="w-16 sm:w-20 h-14 sm:h-16 shrink-0 object-cover rounded-xl" />
+                <p className="text-[12px] sm:text-[12.5px] font-semibold leading-snug">
                   SC-Cr-70 / SC-Cr-60<br />BARE OR FLUX-COATED<br /><span className="text-white/80">10 MESH – 3/8 GRIT</span>
                 </p>
               </div>
             </div>
-          </Reveal>
-        </div>
+          </div>
+          <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-sm font-semibold text-white/85">
+            <span className="inline-flex items-center gap-2"><span className="w-2 h-2 bg-[#e5233d] inline-block rounded-full" /> Tungsten Carbide Composite Rods</span>
+            <span className="inline-flex items-center gap-2"><span className="w-2 h-2 bg-[#e5233d] inline-block rounded-full" /> TCI Inserts • HF-5000 Rope • Brazing Alloys</span>
+          </div>
+        </Reveal>
       </div>
 
       <div className="bg-[#e5233d] text-white overflow-hidden py-3 border-t border-white/10">

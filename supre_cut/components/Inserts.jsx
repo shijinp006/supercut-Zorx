@@ -30,7 +30,7 @@ export function Inserts() {
           {displayedItems.map((item, idx) => (
             <Reveal key={item.id} delay={idx * 50} variant="scale" className="w-full h-full">
               {/* Card wrapper: rounded-xl, cursor-pointer */}
-              <div className="bg-white rounded-xl overflow-hidden border border-black/10 shadow-[0_8px_24px_rgba(0,0,0,0.08)] cursor-pointer group flex flex-col h-full transform hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(0,0,0,0.16)] transition-all duration-300">
+              <div className="bg-white rounded-2xl overflow-hidden border border-black/10 shadow-[0_8px_24px_rgba(0,0,0,0.08)] cursor-pointer group flex flex-col h-full transform hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(0,0,0,0.16)] transition-all duration-300">
 
                 {/* Category label */}
                 <div className="px-3 sm:px-5 pt-3 sm:pt-4">

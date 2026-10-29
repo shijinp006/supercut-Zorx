@@ -126,7 +126,7 @@ export function About() {
             <div className="md:col-span-4">
               <Reveal
                 delay={200}
-                className="h-full bg-white border border-neutral-300 rounded-sm p-3 sm:p-4 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
+                className="h-full bg-white border border-neutral-300 rounded-xl p-3 sm:p-4 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
               >
                 <div
                   onClick={() => setActiveCert({ src: "/images/SUPER_CUT_QMS_Certificate.webp", title: "Registration Certificate - ISO 9001:2015" })}
@@ -149,7 +149,7 @@ export function About() {
             <div className="md:col-span-4">
               <Reveal
                 delay={250}
-                className="h-full bg-white border border-neutral-300 rounded-sm p-3 sm:p-4 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
+                className="h-full bg-white border border-neutral-300 rounded-xl p-3 sm:p-4 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
               >
                 <div
                   onClick={() => setActiveCert({ src: "/images/Quality_Policy_Statement.webp", title: "Quality Policy Statement - SUPER CUT TRADING-L.L.C-S.P.C" })}
@@ -173,7 +173,7 @@ export function About() {
               {/* ISO 9001:2015 Certified Badge */}
               <Reveal
                 delay={300}
-                className="flex-1 bg-white border border-neutral-300 rounded-sm p-3 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
+                className="flex-1 bg-white border border-neutral-300 rounded-xl p-3 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
               >
                 <div
                   onClick={() => setActiveCert({ src: "/images/Royal UAF Logo QMS.JPG.webp", title: "ISO 9001 : 2015 Certified" })}
@@ -194,7 +194,7 @@ export function About() {
               {/* United Accreditation Foundation Badge */}
               <Reveal
                 delay={350}
-                className="flex-1 bg-white border border-neutral-300 rounded-sm p-3 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
+                className="flex-1 bg-white border border-neutral-300 rounded-xl p-3 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
               >
                 <div
                   onClick={() => setActiveCert({ src: "/images/RICL UAF Logo.jpg.webp", title: "United Accreditation Foundation" })}
