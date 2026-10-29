@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Reveal, { CONDENSED_FONT } from "./Reveal";
+import Reveal from "./Reveal";
+import { CONDENSED_FONT } from "./fonts";
 import { OFFICES } from "../data/contactData";
 
 export function Contact() {
@@ -18,7 +19,7 @@ export function Contact() {
   }, []);
 
   return (
-    <section id="contact" className="bg-white scroll-mt-20 pt-6 sm:pt-8 md:pt-10 border-t border-black/10 overflow-hidden">
+    <section className="bg-white pt-10 sm:pt-12 md:pt-14 overflow-hidden">
       {/* Top Left: Stacked SUPER CUT Logo */}
       <div className="px-4 sm:px-8 md:px-12 lg:px-20">
         <Reveal>

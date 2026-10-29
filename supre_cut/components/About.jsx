@@ -1,24 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import Reveal, { CONDENSED_FONT } from "./Reveal";
+import Reveal from "./Reveal";
+import { CONDENSED_FONT } from "./fonts";
 import { OFFERINGS_LEFT, OFFERINGS_RIGHT } from "../data/aboutData";
 
 export function About() {
   const [activeCert, setActiveCert] = useState(null);
 
   return (
-    <section id="about" className="bg-white py-12 lg:py-16 text-neutral-900">
+    <section className="bg-white py-16 lg:py-24 text-neutral-900">
       <div className="px-4 sm:px-8 md:px-12 lg:px-20">
-        {/* Top Page Number & Line */}
-        <div className="w-full border-b border-neutral-300 pb-2 mb-8 sm:mb-10 flex justify-end items-end">
-          <span
-            style={{ fontFamily: CONDENSED_FONT }}
-            className="text-2xl sm:text-3xl font-bold tracking-wider text-neutral-800 select-none"
-          >
-            02
-          </span>
-        </div>
 
         {/* Top Section: About Box (Left) + Lead Paragraph (Right) */}
         <div className="grid lg:grid-cols-[400px_1fr] xl:grid-cols-[440px_1fr] gap-6 lg:gap-10 items-center mb-7 sm:mb-8">
@@ -215,8 +207,6 @@ export function About() {
           </div>
         </div>
 
-        {/* Bottom Page Line */}
-        <div className="border-t border-neutral-300 mt-14 pt-2" />
       </div>
 
       {/* Lightbox Modal for Certificate Preview */}

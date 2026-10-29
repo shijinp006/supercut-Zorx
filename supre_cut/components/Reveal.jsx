@@ -54,6 +54,3 @@ export default function Reveal({ children, delay = 0, variant = "fade-up", class
     </Tag>
   );
 }
-
-export const DISPLAY_FONT = "Anton, Oswald, sans-serif";
-export const CONDENSED_FONT = "Oswald, sans-serif";

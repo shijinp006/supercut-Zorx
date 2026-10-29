@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import Reveal, { DISPLAY_FONT, CONDENSED_FONT } from "./Reveal";
+import Link from "next/link";
+import Reveal from "./Reveal";
+import { CONDENSED_FONT, GROTESK_FONT } from "./fonts";
 import { IMAGES } from "../data/catalogueData";
 import { HOME_PRODUCTS } from "../data/homeData";
 
@@ -137,14 +139,8 @@ function GlobeRotator() {
 
 
 export function Home() {
-  const scrollTo = (href) => {
-    const el = document.querySelector(href);
-    if (el && window.__lenis) window.__lenis.scrollTo(el, { offset: -70, duration: 1.5 });
-    else if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <section id="home" className="relative bg-[#0c1a2e] pt-[80px] overflow-hidden">
+    <section className="relative bg-[#0f0f0f] overflow-hidden">
       <style>{`@keyframes sc-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }`}</style>
       <div className="px-4 sm:px-8 md:px-12 lg:px-20 pt-6 sm:pt-8 md:pt-10 pb-16 sm:pb-20">
         {/* Modern full-bleed image hero card: dramatic photo, dark gradient, overlaid copy */}
@@ -155,8 +151,8 @@ export function Home() {
               alt="Super Cut tungsten carbide composite rod — precision metalworking"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#060c17] via-[#060c17]/70 to-[#060c17]/10" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#060c17]/80 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent" />
 
             <div className="relative h-full flex flex-col justify-end p-6 sm:p-10 lg:p-14">
               <p
@@ -167,11 +163,11 @@ export function Home() {
               </p>
 
               <h1
-                style={{ fontFamily: DISPLAY_FONT }}
-                className="max-w-3xl text-[36px] min-[390px]:text-[40px] sm:text-[58px] md:text-[70px] lg:text-[80px] leading-[1.05] tracking-[0.01em] uppercase text-white font-black"
+                style={{ fontFamily: GROTESK_FONT }}
+                className="max-w-3xl text-[40px] min-[390px]:text-[44px] sm:text-[60px] md:text-[72px] lg:text-[80px] leading-[1.04] tracking-tight text-white font-semibold"
               >
-                Premium Milling
-                &amp; Wear-Resistant Alloys
+                Premium milling.<br />
+                Built to resist wear.
               </h1>
 
               <p className="mt-5 sm:mt-6 max-w-xl text-base sm:text-lg text-white/75 font-normal leading-relaxed">
@@ -179,20 +175,20 @@ export function Home() {
               </p>
 
               <div className="mt-8 flex items-center gap-3 sm:gap-4 flex-nowrap">
-                <button
-                  onClick={() => scrollTo("#inserts")}
+                <Link
+                  href="/products"
                   style={{ fontFamily: CONDENSED_FONT }}
                   className="bg-[#e5233d] text-white font-semibold uppercase tracking-[0.1em] sm:tracking-[0.12em] text-xs sm:text-sm px-5 sm:px-8 py-3 sm:py-3.5 rounded-full hover:bg-[#c01b32] transition-colors shadow-lg shrink-0 whitespace-nowrap"
                 >
                   Explore Products
-                </button>
-                <button
-                  onClick={() => scrollTo("#about")}
+                </Link>
+                <Link
+                  href="/about"
                   style={{ fontFamily: CONDENSED_FONT }}
-                  className="border-2 border-white/60 text-white font-semibold uppercase tracking-[0.1em] sm:tracking-[0.12em] text-xs sm:text-sm px-5 sm:px-8 py-3 sm:py-3.5 rounded-full hover:bg-white hover:text-[#0c1a2e] transition-colors shrink-0 whitespace-nowrap"
+                  className="border-2 border-white/60 text-white font-semibold uppercase tracking-[0.1em] sm:tracking-[0.12em] text-xs sm:text-sm px-5 sm:px-8 py-3 sm:py-3.5 rounded-full hover:bg-white hover:text-[#0f0f0f] transition-colors shrink-0 whitespace-nowrap"
                 >
                   About Us
-                </button>
+                </Link>
               </div>
             </div>
           </div>

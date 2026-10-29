@@ -38,7 +38,7 @@ const TRUST_ITEMS = [
 
 export function ProgramBand() {
   return (
-    <section className="bg-white">
+    <section className="bg-[#0f0f0f] border-y border-white/10">
       {/* Trust indicator row */}
       <div className="px-4 sm:px-8 md:px-12 lg:px-20 py-10 sm:py-12">
         <Reveal>
@@ -54,7 +54,7 @@ export function ProgramBand() {
                 >
                   {item.icon}
                 </svg>
-                <p className="text-[12.5px] sm:text-[13.5px] font-semibold text-[#0c1a2e] leading-snug">
+                <p className="text-[12.5px] sm:text-[13.5px] font-semibold text-white/85 leading-snug">
                   {item.label}
                 </p>
               </div>

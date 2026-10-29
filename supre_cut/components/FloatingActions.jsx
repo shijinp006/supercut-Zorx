@@ -1,18 +1,8 @@
 "use client";
 
-export function FloatingActions() {
-  const handleContactClick = (e) => {
-    const el = document.querySelector("#contact");
-    if (el) {
-      e.preventDefault();
-      if (window.__lenis) {
-        window.__lenis.scrollTo(el, { offset: -70, duration: 1.4 });
-      } else {
-        el.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  };
+import Link from "next/link";
 
+export function FloatingActions() {
   return (
     <div
       className="fixed right-3 sm:right-5 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-3 select-none pointer-events-auto"
@@ -69,17 +59,16 @@ export function FloatingActions() {
 
       {/* Get Quote / Contact */}
       <div style={{ animation: "sc-float-enter 0.7s cubic-bezier(0.16, 1, 0.3, 1) 610ms both" }}>
-        <a
-          href="#contact"
-          onClick={handleContactClick}
+        <Link
+          href="/contact"
           title="Get Quote / Contact"
           aria-label="Get Quote"
-          className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#0c1a2e] text-white flex items-center justify-center shadow-[0_4px_16px_rgba(12,26,46,0.4)] hover:shadow-[0_6px_22px_rgba(12,26,46,0.55)] hover:bg-[#1a4b9c] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer block"
+          className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white text-[#0f0f0f] flex items-center justify-center shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:bg-[#e5233d] hover:text-white hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer block"
         >
           <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
-        </a>
+        </Link>
       </div>
     </div>
   );
