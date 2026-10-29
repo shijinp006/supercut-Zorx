@@ -4,6 +4,7 @@ import { useState } from "react";
 import Reveal from "./Reveal";
 import { CONDENSED_FONT } from "./fonts";
 import { OFFERINGS_LEFT, OFFERINGS_RIGHT } from "../data/aboutData";
+console.log("asdas");
 
 export function About() {
   const [activeCert, setActiveCert] = useState(null);
