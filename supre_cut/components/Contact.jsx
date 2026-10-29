@@ -19,7 +19,7 @@ export function Contact() {
   }, []);
 
   return (
-    <section className="bg-[#0f0f0f] pt-10 sm:pt-12 md:pt-14 overflow-hidden">
+    <section className="bg-[#173a8c] pt-10 sm:pt-12 md:pt-14 overflow-hidden">
       {/* Top Left: Stacked SUPER CUT Logo */}
       <div className="px-4 sm:px-8 md:px-12 lg:px-20">
         <Reveal>
@@ -203,13 +203,13 @@ export function Contact() {
                       : isRightEdge
                         ? "right-0 sm:right-auto sm:left-1/2 sm:-translate-x-1/2"
                         : "left-1/2 -translate-x-1/2"
-                      } bg-[#1a1a1a] border border-white/10 text-white text-xs px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg shadow-2xl whitespace-nowrap transition-all duration-150 pointer-events-none z-30 ${isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"
+                      } bg-[#1f449a] border border-white/10 text-white text-xs px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg shadow-2xl whitespace-nowrap transition-all duration-150 pointer-events-none z-30 ${isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"
                       }`}
                   >
                     <p className="font-bold text-white text-[11px] sm:text-[13px]">{office.tag}</p>
                     <p className="text-neutral-300 text-[10px] sm:text-[11.5px] mt-0.5">{office.city}</p>
                     <div
-                      className={`w-2 h-2 bg-[#1a1a1a] rotate-45 absolute -bottom-1 ${isLeftEdge
+                      className={`w-2 h-2 bg-[#1f449a] rotate-45 absolute -bottom-1 ${isLeftEdge
                         ? "left-3 sm:left-1/2 sm:-translate-x-1/2"
                         : isRightEdge
                           ? "right-3 sm:right-auto sm:left-1/2 sm:-translate-x-1/2"

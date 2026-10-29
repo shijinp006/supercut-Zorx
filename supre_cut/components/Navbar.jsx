@@ -46,7 +46,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 inset-x-0 z-40 animate-nav-slide-down transition-all duration-300 bg-[#0f0f0f]/95 backdrop-blur-md border-b border-white/10">
+      <header className="fixed top-0 inset-x-0 z-40 animate-nav-slide-down transition-all duration-300 bg-[#173a8c]/95 backdrop-blur-md border-b border-white/10">
         <div className="px-4 sm:px-8 md:px-12 lg:px-20 h-[64px] flex items-center justify-between gap-x-4">
           <Logo />
 
@@ -103,7 +103,7 @@ export function Navbar() {
 
         {/* Mobile Dropdown Drawer */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] bg-[#0f0f0f] border-t border-white/10 ${
+          className={`lg:hidden overflow-hidden transition-all duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] bg-[#173a8c] border-t border-white/10 ${
             open ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
           }`}
         >

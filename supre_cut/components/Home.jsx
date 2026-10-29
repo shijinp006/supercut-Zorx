@@ -6,7 +6,7 @@ import { CONDENSED_FONT, GROTESK_FONT } from "./fonts";
 
 export function Home() {
   return (
-    <section className="relative bg-[#0f0f0f] overflow-hidden">
+    <section className="relative bg-[#173a8c] overflow-hidden">
       <style>{`@keyframes sc-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }`}</style>
       <div className="px-4 sm:px-8 md:px-12 lg:px-20 pt-6 sm:pt-8 md:pt-10 pb-16 sm:pb-20">
         {/* Modern full-bleed image hero card: dramatic photo, dark gradient, overlaid copy */}
@@ -17,13 +17,13 @@ export function Home() {
               alt="Super Cut tungsten carbide composite rod — precision metalworking"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/10" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0e2c70] via-[#0e2c70]/70 to-[#0e2c70]/10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0e2c70]/80 via-transparent to-transparent" />
 
             <div className="relative h-full flex flex-col justify-end p-6 sm:p-10 lg:p-14">
               <p
                 style={{ fontFamily: CONDENSED_FONT }}
-                className="text-[#e5233d] font-semibold tracking-[0.14em] sm:tracking-[0.22em] text-[11px] sm:text-[13px] mb-4 sm:mb-5"
+                className="text-white/85 font-semibold tracking-[0.14em] sm:tracking-[0.22em] text-[11px] sm:text-[13px] mb-4 sm:mb-5"
               >
                 ● ABU DHABI • UK • USA — GLOBAL SUPPLY
               </p>
@@ -51,7 +51,7 @@ export function Home() {
                 <Link
                   href="/about"
                   style={{ fontFamily: CONDENSED_FONT }}
-                  className="border-2 border-white/60 text-white font-semibold uppercase tracking-[0.1em] sm:tracking-[0.12em] text-xs sm:text-sm px-5 sm:px-8 py-3 sm:py-3.5 rounded-full hover:bg-white hover:text-[#0f0f0f] transition-colors shrink-0 whitespace-nowrap"
+                  className="border-2 border-white/60 text-white font-semibold uppercase tracking-[0.1em] sm:tracking-[0.12em] text-xs sm:text-sm px-5 sm:px-8 py-3 sm:py-3.5 rounded-full hover:bg-white hover:text-[#173a8c] transition-colors shrink-0 whitespace-nowrap"
                 >
                   About Us
                 </Link>

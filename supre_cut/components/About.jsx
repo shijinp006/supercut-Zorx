@@ -9,14 +9,14 @@ export function About() {
   const [activeCert, setActiveCert] = useState(null);
 
   return (
-    <section className="bg-[#0f0f0f] py-16 lg:py-24 text-white">
+    <section className="bg-[#173a8c] py-16 lg:py-24 text-white">
       <div className="px-4 sm:px-8 md:px-12 lg:px-20">
 
         {/* Top Section: About Box (Left) + Lead Paragraph (Right) */}
         <div className="grid lg:grid-cols-[400px_1fr] xl:grid-cols-[440px_1fr] gap-6 lg:gap-10 items-center mb-7 sm:mb-8">
           {/* About Us Box */}
           <Reveal variant="fade-right">
-            <div className="border border-white/15 rounded-2xl p-6 sm:p-8 bg-[#1a1a1a]">
+            <div className="border border-white/15 rounded-2xl p-6 sm:p-8 bg-[#1f449a]">
               <div className="flex items-stretch gap-4">
                 <div className="w-[4px] bg-[#e5233d] rounded-xs shrink-0 self-stretch my-1" />
                 <div>

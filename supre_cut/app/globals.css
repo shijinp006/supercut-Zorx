@@ -4,7 +4,7 @@
 
 html {
   scrollbar-width: thin;
-  scrollbar-color: #e5233d #0f0f0f;
+  scrollbar-color: #e5233d #173a8c;
 }
 
 ::-webkit-scrollbar {
@@ -13,7 +13,7 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f0f0f;
+  background: #173a8c;
 }
 
 ::-webkit-scrollbar-thumb {

@@ -100,7 +100,7 @@ export function ProductsGrid() {
   };
 
   return (
-    <section className="bg-[#0f0f0f] text-white py-16 lg:py-24 min-h-screen">
+    <section className="bg-[#173a8c] text-white py-16 lg:py-24 min-h-screen">
       <div className="px-4 sm:px-8 md:px-12 lg:px-20">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 sm:mb-12">
           <h1 style={{ fontFamily: GROTESK_FONT }} className="text-[44px] sm:text-[56px] font-bold leading-none tracking-tight">

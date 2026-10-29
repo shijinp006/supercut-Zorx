@@ -10,7 +10,7 @@ const FEATURES = [
 
 export function CompositeRods() {
   return (
-    <section className="bg-[#0f0f0f] text-white py-16 lg:py-24">
+    <section className="bg-[#173a8c] text-white py-16 lg:py-24">
       <div className="px-4 sm:px-8 md:px-12 lg:px-20 grid lg:grid-cols-[1fr_340px] gap-10 lg:gap-20 items-center">
         <div>
           <Reveal>
