@@ -19,8 +19,11 @@ function ArrowLink({ href, children }) {
 export function HomeSections({ children }) {
   return (
     <div className="bg-[#0f0f0f] text-white" style={{ fontFamily: GROTESK_FONT }}>
+      {/* Product line sections */}
+      {children}
+
       {/* Crafting Excellence — text left, image right */}
-      <section className="px-4 sm:px-8 md:px-12 lg:px-20 py-20 lg:py-28 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <section className="px-4 sm:px-8 md:px-12 lg:px-20 py-16 lg:py-24 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <Reveal>
           <h2 className="text-[38px] sm:text-[48px] font-semibold leading-[1.08] tracking-tight">
             Engineered for<br />extreme wear
@@ -46,9 +49,6 @@ export function HomeSections({ children }) {
           </div>
         </Reveal>
       </section>
-
-      {/* Product line sections */}
-      {children}
 
       {/* Designed to Last — full-bleed darkened photo */}
       <section className="relative overflow-hidden">
