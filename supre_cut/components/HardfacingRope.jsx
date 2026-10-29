@@ -23,7 +23,7 @@ export function HardfacingRope() {
           <Reveal>
             <h1 style={{ fontFamily: DISPLAY_FONT }} className="uppercase leading-[0.95] tracking-tight">
               <span className="block text-[#e5233d] text-[clamp(56px,6.5vw,92px)] font-black">Flexible</span>
-              <span className="block text-white text-[clamp(28px,3.4vw,44px)] font-black mt-1 tracking-normal">Hardfacing Rope (HF-5000)</span>
+              <span className="block text-white text-[clamp(28px,3.4vw,44px)] font-black mt-3 sm:mt-4 tracking-normal">Hardfacing Rope (HF-5000)</span>
             </h1>
           </Reveal>
 
