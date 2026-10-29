@@ -6,6 +6,7 @@ import { CONDENSED_FONT, GROTESK_FONT } from "./fonts";
 import { PAGES } from "../data/insertsData";
 
 const ALL_ITEMS = PAGES.flatMap((p) => p.items);
+const PAGE_SIZE = 6;
 
 function ProductModal({ item, onClose }) {
   useEffect(() => {
@@ -81,12 +82,22 @@ function ProductModal({ item, onClose }) {
 export function ProductsGrid() {
   const [query, setQuery] = useState("");
   const [activeItem, setActiveItem] = useState(null);
+  const [page, setPage] = useState(1);
 
   const items = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return ALL_ITEMS;
     return ALL_ITEMS.filter((it) => `${it.title.join(" ")} ${it.desc}`.toLowerCase().includes(q));
   }, [query]);
+
+  const pageCount = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
+  const currentPage = Math.min(page, pageCount);
+  const pageItems = items.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+
+  const goToPage = (n) => {
+    setPage(n);
+    window.__lenis?.scrollTo(0, { immediate: true });
+  };
 
   return (
     <section className="bg-[#0f0f0f] text-white py-16 lg:py-24 min-h-screen">
@@ -104,7 +115,10 @@ export function ProductsGrid() {
             <input
               type="search"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => {
+                setQuery(e.target.value);
+                setPage(1);
+              }}
               placeholder="Search"
               className="w-full bg-[#d9d9d9] text-[#111] placeholder:text-neutral-600 rounded-lg pl-10 pr-4 py-2.5 text-[15px] focus:outline-none focus:ring-2 focus:ring-[#e5233d]"
             />
@@ -115,7 +129,7 @@ export function ProductsGrid() {
           <p className="text-white/60 text-[16px] py-20 text-center">No products match “{query}”.</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {items.map((item, idx) => (
+            {pageItems.map((item, idx) => (
               <Reveal key={item.id} delay={(idx % 3) * 60} className="h-full">
                 <button
                   type="button"
@@ -149,6 +163,49 @@ export function ProductsGrid() {
               </Reveal>
             ))}
           </div>
+        )}
+
+        {pageCount > 1 && (
+          <nav aria-label="Products pagination" className="mt-12 flex items-center justify-center gap-2">
+            <button
+              type="button"
+              onClick={() => goToPage(currentPage - 1)}
+              disabled={currentPage === 1}
+              aria-label="Previous page"
+              className="w-10 h-10 rounded-lg border border-white/15 flex items-center justify-center text-white hover:border-[#e5233d] hover:text-[#e5233d] disabled:opacity-30 disabled:pointer-events-none transition-colors cursor-pointer"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 6l-6 6 6 6" />
+              </svg>
+            </button>
+            {Array.from({ length: pageCount }, (_, i) => i + 1).map((n) => (
+              <button
+                key={n}
+                type="button"
+                onClick={() => goToPage(n)}
+                aria-current={n === currentPage ? "page" : undefined}
+                style={{ fontFamily: GROTESK_FONT }}
+                className={`w-10 h-10 rounded-lg text-[15px] font-semibold transition-colors cursor-pointer ${
+                  n === currentPage
+                    ? "bg-[#e5233d] text-white"
+                    : "border border-white/15 text-white hover:border-[#e5233d] hover:text-[#e5233d]"
+                }`}
+              >
+                {n}
+              </button>
+            ))}
+            <button
+              type="button"
+              onClick={() => goToPage(currentPage + 1)}
+              disabled={currentPage === pageCount}
+              aria-label="Next page"
+              className="w-10 h-10 rounded-lg border border-white/15 flex items-center justify-center text-white hover:border-[#e5233d] hover:text-[#e5233d] disabled:opacity-30 disabled:pointer-events-none transition-colors cursor-pointer"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 6l6 6-6 6" />
+              </svg>
+            </button>
+          </nav>
         )}
       </div>
 
