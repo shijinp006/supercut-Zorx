@@ -59,7 +59,7 @@ export function About() {
             We're Global
           </h3>
           <p className="text-[16px] sm:text-[17.5px] lg:text-[18.5px] leading-[1.65] text-white/80">
-            With an established presence across key markets in the Middle East, Europe, and USA, our
+            With an established presence across key markets in the Middle East, Europe, and the USA, our
             global network allows us to serve clients efficiently with expert technical
             assistance and rapid deployment.
           </p>
