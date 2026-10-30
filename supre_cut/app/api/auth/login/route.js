@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import { getDb } from "../../../../lib/db";
 import { loginSchema, fieldErrors } from "../../../../lib/validation";
 import { SESSION_COOKIE, createSessionToken, sessionCookieOptions } from "../../../../lib/session";
+import { withHttpLog } from "../../../../lib/httpLog";
 
 // Simple per-IP throttle: 5 failed attempts locks that IP for 15 minutes.
 // In-memory, so it resets on redeploy; enough to slow casual guessing.
@@ -13,10 +14,11 @@ const failures = globalThis.__loginFailures ?? (globalThis.__loginFailures = new
 // Compared against when the email is unknown, so timing doesn't reveal which emails exist
 const DUMMY_HASH = bcrypt.hashSync("not-a-real-password", 12);
 
-export async function POST(request) {
+export const POST = withHttpLog(async function POST(request, _context, log) {
   const ip = request.headers.get("x-forwarded-for")?.split(",")[0].trim() || "local";
   const entry = failures.get(ip);
   if (entry && entry.count >= MAX_FAILS && Date.now() - entry.last < LOCK_MS) {
+    log.warn({ ip }, "login throttled");
     return NextResponse.json({ error: "Too many attempts. Try again in 15 minutes." }, { status: 429 });
   }
 
@@ -40,12 +42,14 @@ export async function POST(request) {
   if (!user || !valid || user.role !== "admin") {
     const prev = failures.get(ip);
     failures.set(ip, { count: (prev && Date.now() - prev.last < LOCK_MS ? prev.count : 0) + 1, last: Date.now() });
+    log.warn({ email, ip, reason: !user ? "unknown email" : !valid ? "wrong password" : "not an admin" }, "admin login failed");
     return NextResponse.json({ error: "Incorrect email or password" }, { status: 401 });
   }
 
   failures.delete(ip);
+  log.info({ userId: user._id.toString(), email: user.email }, "admin logged in");
   const token = await createSessionToken({ userId: user._id.toString(), email: user.email, role: user.role });
   const res = NextResponse.json({ ok: true });
   res.cookies.set(SESSION_COOKIE, token, sessionCookieOptions);
   return res;
-}
+});

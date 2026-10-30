@@ -6,6 +6,7 @@ import { getDb } from "../../../../../lib/db";
 import { serializeProduct } from "../../../../../lib/products";
 import { productUpdateSchema, fieldErrors } from "../../../../../lib/validation";
 import { verifyUploadedImage, deleteImage } from "../../../../../lib/cloudinary";
+import { withHttpLog } from "../../../../../lib/httpLog";
 
 const forbidden = () => NextResponse.json({ error: "Admin access required" }, { status: 403 });
 
@@ -18,7 +19,7 @@ async function findProduct(params) {
   return { db, product };
 }
 
-export async function PATCH(request, { params }) {
+export const PATCH = withHttpLog(async function PATCH(request, { params }, log) {
   const admin = await getAdmin();
   if (!admin) return forbidden();
 
@@ -45,7 +46,10 @@ export async function PATCH(request, { params }) {
   const replacingImage = newImage && newImage !== product.imagePublicId;
   if (replacingImage) {
     const image = await verifyUploadedImage(newImage);
-    if (!image.ok) return NextResponse.json({ error: image.error, fields: { image: image.error } }, { status: 400 });
+    if (!image.ok) {
+      log.warn({ imagePublicId: newImage, reason: image.error }, "product image rejected");
+      return NextResponse.json({ error: image.error, fields: { image: image.error } }, { status: 400 });
+    }
     update.imagePublicId = newImage;
     update.imageUrl = image.url;
   }
@@ -55,21 +59,33 @@ export async function PATCH(request, { params }) {
     .findOneAndUpdate({ _id: product._id }, { $set: update }, { returnDocument: "after" });
 
   // Old image is no longer referenced once the new one is saved
-  if (replacingImage) await deleteImage(product.imagePublicId).catch(() => {});
+  if (replacingImage) {
+    await deleteImage(product.imagePublicId).catch((err) =>
+      log.error({ err, imagePublicId: product.imagePublicId }, "could not delete replaced image")
+    );
+  }
 
+  log.info(
+    { productId: product._id.toString(), fields: Object.keys(parsed.data), admin: admin.email },
+    "product updated"
+  );
   revalidatePath("/products");
   return NextResponse.json({ product: serializeProduct(updated) });
-}
+});
 
-export async function DELETE(request, { params }) {
-  if (!(await getAdmin())) return forbidden();
+export const DELETE = withHttpLog(async function DELETE(request, { params }, log) {
+  const admin = await getAdmin();
+  if (!admin) return forbidden();
 
   const { db, product, error } = await findProduct(params);
   if (error) return error;
 
   await db.collection("products").deleteOne({ _id: product._id });
-  await deleteImage(product.imagePublicId).catch(() => {});
+  await deleteImage(product.imagePublicId).catch((err) =>
+    log.error({ err, imagePublicId: product.imagePublicId }, "could not delete product image")
+  );
 
+  log.info({ productId: product._id.toString(), title: product.title, admin: admin.email }, "product deleted");
   revalidatePath("/products");
   return NextResponse.json({ ok: true });
-}
+});
