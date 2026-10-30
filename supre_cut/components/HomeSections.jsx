@@ -66,7 +66,7 @@ export function HomeSections({ children }) {
               lays down a dense surface layer resistant to particle impact and sliding wear.
             </p>
             <p>
-              With an established presence across key markets in the UAE, UK, and USA, our global network allows us to
+              With an established presence across key markets in the Middle East, Europe, and USA, our global network allows us to
               serve clients efficiently with expert technical assistance and rapid deployment.
             </p>
           </div>
