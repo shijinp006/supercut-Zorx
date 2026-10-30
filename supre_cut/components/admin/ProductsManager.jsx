@@ -60,13 +60,13 @@ export function ProductsManager({ adminEmail, initialProducts }) {
           <ul data-lenis-prevent className="lg:flex-1 lg:min-h-0 lg:overflow-y-auto lg:pr-2 [scrollbar-width:thin] grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 auto-rows-max gap-3 sm:gap-4 content-start">
             {shown.map((p) => (
               <li key={p._id} className="bg-[#f4f4f4] text-[#111] rounded-xl overflow-hidden flex flex-col">
-                <div className="aspect-[4/3] bg-[#e4e4e4]">
-                  <img src={cldUrl(p.imageUrl, 500)} alt={p.title} loading="lazy" className="w-full h-full object-contain p-3 mix-blend-multiply" />
+                <div className="relative aspect-[4/3] bg-[#e4e4e4] overflow-hidden">
+                  <img src={cldUrl(p.imageUrl, 500)} alt={p.title} loading="lazy" className="absolute inset-0 w-full h-full object-contain p-3 mix-blend-multiply" />
                 </div>
                 <div className="p-3 sm:p-4 flex-1 flex flex-col">
-                  <p className="font-semibold uppercase text-[13.5px] sm:text-[15px] leading-snug">{p.title}</p>
-                  <p className="mt-1 text-[13px] text-neutral-600 line-clamp-2 flex-1">{p.description}</p>
-                  <div className="mt-3 flex gap-2">
+                  <p className="font-semibold uppercase text-[13.5px] sm:text-[15px] leading-snug line-clamp-2 min-h-[2.75em]">{p.title}</p>
+                  <p className="mt-1 text-[13px] leading-snug text-neutral-600 line-clamp-2 min-h-[2.75em]">{p.description}</p>
+                  <div className="mt-auto pt-3 flex gap-2">
                     <button
                       type="button"
                       onClick={() => setEditing(p)}

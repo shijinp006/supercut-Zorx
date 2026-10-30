@@ -67,25 +67,25 @@ export function ProductsGrid({ items: allItems = [] }) {
                   onClick={() => setActiveItem(item)}
                   className="group w-full h-full text-left rounded-xl overflow-hidden bg-[#f4f4f4] flex flex-col cursor-pointer ring-2 ring-transparent hover:ring-white transition-all duration-300"
                 >
-                  <div className="aspect-[4/3] w-full bg-[#e4e4e4] overflow-hidden flex items-center justify-center">
+                  <div className="relative aspect-[4/3] w-full bg-[#e4e4e4] overflow-hidden">
                     <img
                       src={item.image}
                       alt={item.alt}
                       // First row is on screen at load; the rest wait until scrolled near
                       loading={currentPage === 1 && idx < 3 ? "eager" : "lazy"}
                       decoding="async"
-                      className="w-full h-full object-contain p-5 mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
+                      className="absolute inset-0 w-full h-full object-contain p-5 mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div className="p-4 sm:p-5 flex-1 transition-colors duration-300 group-hover:bg-[#0b1f4b]">
+                  <div className="p-4 sm:p-5 flex-1 flex flex-col items-start transition-colors duration-300 group-hover:bg-[#0b1f4b]">
                     <h2
                       style={{ fontFamily: GROTESK_FONT }}
-                      className="text-[#111] group-hover:text-white text-[17px] sm:text-[18px] font-semibold leading-snug transition-colors"
+                      className="text-[#111] group-hover:text-white text-[17px] sm:text-[18px] font-semibold leading-snug line-clamp-2 min-h-[2.75em] transition-colors"
                     >
                       {item.title.join(" ")}
                     </h2>
-                    <span className="block mt-1.5 h-[2px] w-24 bg-[#0b1f4b] group-hover:bg-white transition-colors" />
-                    <span className="mt-4 inline-flex items-center gap-2 bg-[#0b1f4b] text-white group-hover:bg-white group-hover:text-[#0b1f4b] text-[13.5px] font-semibold px-4 py-2 rounded-lg transition-colors">
+                    <span className="block mt-1.5 mb-4 h-[2px] w-24 bg-[#0b1f4b] group-hover:bg-white transition-colors" />
+                    <span className="mt-auto inline-flex items-center gap-2 bg-[#0b1f4b] text-white group-hover:bg-white group-hover:text-[#0b1f4b] text-[13.5px] font-semibold px-4 py-2 rounded-lg transition-colors">
                       View Product
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="w-3.5 h-3.5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
