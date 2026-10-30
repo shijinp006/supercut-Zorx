@@ -9,20 +9,10 @@ export function Home() {
     <section className="relative bg-[#0b1f4b] overflow-hidden">
       <style>{`@keyframes sc-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }`}</style>
       <div className="px-4 sm:px-8 md:px-12 lg:px-20 pt-6 sm:pt-8 md:pt-10 pb-16 sm:pb-20">
-        {/* Modern full-bleed image hero card: dramatic photo, dark gradient, overlaid copy */}
+        {/* Hero copy on the plain navy page background */}
         <Reveal>
-          <div className="relative w-full min-h-[520px] sm:min-h-[620px] lg:min-h-[680px] rounded-2xl sm:rounded-3xl overflow-hidden">
-            <img
-              src="/images/Compositer.jpeg"
-              fetchPriority="high"
-              decoding="async"
-              alt="Super Cut tungsten carbide composite rod — precision metalworking"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#081a40] via-[#081a40]/70 to-[#081a40]/10" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#081a40]/80 via-transparent to-transparent" />
-
-            <div className="relative h-full flex flex-col justify-end p-6 sm:p-10 lg:p-14">
+          <div className="relative w-full">
+            <div className="relative flex flex-col py-10 sm:py-16 lg:py-20">
               <p
                 style={{ fontFamily: CONDENSED_FONT }}
                 className="text-white/85 font-semibold tracking-[0.14em] sm:tracking-[0.22em] text-[11px] sm:text-[13px] mb-4 sm:mb-5"
