@@ -14,6 +14,8 @@ export function Home() {
           <div className="relative w-full min-h-[520px] sm:min-h-[620px] lg:min-h-[680px] rounded-2xl sm:rounded-3xl overflow-hidden">
             <img
               src="/images/Compositer.jpeg"
+              fetchPriority="high"
+              decoding="async"
               alt="Super Cut tungsten carbide composite rod — precision metalworking"
               className="absolute inset-0 w-full h-full object-cover"
             />

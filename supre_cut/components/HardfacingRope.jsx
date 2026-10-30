@@ -49,6 +49,8 @@ export function HardfacingRope() {
           <div className="w-full max-w-[340px] mx-auto aspect-[3/5] bg-white rounded-2xl p-6 flex items-center justify-center">
             <img
               src={IMAGES.ropeSpool}
+              loading="lazy"
+              decoding="async"
               alt="Flexible Hardfacing Rope Spool"
               className="w-full h-auto object-contain animate-float-spool"
             />

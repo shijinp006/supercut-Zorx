@@ -88,6 +88,8 @@ export function Contact() {
             */}
             <img
               src="/images/global_network_map.png"
+              loading="lazy"
+              decoding="async"
               alt="Super Cut Global Presence Map"
               className="w-full h-auto object-contain block pointer-events-none invert opacity-40"
             />

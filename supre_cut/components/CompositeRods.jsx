@@ -44,6 +44,8 @@ export function CompositeRods() {
         <Reveal variant="scale">
           <img
             src={IMAGES.rodPodium}
+            loading="lazy"
+            decoding="async"
             alt="Super Cut tungsten carbide composite rods"
             className="w-full max-w-[340px] mx-auto aspect-[3/5] object-cover rounded-2xl"
           />
