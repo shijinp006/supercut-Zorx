@@ -118,11 +118,10 @@ export function ProductsGrid({ items: allItems = [] }) {
                 onClick={() => goToPage(n)}
                 aria-current={n === currentPage ? "page" : undefined}
                 style={{ fontFamily: GROTESK_FONT }}
-                className={`w-10 h-10 rounded-lg text-[15px] font-semibold transition-colors cursor-pointer ${
-                  n === currentPage
-                    ? "bg-white text-[#0b1f4b]"
-                    : "border border-white/15 text-white hover:border-white hover:bg-white/10"
-                }`}
+                className={`w-10 h-10 rounded-lg text-[15px] font-semibold transition-colors cursor-pointer ${n === currentPage
+                  ? "bg-white text-[#0b1f4b]"
+                  : "border border-white/15 text-white hover:border-white hover:bg-white/10"
+                  }`}
               >
                 {n}
               </button>

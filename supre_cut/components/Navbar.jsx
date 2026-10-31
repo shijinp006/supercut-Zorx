@@ -47,7 +47,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 inset-x-0 z-40 animate-nav-slide-down transition-all duration-300 bg-[#0b1f4b]/95 backdrop-blur-md border-b border-white/10">
+      <header className="fixed top-0 inset-x-0 z-40 animate-nav-slide-down transition-all duration-300 bg-[#0b1f4b]/95 backdrop-blur-md">
         <div className="px-4 sm:px-8 md:px-12 lg:px-20 h-[64px] flex items-center justify-between gap-x-4">
           <Logo />
 

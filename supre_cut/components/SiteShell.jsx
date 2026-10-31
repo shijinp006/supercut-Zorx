@@ -60,7 +60,7 @@ export function SiteShell({ children }) {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-[#0b1f4b] text-[#0b1526] antialiased overflow-x-clip" style={{ fontFamily: "Philosopher, ui-sans-serif, system-ui, sans-serif" }}>
+    <div className="min-h-screen bg-[#0b1f4b] text-[#0b1526] antialiased overflow-x-clip" style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" }}>
       <style>{`html.lenis, html.lenis body { height: auto; } .lenis.lenis-smooth { scroll-behavior: auto !important; } .lenis.lenis-stopped { overflow: hidden; } ::selection { background: #ffffff; color: #0b1f4b; }`}</style>
       {isAdmin ? (
         <>

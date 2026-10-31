@@ -8,21 +8,20 @@ export function Home() {
   return (
     <section className="relative bg-[#0b1f4b] overflow-hidden">
       <style>{`@keyframes sc-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }`}</style>
-      <div className="px-4 sm:px-8 md:px-12 lg:px-20 pt-6 sm:pt-8 md:pt-10 pb-16 sm:pb-20">
-        {/* Hero copy on the plain navy page background */}
+      <div className="relative px-4 sm:px-8 md:px-12 lg:px-20 pt-6 sm:pt-8 md:pt-10 pb-16 sm:pb-20">
+        {/* Face-mill photo (Unsplash License) faded into the navy on the text side */}
+        <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
+          <img src="/images/hero-face-mill.webp" alt="" fetchPriority="high" className="absolute inset-y-0 right-0 w-full md:w-[70%] h-full object-cover object-center md:[mask-image:linear-gradient(to_right,transparent,black_45%)]" />
+          <div className="absolute inset-0 bg-[#0b1f4b]/80 md:bg-transparent md:bg-gradient-to-r md:from-[#0b1f4b] md:via-[#0b1f4b]/80 md:to-[#0b1f4b]/40" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0b1f4b] to-transparent" />
+        </div>
+
         <Reveal>
           <div className="relative w-full">
             <div className="relative flex flex-col py-10 sm:py-16 lg:py-20">
-              <p
-                style={{ fontFamily: CONDENSED_FONT }}
-                className="text-white/85 font-semibold tracking-[0.14em] sm:tracking-[0.22em] text-[11px] sm:text-[13px] mb-4 sm:mb-5"
-              >
-                ● ABU DHABI • UK • USA — GLOBAL SUPPLY
-              </p>
-
               <h1
                 style={{ fontFamily: GROTESK_FONT }}
-                className="max-w-3xl text-[40px] min-[390px]:text-[44px] sm:text-[60px] md:text-[72px] lg:text-[80px] leading-[1.04] tracking-tight text-white font-semibold"
+                className="max-w-5xl text-[46px] min-[390px]:text-[52px] sm:text-[72px] md:text-[86px] lg:text-[100px] leading-[1.02] tracking-tight text-white font-bold"
               >
                 Premium milling.<br />
                 Built to resist wear.
