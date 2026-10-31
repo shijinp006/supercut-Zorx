@@ -2,16 +2,16 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { GROTESK_FONT } from "../fonts";
+import { ADMIN_FONT } from "../fonts";
 import { AdminHeader } from "./AdminHeader";
 import { ProductForm } from "./ProductForm";
+import { toast } from "./toast";
 
 export function AdminDashboard({ adminEmail, productCount }) {
   const [count, setCount] = useState(productCount);
-  const [message, setMessage] = useState("");
 
   return (
-    <section className="min-h-screen lg:h-screen lg:overflow-hidden flex flex-col bg-[#0b1f4b] text-white" style={{ fontFamily: GROTESK_FONT }}>
+    <section className="min-h-screen lg:h-screen lg:overflow-hidden flex flex-col bg-[#0b1f4b] text-white" style={{ fontFamily: ADMIN_FONT }}>
       <AdminHeader adminEmail={adminEmail} />
 
       <div className="flex-1 lg:min-h-0 px-4 sm:px-8 py-6 lg:py-5 flex justify-center">
@@ -27,10 +27,9 @@ export function AdminDashboard({ adminEmail, productCount }) {
             className="flex-1 lg:min-h-0 min-h-[420px]"
             onSaved={(p) => {
               setCount((c) => c + 1);
-              setMessage(`“${p.title}” added to the Products page.`);
+              toast.success(`“${p.title}” added to the Products page.`);
             }}
           />
-          {message && <p role="status" className="shrink-0 text-[14px] text-[#b6f0c8]">{message}</p>}
         </div>
       </div>
     </section>

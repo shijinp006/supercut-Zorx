@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { api, uploadImage, readError } from "./api";
 import { ImagePicker } from "./ImagePicker";
+import { toast } from "./toast";
 
 const inputClass =
   "w-full bg-[#163672] border border-white/10 text-white placeholder:text-white/45 rounded-lg px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-white";
@@ -11,8 +12,9 @@ const inputClass =
 /**
  * Create (no `product`) or edit (`product` given) form.
  * Uploads a newly picked image to Cloudinary first, then saves through the admin API.
+ * With `onSubmit`, the form only validates and hands over the values so the caller can save in the background.
  */
-export function ProductForm({ product, onSaved, onCancel, className = "" }) {
+export function ProductForm({ product, onSaved, onSubmit, onCancel, className = "" }) {
   const router = useRouter();
   const editing = Boolean(product);
   const [title, setTitle] = useState(product?.title ?? "");
@@ -29,6 +31,7 @@ export function ProductForm({ product, onSaved, onCancel, className = "" }) {
     if (!editing && !file) next.image = "Choose a product image";
     setErrors(next);
     if (Object.keys(next).length) return;
+    if (onSubmit) return onSubmit({ title, description, file });
 
     setSaving(true);
     try {
@@ -48,7 +51,8 @@ export function ProductForm({ product, onSaved, onCancel, className = "" }) {
     } catch (err) {
       const { message, fields, expired } = readError(err);
       if (expired) return router.replace("/admin/login");
-      setErrors(fields || { form: message });
+      if (fields) setErrors(fields);
+      toast.error(message);
     } finally {
       setSaving(false);
       setProgress(null);
@@ -78,8 +82,6 @@ export function ProductForm({ product, onSaved, onCancel, className = "" }) {
         <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description (optional)" aria-label="Description" rows={3} maxLength={600} className={`${inputClass} resize-none`} />
         {errors.description && <p className="mt-1.5 text-[13px] text-[#ffb4b4]">{errors.description}</p>}
       </div>
-
-      {errors.form && <p role="alert" className="shrink-0 text-[14px] text-[#ffb4b4]">{errors.form}</p>}
 
       <div className="shrink-0 flex gap-3">
         {onCancel && (

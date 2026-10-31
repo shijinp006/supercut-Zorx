@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { GROTESK_FONT } from "../fonts";
+import { ADMIN_FONT } from "../fonts";
 
 const inputClass =
   "w-full bg-[#163672] border border-white/10 text-white placeholder:text-white/45 rounded-lg px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-white";
@@ -39,7 +39,7 @@ export function LoginForm() {
   };
 
   return (
-    <section className="min-h-screen bg-[#0b1f4b] text-white flex items-center justify-center px-4" style={{ fontFamily: GROTESK_FONT }}>
+    <section className="min-h-screen bg-[#0b1f4b] text-white flex items-center justify-center px-4" style={{ fontFamily: ADMIN_FONT }}>
       <form onSubmit={handleSubmit} className="w-full max-w-sm bg-[#13306b] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4">
         <div className="text-center mb-2">
           <img src="/images/supercut_logo_stacked.webp" alt="SUPER CUT" className="h-14 w-auto mx-auto bg-white rounded-lg px-3 py-2" />
