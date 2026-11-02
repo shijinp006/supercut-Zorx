@@ -6,6 +6,7 @@ import { sendMail, escapeHtml } from "../../../lib/mail";
 import { withHttpLog } from "../../../lib/httpLog";
 import { clientIp, readJson, bodyErrorResponse } from "../../../lib/http";
 import { hit } from "../../../lib/rateLimit";
+import { emailProblem } from "../../../lib/emailCheck";
 
 // Per-IP limit on form submissions (kept in MongoDB, survives restarts)
 const MAX_PER_HOUR = 10;
@@ -15,11 +16,11 @@ function notificationHtml({ name, email, mobile }, when) {
     `<tr><td style="padding:6px 16px 6px 0;color:#555">${label}</td><td style="padding:6px 0;font-weight:600">${value}</td></tr>`;
   return `<div style="font-family:Arial,sans-serif;font-size:15px;color:#0b1526">
   <h2 style="color:#0b1f4b;margin:0 0 12px">New catalogue download</h2>
-  <p style="margin:0 0 16px">Someone filled in the form and downloaded the Super Cut catalogue.</p>
+  <p style="margin:0 0 16px">Someone filled in the form and downloaded the Super Cut catalogue. Reply to this email to answer them directly.</p>
   <table style="border-collapse:collapse">
     ${row("Name", escapeHtml(name))}
-    ${row("Email", `<a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a>`)}
-    ${row("Mobile", `<a href="tel:${escapeHtml(mobile.replace(/[^+0-9]/g, ""))}">${escapeHtml(mobile)}</a>`)}
+    ${row("Email", escapeHtml(email))}
+    ${row("Mobile", escapeHtml(mobile))}
     ${row("Time", escapeHtml(when))}
   </table>
 </div>`;
@@ -47,6 +48,13 @@ export const POST = withHttpLog(async function POST(request, _context, log) {
     return NextResponse.json({ error: "Check the highlighted fields", fields }, { status: 400 });
   }
   const { name, email, mobile } = parsed.data;
+
+  // Fake or throwaway addresses are refused, so every lead is someone the team can reply to
+  const problem = await emailProblem(email);
+  if (problem) {
+    log.info({ email, reason: problem }, "catalogue email rejected");
+    return NextResponse.json({ error: "Check the highlighted fields", fields: { email: problem } }, { status: 400 });
+  }
   const now = new Date();
 
   // Kept in the database too, so no lead is lost if an email fails
