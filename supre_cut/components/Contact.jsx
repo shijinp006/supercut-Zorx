@@ -159,10 +159,10 @@ export function Contact({ showMap = true }) {
                     <div
                       className="absolute w-4 h-4 sm:w-6 sm:h-6 rounded-full border border-white/70 bg-white/10"
                       style={{
+                        // Delay is part of the shorthand: mixing it with animationDelay upsets React on rerender
                         animation: isMobile
-                          ? "map-sonar-ping-mobile 2.4s cubic-bezier(0.1, 0.45, 0.3, 1) infinite"
-                          : "map-sonar-ping-desktop 2.6s cubic-bezier(0.1, 0.45, 0.3, 1) infinite",
-                        animationDelay: "0s",
+                          ? "map-sonar-ping-mobile 2.4s cubic-bezier(0.1, 0.45, 0.3, 1) 0s infinite"
+                          : "map-sonar-ping-desktop 2.6s cubic-bezier(0.1, 0.45, 0.3, 1) 0s infinite",
                       }}
                     />
 
@@ -170,10 +170,10 @@ export function Contact({ showMap = true }) {
                     <div
                       className="absolute w-4 h-4 sm:w-6 sm:h-6 rounded-full border border-white/50 bg-white/5"
                       style={{
+                        // Delay is part of the shorthand: mixing it with animationDelay upsets React on rerender
                         animation: isMobile
-                          ? "map-sonar-ping-mobile 2.4s cubic-bezier(0.1, 0.45, 0.3, 1) infinite"
-                          : "map-sonar-ping-desktop 2.6s cubic-bezier(0.1, 0.45, 0.3, 1) infinite",
-                        animationDelay: "1.0s",
+                          ? "map-sonar-ping-mobile 2.4s cubic-bezier(0.1, 0.45, 0.3, 1) 1.0s infinite"
+                          : "map-sonar-ping-desktop 2.6s cubic-bezier(0.1, 0.45, 0.3, 1) 1.0s infinite",
                       }}
                     />
                   </div>
@@ -182,8 +182,7 @@ export function Contact({ showMap = true }) {
                   <div
                     className="relative transform transition-all duration-200 ease-out group-hover:scale-125 group-hover:-translate-y-1"
                     style={{
-                      animation: `map-pin-float 3.2s ease-in-out infinite`,
-                      animationDelay: office.delay,
+                      animation: `map-pin-float 3.2s ease-in-out ${office.delay} infinite`,
                     }}
                   >
                     <svg

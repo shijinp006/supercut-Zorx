@@ -79,14 +79,14 @@ html {
   }
 }
 
-/* Home hero product tiles: slow up-and-down drift */
-@keyframes hero-tile-float {
-  0%,
-  100% {
-    transform: translateY(0);
+
+/* Home hero product ring: one slow turn */
+@keyframes sc-ring {
+  from {
+    transform: rotateY(0deg);
   }
 
-  50% {
-    transform: translateY(-10px);
+  to {
+    transform: rotateY(-360deg);
   }
 }
