@@ -1,14 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import Reveal from "./Reveal";
 import { CONDENSED_FONT } from "./fonts";
 import { OFFERINGS_LEFT, OFFERINGS_RIGHT } from "../data/aboutData";
 
 
 export function About() {
-  const [activeCert, setActiveCert] = useState(null);
-
   return (
     <section className="bg-[#0b1f4b] py-16 lg:py-24 text-white">
       <div className="px-4 sm:px-8 md:px-12 lg:px-20">
@@ -103,148 +100,8 @@ export function About() {
           </div>
         </div>
 
-        {/* Highest Standards — Certificates Section (Matching brochure bottom layout) */}
-        <div className="pt-2 border-l-4 border-white pl-4 sm:pl-5">
-          <Reveal delay={180}>
-            <h3 style={{ fontFamily: CONDENSED_FONT }} className="font-bold uppercase tracking-[0.1em] text-[13px] text-white mb-2">
-              Highest Standards
-            </h3>
-            <p className="text-[15px] sm:text-[16px] text-white/70 mb-5 max-w-2xl">
-              Every shipment is backed by certified quality management systems and
-              accredited testing standards.
-            </p>
-          </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 lg:gap-6 items-stretch">
-            {/* Certificate 1: Registration Certificate */}
-            <div className="md:col-span-4">
-              <Reveal
-                delay={200}
-                className="h-full bg-white border border-white/10 rounded-xl p-3 sm:p-4 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
-              >
-                <div
-                  onClick={() => setActiveCert({ src: "/images/SUPER_CUT_QMS_Certificate.webp", title: "Registration Certificate - ISO 9001:2015" })}
-                  className="w-full h-full flex flex-col items-center justify-center overflow-hidden"
-                >
-                  <img
-                    src="/images/SUPER_CUT_QMS_Certificate.webp"
-                    alt="Registration Certificate - ISO 9001:2015 Quality Management Systems"
-                    className="w-full max-h-[340px] sm:max-h-[380px] object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-                    loading="lazy"
-                  />
-                  <span className="mt-2 text-xs font-semibold text-neutral-500 opacity-0 group-hover:opacity-100 transition-opacity">
-                    Click to enlarge
-                  </span>
-                </div>
-              </Reveal>
-            </div>
-
-            {/* Certificate 2: Quality Policy Statement */}
-            <div className="md:col-span-4">
-              <Reveal
-                delay={250}
-                className="h-full bg-white border border-white/10 rounded-xl p-3 sm:p-4 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
-              >
-                <div
-                  onClick={() => setActiveCert({ src: "/images/Quality_Policy_Statement.webp", title: "Quality Policy Statement - SUPER CUT TRADING-L.L.C-S.P.C" })}
-                  className="w-full h-full flex flex-col items-center justify-center overflow-hidden"
-                >
-                  <img
-                    src="/images/Quality_Policy_Statement.webp"
-                    alt="Quality Policy Statement"
-                    className="w-full max-h-[340px] sm:max-h-[380px] object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-                    loading="lazy"
-                  />
-                  <span className="mt-2 text-xs font-semibold text-neutral-500 opacity-0 group-hover:opacity-100 transition-opacity">
-                    Click to enlarge
-                  </span>
-                </div>
-              </Reveal>
-            </div>
-
-            {/* Certificate 3 & 4: Stacked Badges */}
-            <div className="md:col-span-4 flex flex-col gap-4 sm:gap-5 justify-between">
-              {/* ISO 9001:2015 Certified Badge */}
-              <Reveal
-                delay={300}
-                className="flex-1 bg-white border border-white/10 rounded-xl p-3 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
-              >
-                <div
-                  onClick={() => setActiveCert({ src: "/images/Royal UAF Logo QMS.JPG.webp", title: "ISO 9001 : 2015 Certified" })}
-                  className="w-full h-full flex flex-col items-center justify-center overflow-hidden"
-                >
-                  <img
-                    src="/images/Royal UAF Logo QMS.JPG.webp"
-                    alt="ISO 9001 : 2015 Certified - UAF & RICL"
-                    className="w-full max-h-[160px] object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-                    loading="lazy"
-                  />
-                  <span className="mt-1 text-xs font-semibold text-neutral-500 opacity-0 group-hover:opacity-100 transition-opacity">
-                    Click to enlarge
-                  </span>
-                </div>
-              </Reveal>
-
-              {/* United Accreditation Foundation Badge */}
-              <Reveal
-                delay={350}
-                className="flex-1 bg-white border border-white/10 rounded-xl p-3 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center items-center cursor-pointer group"
-              >
-                <div
-                  onClick={() => setActiveCert({ src: "/images/RICL UAF Logo.jpg.webp", title: "United Accreditation Foundation" })}
-                  className="w-full h-full flex flex-col items-center justify-center overflow-hidden"
-                >
-                  <img
-                    src="/images/RICL UAF Logo.jpg.webp"
-                    alt="United Accreditation Foundation - USA"
-                    className="w-full max-h-[160px] object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-                    loading="lazy"
-                  />
-                  <span className="mt-1 text-xs font-semibold text-neutral-500 opacity-0 group-hover:opacity-100 transition-opacity">
-                    Click to enlarge
-                  </span>
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </div>
-
       </div>
 
-      {/* Lightbox Modal for Certificate Preview */}
-      {activeCert && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          onClick={() => setActiveCert(null)}
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4 transition-all duration-300 animate-in fade-in"
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="relative bg-white rounded-lg max-w-3xl w-full p-4 sm:p-6 shadow-2xl overflow-hidden max-h-[92vh] flex flex-col items-center"
-          >
-            <div className="w-full flex justify-between items-center pb-3 border-b border-neutral-200 mb-4">
-              <h4 className="font-bold text-neutral-900 text-base sm:text-lg">
-                {activeCert.title}
-              </h4>
-              <button
-                type="button"
-                onClick={() => setActiveCert(null)}
-                aria-label="Close"
-                className="text-neutral-500 hover:text-neutral-900 p-1.5 rounded-lg hover:bg-neutral-100 text-xl font-bold cursor-pointer transition-colors"
-              >
-                ✕
-              </button>
-            </div>
-            <div className="overflow-auto w-full flex justify-center py-2">
-              <img
-                src={activeCert.src}
-                alt={activeCert.title}
-                className="max-h-[75vh] w-auto object-contain rounded-sm shadow-md"
-              />
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

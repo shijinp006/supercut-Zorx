@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Reveal from "./Reveal";
-import { CONDENSED_FONT } from "./fonts";
-import { OFFICES } from "../data/contactData";
 
-export function Contact() {
+import { OFFICES } from "../data/contactData";
+import { cldImage } from "../lib/cloudinaryUrl";
+
+/** `showMap`: the world map with office pins is only shown on the home page */
+export function Contact({ showMap = true }) {
   const [activeOffice, setActiveOffice] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -34,6 +36,7 @@ export function Contact() {
       </div>
 
       {/* Center: Full-Width World Map with transparent background, static upright orientation, and 3 icons in mobile view */}
+      {showMap && (
       <Reveal delay={60}>
         <div className="relative w-full mb-4 sm:mb-6 md:mb-8 select-none">
           <style>{`
@@ -81,13 +84,13 @@ export function Contact() {
             }
           `}</style>
 
-          {/* Static Upright Earth Container */}
-          <div className="relative w-full">
+          {/* Static Upright Earth Container. Pins are placed in % of this box, so narrowing it shrinks the whole map */}
+          <div className="relative w-full sm:w-[85%] md:w-[72%] lg:w-[60%] max-w-[900px] mx-auto">
             {/* 
               Transparent Background World Map, Edge-to-Edge w-full
             */}
             <img
-              src="/images/global_network_map.png"
+              src={cldImage("supercut/site/global-network-map", 1400)}
               loading="lazy"
               decoding="async"
               alt="Super Cut Global Presence Map"
@@ -225,9 +228,10 @@ export function Contact() {
           </div>
         </div>
       </Reveal>
+      )}
 
-      {/* Lower Section: Divider and Contact Information */}
-      <div className="px-4 sm:px-8 md:px-12 lg:px-20">
+      {/* Lower Section: Divider and Contact Information. Contact links scroll to here (#contact) */}
+      <div id="contact" className="px-4 sm:px-8 md:px-12 lg:px-20 scroll-mt-16">
         {/* Clean Horizontal Divider Rule */}
         <div className="w-full h-[1px] sm:h-[1.5px] bg-white/15 my-6 sm:my-8 md:my-12" />
 

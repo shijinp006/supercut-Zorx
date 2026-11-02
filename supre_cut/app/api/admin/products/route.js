@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
 import { getAdmin } from "../../../../lib/auth";
 import { getDb } from "../../../../lib/db";
-import { listProducts, serializeProduct } from "../../../../lib/products";
+import { listProducts, serializeProduct, refreshProducts } from "../../../../lib/products";
 import { productSchema, fieldErrors } from "../../../../lib/validation";
 import { verifyUploadedImage } from "../../../../lib/cloudinary";
 import { withHttpLog } from "../../../../lib/httpLog";
+import { readJson, bodyErrorResponse } from "../../../../lib/http";
 
 const forbidden = () => NextResponse.json({ error: "Admin access required" }, { status: 403 });
 
@@ -20,9 +20,9 @@ export const POST = withHttpLog(async function POST(request, _context, log) {
 
   let body;
   try {
-    body = await request.json();
-  } catch {
-    return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+    body = await readJson(request);
+  } catch (err) {
+    return bodyErrorResponse(err);
   }
 
   const parsed = productSchema.safeParse(body);
@@ -43,6 +43,6 @@ export const POST = withHttpLog(async function POST(request, _context, log) {
   const { insertedId } = await db.collection("products").insertOne(doc);
 
   log.info({ productId: insertedId.toString(), title, admin: admin.email }, "product created");
-  revalidatePath("/products");
+  refreshProducts();
   return NextResponse.json({ product: serializeProduct({ ...doc, _id: insertedId }) }, { status: 201 });
 });

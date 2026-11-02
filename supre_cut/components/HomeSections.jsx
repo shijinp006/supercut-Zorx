@@ -53,28 +53,6 @@ export function HomeSections({ children }) {
           </div>
         </Reveal>
       </section>
-
-      {/* Designed to Last — full-bleed darkened photo */}
-      <section className="relative overflow-hidden">
-        <img src={IMAGES.rodClose} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-        <div className="absolute inset-0 bg-[#081a40]/80" />
-        <Reveal className="relative px-4 sm:px-8 md:px-12 lg:px-20 py-24 lg:py-36 max-w-4xl mx-auto text-center">
-          <h2 className="text-[38px] sm:text-[52px] font-semibold leading-[1.08] tracking-tight">Designed to last</h2>
-          <div className="mt-6 space-y-5 text-[16px] sm:text-[17px] leading-relaxed text-white/85">
-            <p>
-              Our composite rods deliver maximum abrasion resistance and cutting speed, while our hardfacing rope
-              lays down a dense surface layer resistant to particle impact and sliding wear.
-            </p>
-            <p>
-              With an established presence across key markets in the Middle East, Europe, and the USA, our global network allows us to
-              serve clients efficiently with expert technical assistance and rapid deployment.
-            </p>
-          </div>
-          <div className="mt-9 flex justify-center">
-            <ArrowLink href="/products">Discover Our Products</ArrowLink>
-          </div>
-        </Reveal>
-      </section>
     </div>
   );
 }

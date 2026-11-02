@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { CONDENSED_FONT, GROTESK_FONT } from "./fonts";
+import { CatalogueButton } from "./CatalogueDownload";
 
 export default function ProductModal({ item, onClose }) {
   useEffect(() => {
@@ -58,14 +59,11 @@ export default function ProductModal({ item, onClose }) {
               >
                 Enquire on WhatsApp
               </a>
-              <a
-                href="/images/1212_compressed.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+              <CatalogueButton
                 className="border-2 border-[#111] text-[#111] font-semibold text-sm px-6 py-3 rounded-lg hover:bg-[#111] hover:text-white transition-colors"
               >
                 Full Catalogue (PDF)
-              </a>
+              </CatalogueButton>
             </div>
           </div>
         </div>

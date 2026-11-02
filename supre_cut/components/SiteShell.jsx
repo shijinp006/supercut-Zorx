@@ -7,6 +7,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { Contact } from "./Contact";
 import { FloatingActions } from "./FloatingActions";
 import { Toaster } from "./admin/Toaster";
 
@@ -72,6 +73,8 @@ export function SiteShell({ children }) {
           <Navbar />
           <FloatingActions />
           <main className="pt-[64px]">{children}</main>
+          {/* Contact details on every page, like a footer (office map on the home page only); contact links scroll here */}
+          <Contact showMap={pathname === "/"} />
           <Footer />
         </>
       )}

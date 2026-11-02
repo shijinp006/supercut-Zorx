@@ -78,3 +78,15 @@ html {
     scrollbar-color: #9db0d6 transparent;
   }
 }
+
+/* Home hero product tiles: slow up-and-down drift */
+@keyframes hero-tile-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}

@@ -1,4 +1,5 @@
 import "./globals.css";
+import { headers } from "next/headers";
 import { SiteShell } from "../components/SiteShell";
 
 export const metadata = {
@@ -18,7 +19,10 @@ export const viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  // Reading the request headers renders every page per request, which the CSP nonce set in
+  // middleware.js needs (a pre-built page can't carry a per-request nonce). Data stays cached.
+  await headers();
   return (
     <html lang="en">
       <head>

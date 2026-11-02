@@ -1,13 +1,6 @@
-import { Contact } from "../../components/Contact";
-import { ContactForm } from "../../components/ContactForm";
+import { redirect } from "next/navigation";
 
-export const metadata = { title: "Contact" };
-
+// Contact details now sit at the bottom of every page; keep old /contact links working
 export default function Page() {
-  return (
-    <>
-      <ContactForm />
-      <Contact />
-    </>
-  );
+  redirect("/#contact");
 }

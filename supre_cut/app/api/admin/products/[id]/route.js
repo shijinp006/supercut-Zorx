@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
 import { ObjectId } from "mongodb";
 import { getAdmin } from "../../../../../lib/auth";
 import { getDb } from "../../../../../lib/db";
-import { serializeProduct } from "../../../../../lib/products";
+import { serializeProduct, refreshProducts } from "../../../../../lib/products";
 import { productUpdateSchema, fieldErrors } from "../../../../../lib/validation";
 import { verifyUploadedImage, deleteImage } from "../../../../../lib/cloudinary";
 import { withHttpLog } from "../../../../../lib/httpLog";
+import { readJson, bodyErrorResponse } from "../../../../../lib/http";
 
 const forbidden = () => NextResponse.json({ error: "Admin access required" }, { status: 403 });
 
@@ -28,9 +28,9 @@ export const PATCH = withHttpLog(async function PATCH(request, { params }, log) 
 
   let body;
   try {
-    body = await request.json();
-  } catch {
-    return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+    body = await readJson(request);
+  } catch (err) {
+    return bodyErrorResponse(err);
   }
 
   const parsed = productUpdateSchema.safeParse(body);
@@ -69,7 +69,7 @@ export const PATCH = withHttpLog(async function PATCH(request, { params }, log) 
     { productId: product._id.toString(), fields: Object.keys(parsed.data), admin: admin.email },
     "product updated"
   );
-  revalidatePath("/products");
+  refreshProducts();
   return NextResponse.json({ product: serializeProduct(updated) });
 });
 
@@ -86,6 +86,6 @@ export const DELETE = withHttpLog(async function DELETE(request, { params }, log
   );
 
   log.info({ productId: product._id.toString(), title: product.title, admin: admin.email }, "product deleted");
-  revalidatePath("/products");
+  refreshProducts();
   return NextResponse.json({ ok: true });
 });

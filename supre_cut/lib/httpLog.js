@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { logger } from "./logger";
+import { clientIp } from "./http";
 
 /**
  * Wraps a route handler with pino HTTP logging, in the same shape pino-http uses
@@ -18,7 +19,7 @@ export function withHttpLog(handler) {
       id: reqId,
       method: request.method,
       url: url.pathname + url.search,
-      remoteAddress: request.headers.get("x-forwarded-for")?.split(",")[0].trim() || "local",
+      remoteAddress: clientIp(request),
       userAgent: request.headers.get("user-agent") || undefined,
     };
     const log = logger.child({ reqId });

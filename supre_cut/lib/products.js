@@ -1,4 +1,7 @@
+import { unstable_cache, revalidatePath, revalidateTag } from "next/cache";
 import { getDb } from "./db";
+
+const PRODUCTS_TAG = "products";
 
 /** All products in display order (oldest first, so the original catalogue leads) */
 export async function listProducts() {
@@ -15,4 +18,17 @@ export function serializeProduct(p) {
     imageUrl: p.imageUrl,
     imagePublicId: p.imagePublicId,
   };
+}
+
+/**
+ * Public product list, cached between requests so visitors don't hit MongoDB on every page view.
+ * Tagged, so refreshProducts() makes the very next request read fresh data; hourly as a fallback.
+ * The admin dashboard keeps using listProducts() directly so it always shows live data.
+ */
+export const listProductsCached = unstable_cache(listProducts, ["products-list"], { tags: [PRODUCTS_TAG], revalidate: 3600 });
+
+/** Call after any product add / edit / delete: drops the cached list and the rendered Products page */
+export function refreshProducts() {
+  revalidateTag(PRODUCTS_TAG);
+  revalidatePath("/products");
 }

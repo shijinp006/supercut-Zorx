@@ -30,6 +30,18 @@ export const productUpdateSchema = z
   .partial()
   .refine((v) => Object.keys(v).length > 0, { message: "Nothing to update" });
 
+// Catalogue download form (public)
+export const catalogueRequestSchema = z.object({
+  name: z.string().trim().min(2, "Enter your name").max(80, "Name must be 80 characters or fewer"),
+  email: z.string().trim().toLowerCase().email("Enter a valid email").max(200),
+  mobile: z
+    .string()
+    .trim()
+    .regex(/^\+?[0-9][0-9\s()-]{6,19}$/, "Enter a valid mobile number"),
+  // Honeypot: hidden from people, bots fill it in
+  company: z.string().max(0).optional().default(""),
+});
+
 /** Flattens zod issues into { field: message } for the form */
 export function fieldErrors(error) {
   const out = {};

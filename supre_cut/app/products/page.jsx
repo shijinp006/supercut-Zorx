@@ -1,16 +1,15 @@
 import { ProductsGrid } from "../../components/ProductsGrid";
-import { listProducts } from "../../lib/products";
+import { listProductsCached } from "../../lib/products";
 import { PAGES } from "../../data/insertsData";
 import { cldUrl } from "../../lib/cloudinaryUrl";
 
 export const metadata = { title: "Products" };
 
-// Rebuilt when an admin adds, edits or deletes a product (revalidatePath), and hourly as a fallback
-export const revalidate = 3600;
+// The product list itself is cached in lib/products.js and refreshed whenever an admin adds, edits or deletes a product
 
 async function getItems() {
   try {
-    const products = await listProducts();
+    const products = await listProductsCached();
     return products.map((p) => ({
       id: p._id,
       title: [p.title.toUpperCase()],

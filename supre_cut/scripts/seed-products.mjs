@@ -2,8 +2,6 @@
 // uploading each product image to Cloudinary. Safe to re-run: already-imported
 // products (matched by seedId) are skipped.
 // Usage: npm run seed-products
-import fs from "node:fs";
-import path from "node:path";
 import crypto from "node:crypto";
 import { MongoClient } from "mongodb";
 import { PAGES } from "../data/insertsData.js";
@@ -20,10 +18,11 @@ function sign(params) {
   return crypto.createHash("sha1").update(toSign + secret).digest("hex");
 }
 
-async function upload(filePath, publicId) {
+// Catalogue images now live in Cloudinary, so Cloudinary copies them from their URL
+async function upload(fileUrl, publicId) {
   const params = { folder: FOLDER, public_id: publicId, timestamp: Math.round(Date.now() / 1000) };
   const form = new FormData();
-  form.append("file", new Blob([fs.readFileSync(filePath)]), path.basename(filePath));
+  form.append("file", fileUrl);
   for (const [k, v] of Object.entries(params)) form.append(k, String(v));
   form.append("api_key", key);
   form.append("signature", sign(params));
@@ -47,8 +46,7 @@ try {
       console.log(`skip    ${item.id} (already imported)`);
       continue;
     }
-    const file = path.join("public", decodeURIComponent(item.image));
-    const asset = await upload(file, item.id);
+    const asset = await upload(item.image, item.id);
     await products.insertOne({
       title: item.title.join(" "),
       description: item.desc,
