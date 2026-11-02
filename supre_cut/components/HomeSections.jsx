@@ -23,7 +23,7 @@ export function HomeSections({ children }) {
       {children}
 
       {/* Crafting Excellence — text left, image right */}
-      <section className="px-4 sm:px-8 md:px-12 lg:px-20 py-16 lg:py-24 grid lg:grid-cols-[1fr_340px] gap-10 lg:gap-20 items-center">
+      <section className="px-4 sm:px-8 md:px-12 lg:px-20 py-10 lg:py-14 grid lg:grid-cols-[1fr_340px] gap-10 lg:gap-20 items-center">
         <Reveal>
           <h2
             style={{ fontFamily: DISPLAY_FONT }}

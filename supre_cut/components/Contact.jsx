@@ -21,7 +21,7 @@ export function Contact({ showMap = true }) {
   }, []);
 
   return (
-    <section className="bg-[#0b1f4b] pt-10 sm:pt-12 md:pt-14 overflow-hidden">
+    <section className="bg-[#0b1f4b] pt-6 sm:pt-8 md:pt-10 overflow-hidden">
       {/* Top Left: Stacked SUPER CUT Logo */}
       <div className="px-4 sm:px-8 md:px-12 lg:px-20">
         <Reveal>
@@ -85,7 +85,7 @@ export function Contact({ showMap = true }) {
           `}</style>
 
           {/* Static Upright Earth Container. Pins are placed in % of this box, so narrowing it shrinks the whole map */}
-          <div className="relative w-full sm:w-[85%] md:w-[72%] lg:w-[60%] max-w-[900px] mx-auto">
+          <div className="relative w-full sm:w-[92%] md:w-[85%] lg:w-[75%] max-w-[1150px] mx-auto">
             {/* 
               Transparent Background World Map, Edge-to-Edge w-full
             */}

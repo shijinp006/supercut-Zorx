@@ -10,7 +10,7 @@ const FEATURES = [
 
 export function HardfacingRope() {
   return (
-    <section className="bg-[#0b1f4b] text-white py-16 lg:py-24">
+    <section className="bg-[#0b1f4b] text-white py-10 lg:py-14">
       <style>{`
         @keyframes float-spool {
           0%, 100% { transform: translateY(0); }
