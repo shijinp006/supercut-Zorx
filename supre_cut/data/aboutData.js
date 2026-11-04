@@ -1,5 +1,5 @@
 // About page data
-console.log("ss");
+
 
 export const OFFERINGS_LEFT = [
   "Tungsten Carbide Composite Rods",
