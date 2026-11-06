@@ -67,7 +67,7 @@ export const POST = withHttpLog(async function POST(request, _context, log) {
     log.error({ err }, "could not save catalogue lead");
   }
 
-  // The visitor still gets the catalogue if the notification email fails; the failure is logged
+  // No download unless the team was notified, so every download has reached them as a lead
   try {
     const when = now.toLocaleString("en-GB", { timeZone: "Asia/Dubai", dateStyle: "medium", timeStyle: "short" }) + " (UAE)";
     await sendMail({
@@ -78,6 +78,7 @@ export const POST = withHttpLog(async function POST(request, _context, log) {
     });
   } catch (err) {
     log.error({ err, leadId }, "catalogue notification email failed");
+    return NextResponse.json({ error: "We couldn't start your download right now. Please try again later." }, { status: 503 });
   }
 
   log.info({ leadId, email }, "catalogue requested");
