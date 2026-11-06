@@ -128,11 +128,19 @@ function CatalogueForm({ onClose }) {
 }
 
 /** A button (styled by the caller) that asks for name, email and mobile before the catalogue downloads */
-export function CatalogueButton({ children, className, ...props }) {
+export function CatalogueButton({ children, className, onClick, ...props }) {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <button type="button" onClick={() => setOpen(true)} className={`${className} cursor-pointer`} {...props}>
+      <button
+        type="button"
+        onClick={(e) => {
+          setOpen(true);
+          onClick?.(e);
+        }}
+        className={`${className} cursor-pointer`}
+        {...props}
+      >
         {children}
       </button>
       {/* Portalled to <body>: the buttons sit inside animated (transformed) containers that would trap a fixed overlay */}

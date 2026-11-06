@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "../data/catalogueData";
 import { CONDENSED_FONT } from "./fonts";
 import { ContactLink } from "./ContactLink";
+import { CatalogueButton } from "./CatalogueDownload";
 
 // Every public page is rendered per request (for the CSP nonce), so Next's default prefetch stores
 // nothing and each click would wait on the server. A full prefetch makes these clicks instant.
@@ -84,13 +85,12 @@ export function Navbar() {
 
           {/* Right Action Group */}
           <div className="flex items-center gap-2 xl:gap-3">
-            <ContactLink
-              
+            <CatalogueButton
               style={{ fontFamily: CONDENSED_FONT }}
               className="hidden lg:inline-block text-[13px] font-bold tracking-[0.12em] uppercase bg-white text-[#0b1f4b] px-5 py-2.5 rounded-lg hover:bg-[#dbe4f3] transition-colors shrink-0"
             >
               Get Quote
-            </ContactLink>
+            </CatalogueButton>
 
             {/* Mobile / Tablet Hamburger */}
             <button
@@ -139,14 +139,13 @@ export function Navbar() {
               style={{ transitionDelay: open ? `${40 + NAV_LINKS.length * 25}ms` : "0ms" }}
               className={`pt-3 transition-all duration-300 ${open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}`}
             >
-              <ContactLink
-                
+              <CatalogueButton
                 onClick={() => setOpen(false)}
                 style={{ fontFamily: CONDENSED_FONT }}
                 className="block w-full py-3.5 text-center text-[14px] font-bold tracking-[0.14em] uppercase bg-white text-[#0b1f4b] rounded-lg hover:bg-[#dbe4f3] active:scale-[0.99] shadow-md transition-all"
               >
                 Get Quote
-              </ContactLink>
+              </CatalogueButton>
             </div>
           </div>
         </div>

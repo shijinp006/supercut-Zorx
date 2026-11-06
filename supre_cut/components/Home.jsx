@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Reveal from "./Reveal";
-import { ContactLink } from "./ContactLink";
+import { CatalogueButton } from "./CatalogueDownload";
 import { CONDENSED_FONT, GROTESK_FONT } from "./fonts";
 import { cldImage } from "../lib/cloudinaryUrl";
 
@@ -61,13 +61,12 @@ export function Home() {
                 >
                   Explore Products
                 </Link>
-                <ContactLink
-                  
+                <CatalogueButton
                   style={{ fontFamily: CONDENSED_FONT }}
                   className="border-2 border-white/60 text-white font-semibold uppercase tracking-[0.12em] text-[11px] sm:text-sm px-5 sm:px-8 py-2.5 sm:py-3.5 rounded-lg hover:bg-white hover:text-[#0b1f4b] transition-colors whitespace-nowrap"
                 >
                   Get a Quote
-                </ContactLink>
+                </CatalogueButton>
               </div>
 
               <ul style={{ fontFamily: GROTESK_FONT }} className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 text-[13px] sm:text-[15px] text-white/85 w-fit max-w-full mx-auto text-left">
