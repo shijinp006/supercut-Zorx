@@ -81,6 +81,13 @@ export const POST = withHttpLog(async function POST(request, _context, log) {
   }
 
   log.info({ leadId, email }, "catalogue requested");
-  const token = await createDownloadToken(leadId);
-  return NextResponse.json({ downloadUrl: `/api/catalogue/download?token=${encodeURIComponent(token)}` });
+
+  // Fails only when the server is misconfigured (AUTH_SECRET missing or too short); the lead is already saved
+  try {
+    const token = await createDownloadToken(leadId);
+    return NextResponse.json({ downloadUrl: `/api/catalogue/download?token=${encodeURIComponent(token)}` });
+  } catch (err) {
+    log.error({ err, leadId }, "could not create catalogue download link");
+    return NextResponse.json({ error: "We couldn't start your download right now. Please try again later." }, { status: 503 });
+  }
 });

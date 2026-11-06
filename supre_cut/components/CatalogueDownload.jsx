@@ -5,23 +5,12 @@ import { createPortal } from "react-dom";
 import axios from "axios";
 import { GROTESK_FONT } from "./fonts";
 
-// Remembered so a returning visitor doesn't have to type everything again (still sent each time)
-const SAVED_KEY = "sc_catalogue_contact";
-
 const inputClass =
   "w-full border border-neutral-300 rounded-lg px-4 py-3 text-[15px] text-[#0b1526] placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#0b1f4b] focus:border-transparent";
 
-function readSaved() {
-  try {
-    return JSON.parse(localStorage.getItem(SAVED_KEY)) || {};
-  } catch {
-    return {};
-  }
-}
-
 function CatalogueForm({ onClose }) {
-  // Only rendered after a click, so localStorage is available here
-  const [values, setValues] = useState(() => ({ name: "", email: "", mobile: "", ...readSaved(), company: "" }));
+  // Unmounted on close, so the form always reopens empty
+  const [values, setValues] = useState({ name: "", email: "", mobile: "", company: "" });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle"); // idle | sending | done
 
@@ -48,9 +37,6 @@ function CatalogueForm({ onClose }) {
     setStatus("sending");
     try {
       const { data } = await axios.post("/api/catalogue", values);
-      try {
-        localStorage.setItem(SAVED_KEY, JSON.stringify({ name: values.name, email: values.email, mobile: values.mobile }));
-      } catch {}
       window.location.href = data.downloadUrl; // served as an attachment, so the page stays put
       setStatus("done");
     } catch (err) {

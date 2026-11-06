@@ -19,6 +19,10 @@ const nextConfig = {
   poweredByHeader: false,
   // pino runs its pretty-printer in a worker thread; it must load from node_modules, not the bundle
   serverExternalPackages: ["pino", "pino-pretty", "thread-stream"],
+  // The route reads this PDF at runtime, which the file tracer can't see; without this it is left out of serverless deployments
+  outputFileTracingIncludes: {
+    "/api/catalogue/download": ["./private/catalogue.pdf"],
+  },
   experimental: {
     reactCompiler: true,
   },
