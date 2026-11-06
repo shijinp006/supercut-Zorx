@@ -8,9 +8,14 @@ import { NAV_LINKS } from "../data/catalogueData";
 import { CONDENSED_FONT } from "./fonts";
 import { ContactLink } from "./ContactLink";
 
+// Every public page is rendered per request (for the CSP nonce), so Next's default prefetch stores
+// nothing and each click would wait on the server. A full prefetch makes these clicks instant.
+const linkPropsFor = (href) =>
+  href === "#contact" ? { NavLink: ContactLink } : { NavLink: Link, prefetch: true };
+
 function Logo() {
   return (
-    <Link href="/" className="flex items-center shrink-0 bg-white rounded-lg px-[10px] py-[6px] sm:px-[12px] sm:py-[8px]">
+    <Link href="/" prefetch className="flex items-center shrink-0 bg-white rounded-lg px-[10px] py-[6px] sm:px-[12px] sm:py-[8px]">
       <img
         src="/images/supercut_logo_horizontal.webp"
         alt="SUPER CUT Hardface Solutions"
@@ -56,10 +61,11 @@ export function Navbar() {
           <nav className="hidden lg:flex items-center gap-5 xl:gap-7 flex-1 justify-center">
             {NAV_LINKS.map((l) => {
               const active = pathname === l.href;
-              const NavLink = l.href === "#contact" ? ContactLink : Link;
+              const { NavLink, ...linkProps } = linkPropsFor(l.href);
               return (
                 <NavLink
                   key={l.href}
+                  {...linkProps}
                   href={l.href}
                   aria-current={active ? "page" : undefined}
                   style={{ fontFamily: CONDENSED_FONT }}
@@ -109,10 +115,11 @@ export function Navbar() {
         >
           <div className="px-4 sm:px-8 md:px-12 lg:px-20 py-3 sm:py-4 space-y-0.5">
             {NAV_LINKS.map((l, index) => {
-              const NavLink = l.href === "#contact" ? ContactLink : Link;
+              const { NavLink, ...linkProps } = linkPropsFor(l.href);
               return (
               <NavLink
                 key={l.href}
+                {...linkProps}
                 href={l.href}
                 onClick={() => setOpen(false)}
                 aria-current={pathname === l.href ? "page" : undefined}
