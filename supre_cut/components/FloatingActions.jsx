@@ -1,6 +1,7 @@
 "use client";
 
 import { CatalogueButton } from "./CatalogueDownload";
+import { whatsappUrl } from "../data/contactData";
 
 export function FloatingActions() {
   return (
@@ -28,7 +29,7 @@ export function FloatingActions() {
       {/* WhatsApp */}
       <div style={{ animation: "sc-float-enter 0.7s cubic-bezier(0.16, 1, 0.3, 1) 350ms both" }}>
         <a
-          href="https://wa.me/97126788921?text=Hello%20Super%20Cut%2C%20I%20would%20like%20to%20inquire%20about%20your%20products."
+          href={whatsappUrl("Hello Super Cut, I would like to inquire about your products.")}
           target="_blank"
           rel="noopener noreferrer"
           title="Chat on WhatsApp"

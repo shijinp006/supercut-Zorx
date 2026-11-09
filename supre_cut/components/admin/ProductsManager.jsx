@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { ADMIN_FONT } from "../fonts";
@@ -12,16 +12,30 @@ import { cldUrl } from "../../lib/cloudinaryUrl";
 // Edit popup (and its form) is only downloaded when Edit is first clicked
 const EditModal = dynamic(() => import("./EditModal"), { ssr: false });
 
+const PAGE_SIZE = 8;
+
 
 export function ProductsManager({ adminEmail, initialProducts }) {
   const router = useRouter();
   const [products, setProducts] = useState(initialProducts);
   const [editing, setEditing] = useState(null);
   const [query, setQuery] = useState("");
+  const [page, setPage] = useState(1);
+  const listRef = useRef(null);
   // Products with a save or delete still running in the background
   const [pending, setPending] = useState(() => new Set());
 
   const shown = products.filter((p) => `${p.title} ${p.description}`.toLowerCase().includes(query.trim().toLowerCase()));
+  const pageCount = Math.max(1, Math.ceil(shown.length / PAGE_SIZE));
+  // Clamped, so deleting the last product on a page falls back to the page before it
+  const currentPage = Math.min(page, pageCount);
+  const pageItems = shown.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+
+  const goToPage = (n) => {
+    setPage(n);
+    listRef.current?.scrollTo({ top: 0 });
+    window.__lenis?.scrollTo(0, { immediate: true });
+  };
 
   const markPending = (id, on) =>
     setPending((s) => {
@@ -87,7 +101,10 @@ export function ProductsManager({ adminEmail, initialProducts }) {
           <input
             type="search"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setPage(1);
+            }}
             placeholder="Search products"
             aria-label="Search products"
             className="w-full sm:w-72 bg-[#163672] border border-white/10 text-white placeholder:text-white/45 rounded-lg px-4 py-2.5 text-[14.5px] focus:outline-none focus:ring-2 focus:ring-white"
@@ -97,8 +114,8 @@ export function ProductsManager({ adminEmail, initialProducts }) {
         {shown.length === 0 ? (
           <p className="text-white/60">{products.length ? "No products match your search." : "No products yet."}</p>
         ) : (
-          <ul data-lenis-prevent className="lg:flex-1 lg:min-h-0 lg:overflow-y-auto thin-scroll lg:-mr-12 lg:pr-[45px] lg:pb-4 grid grid-cols-2 sm:grid-cols-[repeat(auto-fill,220px)] sm:justify-between auto-rows-max gap-3 sm:gap-4 content-start">
-            {shown.map((p) => (
+          <ul ref={listRef} data-lenis-prevent className="lg:flex-1 lg:min-h-0 lg:overflow-y-auto thin-scroll lg:-mr-12 lg:pr-[45px] lg:pb-4 grid grid-cols-2 sm:grid-cols-[repeat(auto-fill,220px)] sm:justify-between auto-rows-max gap-3 sm:gap-4 content-start">
+            {pageItems.map((p) => (
               <li key={p._id} aria-busy={pending.has(p._id)} className={`h-[300px] bg-[#f4f4f4] text-[#111] rounded-xl overflow-hidden flex flex-col transition-opacity ${pending.has(p._id) ? "opacity-60" : ""}`}>
                 <div className="relative h-[140px] shrink-0 bg-[#e4e4e4] overflow-hidden">
                   <img src={cldUrl(p.imageUrl, 500)} alt={p.title} loading="lazy" className="absolute inset-0 w-full h-full object-contain p-3 mix-blend-multiply" />
@@ -128,6 +145,32 @@ export function ProductsManager({ adminEmail, initialProducts }) {
               </li>
             ))}
           </ul>
+        )}
+
+        {pageCount > 1 && (
+          <nav aria-label="Products pagination" className="shrink-0 pt-4 flex items-center justify-center gap-2">
+            <button type="button" onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 1} aria-label="Previous page" className="w-9 h-9 rounded-lg border border-white/15 flex items-center justify-center text-white hover:border-white hover:bg-white/10 disabled:opacity-30 disabled:pointer-events-none transition-colors cursor-pointer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 6l-6 6 6 6" />
+              </svg>
+            </button>
+            {Array.from({ length: pageCount }, (_, i) => i + 1).map((n) => (
+              <button
+                key={n}
+                type="button"
+                onClick={() => goToPage(n)}
+                aria-current={n === currentPage ? "page" : undefined}
+                className={`w-9 h-9 rounded-lg text-[14px] font-semibold transition-colors cursor-pointer ${n === currentPage ? "bg-white text-[#0b1f4b]" : "border border-white/15 text-white hover:border-white hover:bg-white/10"}`}
+              >
+                {n}
+              </button>
+            ))}
+            <button type="button" onClick={() => goToPage(currentPage + 1)} disabled={currentPage === pageCount} aria-label="Next page" className="w-9 h-9 rounded-lg border border-white/15 flex items-center justify-center text-white hover:border-white hover:bg-white/10 disabled:opacity-30 disabled:pointer-events-none transition-colors cursor-pointer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 6l6 6-6 6" />
+              </svg>
+            </button>
+          </nav>
         )}
       </div>
 

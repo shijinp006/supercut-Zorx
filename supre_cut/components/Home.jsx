@@ -25,8 +25,6 @@ const CARDS = [0, 3, 2, 4, 1, 5, 0, 6, 2, 7, 1, 8].map((n) => RING[n]);
 const STEP = 360 / CARDS.length;
 
 const CONTACTS = [
-  // Opens Gmail compose in the browser (new tab) instead of the computer's default mail app
-  { label: "sales@supercutglobal.com", href: "https://mail.google.com/mail/?view=cm&fs=1&to=sales@supercutglobal.com", icon: "M3 6h18v12H3z M3 7l9 6 9-6" },
   { label: "Abu Dhabi, United Arab Emirates", icon: "M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" },
 ];
 
@@ -69,7 +67,7 @@ export function Home() {
                 </CatalogueButton>
               </div>
 
-              <ul style={{ fontFamily: GROTESK_FONT }} className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 text-[13px] sm:text-[15px] text-white/85 w-fit max-w-full mx-auto text-left">
+              <ul style={{ fontFamily: GROTESK_FONT }} className="mt-6 sm:mt-8 grid grid-cols-1 gap-y-2.5 text-[13px] sm:text-[15px] text-white/85 w-fit max-w-full mx-auto text-left">
                 {CONTACTS.map((c) => {
                   const body = (
                     <>

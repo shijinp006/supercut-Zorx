@@ -29,3 +29,10 @@ export const OFFICES = [
     delay: "1.4s",
   },
 ];
+
+// WhatsApp chat number (+971 54 284 7496), digits only as wa.me expects
+export const WHATSAPP_NUMBER = "971542847496";
+export const whatsappUrl = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+
+// Hostinger webmail sign-in for the team's @supercutglobal.com mailboxes (navbar "Login")
+export const WEBMAIL_URL = "https://mail.hostinger.com/";

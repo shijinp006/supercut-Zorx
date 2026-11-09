@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { CONDENSED_FONT, GROTESK_FONT } from "./fonts";
 import { CatalogueButton } from "./CatalogueDownload";
+import { whatsappUrl } from "../data/contactData";
 
 export default function ProductModal({ item, onClose }) {
   useEffect(() => {
@@ -52,7 +53,7 @@ export default function ProductModal({ item, onClose }) {
 
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <a
-                href={`https://wa.me/97126788921?text=${encodeURIComponent(`Hello Super Cut, I would like to inquire about ${title}.`)}`}
+                href={whatsappUrl(`Hello Super Cut, I would like to inquire about ${title}.`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#0b1f4b] text-white font-semibold text-sm px-6 py-3 rounded-lg hover:bg-[#13306b] transition-colors"
