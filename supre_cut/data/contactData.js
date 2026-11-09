@@ -38,5 +38,9 @@ export const PHONE = { label: "+971 2 687 8921", tel: "+97126878921" };
 export const WHATSAPP_NUMBER = "971542847496";
 export const whatsappUrl = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 
+// Social profiles, shown as floating icons under WhatsApp
+export const INSTAGRAM_URL = "https://www.instagram.com/supercutglobal/";
+export const FACEBOOK_URL = "https://www.facebook.com/share/1CpBVwHzqg/";
+
 // Hostinger webmail sign-in for the team's @supercutglobal.com mailboxes (navbar "Login")
 export const WEBMAIL_URL = "https://mail.hostinger.com/";

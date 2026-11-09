@@ -1,7 +1,11 @@
 "use client";
 
 import { CatalogueButton } from "./CatalogueDownload";
-import { whatsappUrl } from "../data/contactData";
+import { whatsappUrl, INSTAGRAM_URL, FACEBOOK_URL } from "../data/contactData";
+
+const enter = (delay) => ({ animation: `sc-float-enter 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms both` });
+const iconClass =
+  "w-10 h-10 sm:w-12 sm:h-12 rounded-lg text-white flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer block";
 
 export function FloatingActions() {
   return (
@@ -42,8 +46,43 @@ export function FloatingActions() {
         </a>
       </div>
 
+      {/* Instagram */}
+      <div style={enter(450)}>
+        <a
+          href={INSTAGRAM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Follow us on Instagram"
+          aria-label="Instagram"
+          className={`${iconClass} shadow-[0_4px_16px_rgba(220,39,67,0.4)] hover:shadow-[0_6px_22px_rgba(220,39,67,0.55)]`}
+          style={{ background: "linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)" }}
+        >
+          <svg className="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none" />
+          </svg>
+        </a>
+      </div>
+
+      {/* Facebook */}
+      <div style={enter(550)}>
+        <a
+          href={FACEBOOK_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Follow us on Facebook"
+          aria-label="Facebook"
+          className={`${iconClass} bg-[#1877F2] hover:bg-[#1468d8] shadow-[0_4px_16px_rgba(24,119,242,0.4)] hover:shadow-[0_6px_22px_rgba(24,119,242,0.55)]`}
+        >
+          <svg className="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z" />
+          </svg>
+        </a>
+      </div>
+
       {/* Catalogue PDF */}
-      <div style={{ animation: "sc-float-enter 0.7s cubic-bezier(0.16, 1, 0.3, 1) 480ms both" }}>
+      <div style={enter(650)}>
         <CatalogueButton
           title="Download Catalogue PDF"
           aria-label="Catalogue PDF"
