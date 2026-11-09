@@ -30,6 +30,10 @@ export const OFFICES = [
   },
 ];
 
+// Sales email and office telephone, shown in the hero and the Contact section
+export const SALES_EMAIL = "sales@supercutglobal.com";
+export const PHONE = { label: "+971 2 687 8921", tel: "+97126878921" };
+
 // WhatsApp chat number (+971 54 284 7496), digits only as wa.me expects
 export const WHATSAPP_NUMBER = "971542847496";
 export const whatsappUrl = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;

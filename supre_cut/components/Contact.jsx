@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Reveal from "./Reveal";
 
-import { OFFICES } from "../data/contactData";
+import { OFFICES, SALES_EMAIL, PHONE } from "../data/contactData";
 import { cldImage } from "../lib/cloudinaryUrl";
 
 /** `showMap`: the world map with office pins is only shown on the home page */
@@ -277,6 +277,19 @@ export function Contact({ showMap = true }) {
                 <p className="text-white/70 text-[13px] sm:text-[14px] md:text-[15.5px] pl-3.5 sm:pl-4 mt-0.5 sm:mt-1 font-normal leading-snug">
                   PO Box : 778323, Abu Dhabi United Arab Emirates
                 </p>
+              </div>
+
+              {/* Email and telephone on one line (wraps on narrow phones) */}
+              <div className="pt-1 flex flex-wrap items-baseline gap-x-6 sm:gap-x-8 gap-y-1.5">
+                {[
+                  { label: "Email", value: SALES_EMAIL, href: `mailto:${SALES_EMAIL}` },
+                  { label: "Phone", value: PHONE.label, href: `tel:${PHONE.tel}` },
+                ].map((c) => (
+                  <p key={c.label} className="text-[13px] sm:text-[14px] md:text-[15.5px] leading-snug flex flex-wrap items-baseline gap-x-2">
+                    <span className="font-bold text-white">{c.label}:</span>
+                    <a href={c.href} className="text-white/70 hover:text-white hover:underline underline-offset-4 transition-colors">{c.value}</a>
+                  </p>
+                ))}
               </div>
 
             </div>

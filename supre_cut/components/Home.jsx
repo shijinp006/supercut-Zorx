@@ -5,6 +5,7 @@ import Reveal from "./Reveal";
 import { CatalogueButton } from "./CatalogueDownload";
 import { CONDENSED_FONT, GROTESK_FONT } from "./fonts";
 import { cldImage } from "../lib/cloudinaryUrl";
+import { SALES_EMAIL } from "../data/contactData";
 
 // Rotating 3D ring of products under the hero copy. Every card is the same size; seen from the
 // front the ring looks concave (edges bigger, middle smaller), like a gallery you stand inside.
@@ -25,6 +26,8 @@ const CARDS = [0, 3, 2, 4, 1, 5, 0, 6, 2, 7, 1, 8].map((n) => RING[n]);
 const STEP = 360 / CARDS.length;
 
 const CONTACTS = [
+  // Opens the visitor's own mail app with the address filled in
+  { label: SALES_EMAIL, href: `mailto:${SALES_EMAIL}`, icon: "M3 6h18v12H3z M3 7l9 6 9-6" },
   { label: "Abu Dhabi, United Arab Emirates", icon: "M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" },
 ];
 
@@ -67,7 +70,7 @@ export function Home() {
                 </CatalogueButton>
               </div>
 
-              <ul style={{ fontFamily: GROTESK_FONT }} className="mt-6 sm:mt-8 grid grid-cols-1 gap-y-2.5 text-[13px] sm:text-[15px] text-white/85 w-fit max-w-full mx-auto text-left">
+              <ul style={{ fontFamily: GROTESK_FONT }} className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 text-[13px] sm:text-[15px] text-white/85 w-fit max-w-full mx-auto text-left">
                 {CONTACTS.map((c) => {
                   const body = (
                     <>
@@ -80,7 +83,7 @@ export function Home() {
                   return (
                     <li key={c.label} className="min-w-0">
                       {c.href ? (
-                        <a href={c.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 hover:underline underline-offset-4">{body}</a>
+                        <a href={c.href} className="flex items-center gap-2.5 hover:underline underline-offset-4">{body}</a>
                       ) : (
                         <span className="flex items-center gap-2.5">{body}</span>
                       )}
