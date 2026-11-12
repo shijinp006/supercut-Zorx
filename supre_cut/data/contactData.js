@@ -41,6 +41,7 @@ export const whatsappUrl = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${en
 // Social profiles, shown as floating icons under WhatsApp
 export const INSTAGRAM_URL = "https://www.instagram.com/supercutglobal/";
 export const FACEBOOK_URL = "https://www.facebook.com/share/1CpBVwHzqg/";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/supercut-hardface-solutions-a2650644a";
 
 // Hostinger webmail sign-in for the team's @supercutglobal.com mailboxes (navbar "Login")
 export const WEBMAIL_URL = "https://mail.hostinger.com/";

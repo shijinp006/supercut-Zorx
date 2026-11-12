@@ -1,7 +1,7 @@
 "use client";
 
 import { CatalogueButton } from "./CatalogueDownload";
-import { whatsappUrl, INSTAGRAM_URL, FACEBOOK_URL } from "../data/contactData";
+import { whatsappUrl, INSTAGRAM_URL, FACEBOOK_URL, LINKEDIN_URL } from "../data/contactData";
 
 const enter = (delay) => ({ animation: `sc-float-enter 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms both` });
 const iconClass =
@@ -81,8 +81,24 @@ export function FloatingActions() {
         </a>
       </div>
 
-      {/* Catalogue PDF */}
+      {/* LinkedIn */}
       <div style={enter(650)}>
+        <a
+          href={LINKEDIN_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Connect with us on LinkedIn"
+          aria-label="LinkedIn"
+          className={`${iconClass} bg-[#0A66C2] hover:bg-[#0958a8] shadow-[0_4px_16px_rgba(10,102,194,0.4)] hover:shadow-[0_6px_22px_rgba(10,102,194,0.55)]`}
+        >
+          <svg className="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+          </svg>
+        </a>
+      </div>
+
+      {/* Catalogue PDF */}
+      <div style={enter(750)}>
         <CatalogueButton
           title="Download Catalogue PDF"
           aria-label="Catalogue PDF"
